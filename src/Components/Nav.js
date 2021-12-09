@@ -7,7 +7,7 @@ const Nav = () => {
                 width: "100%",
                 height: "70px",
                 position: "sticky",
-                background: "var(--indigo)",
+                background: "var(--violet)",
                 color: "var(--text-color-2)"
             }}>
                 <div className="row space-between align-center padding-x-32" style={{

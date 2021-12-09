@@ -2,7 +2,7 @@ const Header = () => {
     return (
         <>
             <div className="color-inherit dark" style={{
-                background: "linear-gradient(0deg, var(--rose) 0%, var(--indigo) 100%)",
+                background: "linear-gradient(0deg, var(--rose) 0%, var(--violet) 100%)",
                 color: "white"
             }}>
                 <div className="column padding-x-32 padding-top-80 gap-20 HPNXA06qJ7" style={{
