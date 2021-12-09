@@ -1,24 +1,5 @@
 /*  */
 
-.bkbrtpongc {
-  width: 100%;
-  height: 100%;
-  background-color: var(--green);
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  border-radius: 200px;
-  border: 2px solid transparent;
-}
-
-.bkbrtpongc * {
-  color: white;
-  font-size: 14px;
-  font-family: "attribute-mono";
-}
-
-/*  */
-
 .sPF9B2SD15 {
   border-radius: 10px;
   font-size: 14px;

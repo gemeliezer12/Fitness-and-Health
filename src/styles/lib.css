@@ -169,6 +169,7 @@
   border-radius: 4px;
   color: white;
   font-weight: 700;
+  font-family: var(--ui-font);
 }
 
 .kvcdz3lpy3 * {
@@ -193,19 +194,21 @@
   text-transform: uppercase;
   cursor: pointer;
   color: white;
+  font-family: var(--ui-font);
 }
 
 .solid-btn * {
   color: inherit;
+  font-size: inherit;
 }
 
-.solid-btn.small,
-.hollow-btn.small {
+.solid-btn.small {
   font-size: 10px;
   padding: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
   gap: 6px;
+  font-family: var(--ui-font);
 }
 
 .solid-btn:disabled,
@@ -215,8 +218,7 @@
   border-color: rgba(150, 150, 150) !important;
 }
 
-.solid-btn img,
-.hollow-btn img {
+.solid-btn img {
   height: 14px;
 }
 
@@ -505,7 +507,7 @@ img {
   justify-content: center;
   color: white;
   border-radius: inherit;
-  font-family: "attribute-mono", sans-serif;
+  font-family: var(--misc-font);
   font-weight: 700;
 }
 
@@ -538,7 +540,7 @@ img {
   color: white;
   border-radius: 50%;
   z-index: 110;
-  font-family: "attribute-mono", sans-serif;
+  font-family: var(--misc-font);
 }
 
 .badge-10-absolute div,
@@ -565,7 +567,7 @@ img {
 
 .triangle-label * {
   color: var(--text-color-2);
-  font-family: "attribute-mono";
+  font-family: var(--misc-font);
 }
 
 .triangle {

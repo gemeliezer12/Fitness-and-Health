@@ -17,6 +17,11 @@
   --purple: #a855f7;
   --violet: #7c3aed;
 
+  --title-font: "poppins", sans-serif;
+  --text-font: "poppins", sans-serif;
+  --ui-font: "sofia-pro", sans-serif;
+  --misc-font: "attribute-mono", sans-serif;
+
   /* Dark Mode */
 }
 
@@ -149,7 +154,7 @@
 
 body {
   background-color: var(--bg-color-2);
-  font-family: "sofia-pro", sans-serif;
+  font-family: var(--text-font);
   font-size: 16px;
   font-weight: 500;
   transition: all 0.2s ease;
@@ -157,17 +162,21 @@ body {
 
 /* Font Family */
 
-.ff-cubano {
-  font-family: "cubano", sans-serif;
-  color: var(--text-color-2);
+.ff-title {
+  font-family: var(--title-font);
+  font-weight: 900;
 }
 
-.ff-sofia-pro {
-  font-family: "sofia-pro", sans-serif;
+.ff-text {
+  font-family: var(--text-font);
 }
 
-.ff-attribute-mono {
-  font-family: "attribute-mono", sans-serif;
+.ff-misc {
+  font-family: var(--misc-font);
+}
+
+.ff-ui {
+  font-family: var(--ui-font);
 }
 
 /* Line Height */

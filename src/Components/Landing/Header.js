@@ -11,7 +11,7 @@ const Header = () => {
                     margin: "auto"
                 }}>
                     <div className="column text-center gap-10">
-                        <p className="ff-cubano fs-40">
+                        <p className="ff-title fs-40">
                             Astra
                         </p>
                         <p className="fs-20">
@@ -25,7 +25,7 @@ const Header = () => {
                     margin: "auto"
                 }}>
                     <div className="column gap-10">
-                        <p className="ff-cubano fs-40">
+                        <p className="ff-title fs-40">
                             Astra
                         </p>
                         <p className="fs-20">
