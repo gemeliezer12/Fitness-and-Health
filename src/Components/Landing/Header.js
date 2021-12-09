@@ -19,21 +19,6 @@ const Header = () => {
                         </p>
                     </div>
                     <div className="flex gap-10 flex-wrap margin-top-20">
-                {/* <div className="column padding-x-32 padding-top-80 HPNXA06qJ7" style={{
-                    maxWidth: "1200px",
-                    width: "100%",
-                    margin: "auto"
-                }}>
-                    <div className="column gap-10">
-                        <p className="ff-title fs-40">
-                            Astra
-                        </p>
-                        <p className="fs-20">
-                            Personal Training Made Personal
-                        </p>
-                    </div>
-                    <div className="flex gap-10 flex-wrap margin-top-20"> */}
-                        {/*  */}
                         <a href="/contact" className="solid-btn" style={{
                             backgroundColor: "var(--bg-comp-color-2)",
                             borderColor: "var(--bg-comp-color-2)",

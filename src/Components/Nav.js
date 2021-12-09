@@ -16,17 +16,27 @@ const Nav = () => {
                     margin: "auto",
                     height: "100%"
                 }}>
-                    <img src="../../../images/logo.png" alt="" style={{
-                        height: "40px"
-                    }}/>
+                    <div className="img-40">
+                        <div className="img" style={{
+                            background: "var(--bg-color-2)"
+                        }}>
+                            <img src="../../../images/logo.png" alt=""/>
+                        </div>
+                    </div>
                     <div className="row uppercase fs-16 gap-10">
-                        <Link to="" className="solid-btn small sPF9B2SD15">
+                        <Link to="" className="solid-btn small sPF9B2SD15" style={{
+                            borderWidth: "1px"
+                        }}>
                             <p>Tutorials</p>
                         </Link>
-                        <Link to="" className="solid-btn small sPF9B2SD15">
+                        <Link to="" className="solid-btn small sPF9B2SD15" style={{
+                            borderWidth: "1px"
+                        }}>
                             <p>Pricing</p>
                         </Link>
-                        <Link to="" className="solid-btn small sPF9B2SD15">
+                        <Link to="" className="solid-btn small sPF9B2SD15" style={{
+                            borderWidth: "1px"
+                        }}>
                             <p>My Account</p>
                         </Link>
                     </div>

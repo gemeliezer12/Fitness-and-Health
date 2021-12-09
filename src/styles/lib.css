@@ -222,11 +222,6 @@
   height: 14px;
 }
 
-.solid-btn.thin {
-  border-width: 1px;
-  padding: 26px;
-}
-
 /*  */
 /*  */
 
@@ -629,6 +624,26 @@ img {
 }
 
 /*  */
+
+.img-32 .img img {
+  width: 16px;
+  height: 16px;
+}
+
+.img-26 .img img {
+  width: 16px;
+  height: 16px;
+}
+
+.img-40 .img img {
+  width: 20px;
+  height: 20px;
+}
+
+.img-50 .img img {
+  width: 26px;
+  height: 26px;
+}
 
 .img-32 .img,
 .img-40 .img,
