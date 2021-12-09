@@ -135,7 +135,6 @@
   border: none;
   list-style: none;
   transition: inherit;
-  line-height: inherit;
   text-transform: inherit;
 }
 
@@ -154,7 +153,6 @@ body {
   font-size: 16px;
   font-weight: 500;
   transition: all 0.2s ease;
-  /* line-height: 133%; */
 }
 
 /* Font Family */

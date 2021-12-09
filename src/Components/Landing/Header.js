@@ -5,18 +5,20 @@ const Header = () => {
                 background: "linear-gradient(0deg, var(--rose) 0%, var(--violet) 100%)",
                 color: "white"
             }}>
-                <div className="column padding-x-32 padding-top-80 gap-20 HPNXA06qJ7" style={{
+                <div className="column padding-x-32 padding-top-80 HPNXA06qJ7 align-center" style={{
                     maxWidth: "1200px",
                     width: "100%",
                     margin: "auto"
                 }}>
-                    <p className="ff-cubano fs-40">
-                        Astra
-                    </p>
-                    <p className="fs-20">
-                        Personal Training Made Personal
-                    </p>
-                    <div className="flex gap-10 flex-wrap">
+                    <div className="column text-center gap-10">
+                        <p className="ff-cubano fs-40">
+                            Astra
+                        </p>
+                        <p className="fs-20">
+                            Personal Training Made Personal
+                        </p>
+                    </div>
+                    <div className="flex gap-10 flex-wrap margin-top-40">
                         <a href="/contact" className="solid-btn" style={{
                             backgroundColor: "var(--bg-comp-color-2)",
                             borderColor: "var(--bg-comp-color-2)",
