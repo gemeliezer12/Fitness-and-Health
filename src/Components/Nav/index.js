@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom"
 
-const Nav = () => {
+const Index = () => {
 
     const [scrollPosition, setScrollPosition] = useState(0);
     const handleScroll = () => {
@@ -45,10 +45,10 @@ const Nav = () => {
                         }}>
                             <p>Pricing</p>
                         </Link>
-                        <Link to="" className="solid-btn small sPF9B2SD15" style={{
+                        <Link to="/login" className="solid-btn small sPF9B2SD15" style={{
                             borderWidth: "1px"
                         }}>
-                            <p>My Account</p>
+                            <p>Register</p>
                         </Link>
                     </div>
                 </div>
@@ -57,4 +57,4 @@ const Nav = () => {
     )
 }
 
-export default Nav
+export default Index

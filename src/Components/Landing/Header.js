@@ -19,7 +19,7 @@ const Header = () => {
                         </p>
                     </div>
                     <div className="flex gap-10 flex-wrap margin-top-20">
-                        <a href="/contact" className="solid-btn" style={{
+                        <a className="solid-btn" style={{
                             backgroundColor: "var(--bg-comp-color-2)",
                             borderColor: "var(--bg-comp-color-2)",
                             borderRadius: "200px"
@@ -28,7 +28,7 @@ const Header = () => {
                                 color: "var(--text-comp-color-2)"
                             }}>Become A Trainer</p>
                         </a>
-                        <a href="resume.pdf" target="_blank" className="solid-btn" style={{
+                        <a target="_blank" className="solid-btn" style={{
                             backgroundColor: "var(--bg-color-2)",
                             borderColor: "var(--bg-color-2)",
                             borderRadius: "200px"

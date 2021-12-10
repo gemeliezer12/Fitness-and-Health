@@ -165,10 +165,12 @@ body {
 .ff-title {
   font-family: var(--title-font);
   font-weight: 900;
+  color: var(--text-color-2);
 }
 
 .ff-text {
   font-family: var(--text-font);
+  font-weight: 700;
 }
 
 .ff-misc {
