@@ -18,7 +18,7 @@ const index = () => {
                 </p>
                 <Form/>
                 <div className="column gap-20 margin-top-20">
-                    <p>Don't have an account? <a href="" style={{
+                    <p>Don't have an account? <a href="../../signup" style={{
                             color: "var(--blue)",
                             textDecoration: "underline"
                         }}>

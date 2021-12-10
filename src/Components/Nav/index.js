@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom"
+import { useUser } from "../Contexts/UserContext";
 
 const Index = () => {
 
-    const [scrollPosition, setScrollPosition] = useState(0);
+    const [scrollPosition, setScrollPosition] = useState(0)
+    const { selfUser } = useUser()
+
     const handleScroll = () => {
-        const position = window.pageYOffset;
+        const position = window.pageYOffset
         setScrollPosition(position);
     };
 
@@ -20,20 +23,20 @@ const Index = () => {
     
     return (
         <>
-            <div className={`color-inherit dark FO4mElxbi0${scrollPosition > 150 ? " hide" : ""}`}>
+            <div className={`color-inherit dark FO4mElxbi0${scrollPosition > 200 ? " hide" : ""}`}>
                 <div className="row space-between align-center padding-x-32" style={{
                     maxWidth: "1200px",
                     width: "100%",
                     margin: "auto",
                     height: "100%"
                 }}>
-                    <div className="img-40 cursor-pointer">
+                    <Link to="/" className="img-40 cursor-pointer">
                         <div className="img" style={{
                             background: "var(--bg-color-2)"
                         }}>
                             <img src="../../../images/logo.png" alt=""/>
                         </div>
-                    </div>
+                    </Link>
                     <div className="row uppercase fs-16 gap-10">
                         <Link to="" className="solid-btn small sPF9B2SD15" style={{
                             borderWidth: "1px",
@@ -45,7 +48,7 @@ const Index = () => {
                         }}>
                             <p>Pricing</p>
                         </Link>
-                        <Link to="/login" className="solid-btn small sPF9B2SD15" style={{
+                        <Link to="/signin" className="solid-btn small sPF9B2SD15" style={{
                             borderWidth: "1px"
                         }}>
                             <p>Register</p>
