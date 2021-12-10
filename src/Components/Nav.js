@@ -1,12 +1,30 @@
+import { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom"
 
 const Nav = () => {
+
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const handleScroll = () => {
+        const position = window.pageYOffset;
+        setScrollPosition(position);
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+        window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+    
     return (
         <>
-            <div className="color-inherit dark" style={{
+            <div className={`color-inherit dark FO4mElxbi0${scrollPosition > 150 ? " hide" : ""}`} style={{
                 width: "100%",
                 height: "70px",
                 position: "sticky",
+                top: "0",
                 background: "var(--violet)",
                 color: "var(--text-color-2)"
             }}>
@@ -16,7 +34,7 @@ const Nav = () => {
                     margin: "auto",
                     height: "100%"
                 }}>
-                    <div className="img-40">
+                    <div className="img-40 cursor-pointer">
                         <div className="img" style={{
                             background: "var(--bg-color-2)"
                         }}>
@@ -25,7 +43,7 @@ const Nav = () => {
                     </div>
                     <div className="row uppercase fs-16 gap-10">
                         <Link to="" className="solid-btn small sPF9B2SD15" style={{
-                            borderWidth: "1px"
+                            borderWidth: "1px",
                         }}>
                             <p>Tutorials</p>
                         </Link>

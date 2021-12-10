@@ -197,6 +197,10 @@
   font-family: var(--ui-font);
 }
 
+.solid-btn.small.fs-14 {
+  font-size: 14px;
+}
+
 .solid-btn * {
   color: inherit;
   font-size: inherit;

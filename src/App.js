@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react"
+
 import Landing from "./Components/Landing/"
 import Nav from "./Components/Nav"
 
@@ -6,6 +8,9 @@ import "./styles/lib.css"
 import "./styles/style.css"
 
 function App() {
+
+    
+
     
     return (
         <>
