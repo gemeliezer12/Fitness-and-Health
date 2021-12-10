@@ -18,7 +18,7 @@ const Header = () => {
                             Personal Training Made Personal
                         </p>
                     </div>
-                    <div className="flex gap-10 flex-wrap margin-top-20">
+                    <div className="flex gap-10 flex-wrap margin-top-20 justify-center">
                         <a className="solid-btn" style={{
                             backgroundColor: "var(--bg-comp-color-2)",
                             borderColor: "var(--bg-comp-color-2)",
