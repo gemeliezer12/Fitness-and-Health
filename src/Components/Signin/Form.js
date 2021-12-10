@@ -14,9 +14,7 @@ const Form = () => {
         if(!allInputIsValid()) return
         
         try {
-            const auth = new firebase.auth().signInWithEmailPassword( email.value, password.value)
-
-            console.log(auth);
+            const auth = new firebase.auth().signInWithEmailAndPassword(email.value, password.value)
         }
         catch (err) {
             console.log(err)

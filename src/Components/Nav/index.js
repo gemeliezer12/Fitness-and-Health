@@ -20,7 +20,8 @@ const Index = () => {
         window.removeEventListener("scroll", handleScroll);
         };
     }, []);
-    
+
+
     return (
         <>
             <div className={`color-inherit dark FO4mElxbi0${scrollPosition > 200 ? " hide" : ""}`}>
@@ -48,11 +49,19 @@ const Index = () => {
                         }}>
                             <p>Pricing</p>
                         </Link>
+                        {selfUser ?
+                        <Link to="/my-account" className="solid-btn small sPF9B2SD15" style={{
+                            borderWidth: "1px"
+                        }}>
+                            <p>My Account</p>
+                        </Link>
+                        :
                         <Link to="/signin" className="solid-btn small sPF9B2SD15" style={{
                             borderWidth: "1px"
                         }}>
                             <p>Register</p>
                         </Link>
+                        }
                     </div>
                 </div>
             </div>
