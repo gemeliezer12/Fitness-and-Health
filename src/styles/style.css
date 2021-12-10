@@ -10,6 +10,15 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
+.FO4mElxbi0 {
+  width: 100%;
+  height: 70px;
+  background-color: var(--indigo);
+  position: sticky;
+  top: 0;
+  color: var(--text-color-2);
+}
+
 .FO4mElxbi0.hide {
   transform: translateY(calc(-100% + 15px));
 }

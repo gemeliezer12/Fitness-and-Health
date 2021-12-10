@@ -20,14 +20,7 @@ const Nav = () => {
     
     return (
         <>
-            <div className={`color-inherit dark FO4mElxbi0${scrollPosition > 150 ? " hide" : ""}`} style={{
-                width: "100%",
-                height: "70px",
-                position: "sticky",
-                top: "0",
-                background: "var(--violet)",
-                color: "var(--text-color-2)"
-            }}>
+            <div className={`color-inherit dark FO4mElxbi0${scrollPosition > 150 ? " hide" : ""}`}>
                 <div className="row space-between align-center padding-x-32" style={{
                     maxWidth: "1200px",
                     width: "100%",
