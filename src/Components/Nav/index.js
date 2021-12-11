@@ -62,6 +62,11 @@ const Index = () => {
                             <p>Register</p>
                         </Link>
                         }
+                        <Link to="/signin" className="solid-btn small iGeeEa3h6v" style={{
+                            borderWidth: "1px"
+                        }}>
+                            <p>Download</p>
+                        </Link>
                     </div>
                 </div>
             </div>

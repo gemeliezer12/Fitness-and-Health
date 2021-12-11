@@ -27,16 +27,16 @@
 
 .dark,
 .light .opposite {
-  /* --bg-color-1: rgb(15, 20, 25);
-  --bg-color-2: rgb(20, 25, 30);
-  --bg-color-3: rgba(28, 35, 42);
-  --bg-color-4: rgba(37, 45, 53);
-  --bg-color-5: rgba(56, 65, 74); */
   --bg-color-1: rgb(3, 9, 41);
   --bg-color-2: rgb(8, 14, 46);
   --bg-color-3: rgba(18, 24, 56);
   --bg-color-4: rgba(28, 34, 66);
   --bg-color-5: rgba(48, 54, 86);
+  /* --bg-color-1: rgb(15, 20, 25);
+  --bg-color-2: rgb(20, 25, 30);
+  --bg-color-3: rgba(28, 35, 42);
+  --bg-color-4: rgba(37, 45, 53);
+  --bg-color-5: rgba(56, 65, 74); */
   /*  */
   --text-color-1: rgba(145, 150, 155);
   --text-color-2: white;
@@ -46,9 +46,9 @@
   --text-comp-color-2: black;
   --text-comp-color-3: rgba(100, 115, 130);
   /*  */
-  --bg-comp-color-1: rgb(215, 225, 235);
-  --bg-comp-color-2: rgb(225, 235, 245);
-  --bg-comp-color-3: rgb(235, 245, 255);
+  --bg-comp-color-1: rgb(207, 203, 235);
+  --bg-comp-color-2: rgb(217, 213, 245);
+  --bg-comp-color-3: rgb(227, 223, 255);
   --bg-comp-color-4: rgb(255, 255, 255);
   --bg-comp-color-5: rgb(255, 255, 255);
   /*  */
@@ -73,6 +73,11 @@
 
 .light,
 .dark .opposite {
+  /* --bg-color-1: rgb(207, 113, 235);
+  --bg-color-2: rgb(217, 213, 245);
+  --bg-color-3: rgb(227, 223, 255);
+  --bg-color-4: rgb(255, 255, 255);
+  --bg-color-5: rgb(255, 255, 255); */
   --bg-color-1: rgb(220, 230, 240);
   --bg-color-2: rgb(225, 235, 245);
   --bg-color-3: rgb(231, 245, 255);
@@ -87,11 +92,11 @@
   --text-comp-color-2: white;
   --text-comp-color-3: rgba(120, 125, 130);
 
-  --bg-comp-color-1: rgb(20, 25, 30);
-  --bg-comp-color-2: rgba(40, 45, 50);
-  --bg-comp-color-3: rgba(30, 35, 40);
-  --bg-comp-color-4: rgba(60, 65, 70);
-  --bg-comp-color-5: rgb(15, 20, 25);
+  --bg-comp-color-1: rgb(3, 9, 41);
+  --bg-comp-color-2: rgb(8, 14, 46);
+  --bg-comp-color-3: rgba(18, 24, 56);
+  --bg-comp-color-4: rgba(28, 34, 66);
+  --bg-comp-color-5: rgba(48, 54, 86);
 
   --base-comp-1: rgba(0, 0, 0);
   --base-comp-08: rgba(0, 0, 0, 0.8);

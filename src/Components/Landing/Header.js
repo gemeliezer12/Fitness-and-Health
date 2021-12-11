@@ -1,8 +1,8 @@
 const Header = () => {
     return (
         <>
-            <div className="color-inherit dark" style={{
-                color: "white"
+            <div className="color-inherit" style={{
+                color: "var(--text-color-2)"
             }}>
                 <div className="column padding-x-32 padding-top-80 HPNXA06qJ7 align-center" style={{
                     maxWidth: "1200px",
