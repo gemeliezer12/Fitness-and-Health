@@ -13,7 +13,7 @@
 .FO4mElxbi0 {
   width: 100%;
   height: 70px;
-  background-color: var(--indigo);
+  /* background-color: var(--indigo); */
   position: sticky;
   top: 0;
   color: var(--text-color-2);
@@ -25,4 +25,13 @@
 
 .FO4mElxbi0.hide:hover {
   transform: translateY(0%);
+}
+
+.k5c2fO8M0r {
+  position: relative;
+}
+
+.iGeeEa3h6v {
+  background: linear-gradient(90deg, var(--indigo) 0%, var(--fuchsia) 100%);
+  border: transparent;
 }

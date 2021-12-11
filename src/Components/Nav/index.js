@@ -24,7 +24,7 @@ const Index = () => {
 
     return (
         <>
-            <div className={`color-inherit dark FO4mElxbi0${scrollPosition > 200 ? " hide" : ""}`}>
+            <div className={`color-inherit FO4mElxbi0${scrollPosition > 200 ? " hide" : ""}`}>
                 <div className="row space-between align-center padding-x-32" style={{
                     maxWidth: "1200px",
                     width: "100%",
@@ -33,7 +33,7 @@ const Index = () => {
                 }}>
                     <Link to="/" className="img-40 cursor-pointer">
                         <div className="img" style={{
-                            background: "var(--bg-color-2)"
+                            background: "var(--bg-comp-color-2)"
                         }}>
                             <img src="../../../images/logo.png" alt=""/>
                         </div>

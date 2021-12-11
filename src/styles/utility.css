@@ -27,11 +27,16 @@
 
 .dark,
 .light .opposite {
-  --bg-color-1: rgb(15, 20, 25);
+  /* --bg-color-1: rgb(15, 20, 25);
   --bg-color-2: rgb(20, 25, 30);
   --bg-color-3: rgba(28, 35, 42);
   --bg-color-4: rgba(37, 45, 53);
-  --bg-color-5: rgba(56, 65, 74);
+  --bg-color-5: rgba(56, 65, 74); */
+  --bg-color-1: rgb(3, 9, 41);
+  --bg-color-2: rgb(8, 14, 46);
+  --bg-color-3: rgba(18, 24, 56);
+  --bg-color-4: rgba(28, 34, 66);
+  --bg-color-5: rgba(48, 54, 86);
   /*  */
   --text-color-1: rgba(145, 150, 155);
   --text-color-2: white;
