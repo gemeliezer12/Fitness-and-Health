@@ -45,7 +45,7 @@ const Index = () => {
                             <p>Pricing</p>
                         </Link>
                         {selfUser ?
-                        <Link to="/my-account" className="solid-btn small sPF9B2SD15" style={{
+                        <Link to="/settings" className="solid-btn small sPF9B2SD15" style={{
                             borderWidth: "1px"
                         }}>
                             <p>My Account</p>

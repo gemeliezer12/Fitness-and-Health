@@ -1,15 +1,14 @@
 /* Nav */
 
 .sPF9B2SD15 {
-  border-radius: 10px;
+  border-radius: 4px;
   font-size: 14px;
   color: var(--text-color-1);
 }
 
 .sPF9B2SD15:hover {
   color: var(--text-color-2);
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .FO4mElxbi0 {
@@ -72,4 +71,20 @@
   .xEbmIF5vqf .first {
     display: none;
   }
+}
+
+.Edv8pGdED0 {
+  padding: 6px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Edv8pGdED0:hover,
+.Edv8pGdED0.selected {
+  background-color: var(--base-comp-004);
 }

@@ -8,6 +8,7 @@ import Signup from "./Components/Signup/"
 import Account from "./Components/Account/"
 import Profile from "./Components/Profile/"
 import Footer from "./Components/Footer/"
+import Settings from "./Components/Settings/"
 
 import { UserProvider } from "./Components/Contexts/UserContext"
 
@@ -60,6 +61,11 @@ function App() {
                         <Account/>
                         <Nav/>
                         <Footer/>
+                    </>
+                }/>
+                <Route path="/settings" element={
+                    <>
+                        <Settings/>
                     </>
                 }/>
             </Routes>
