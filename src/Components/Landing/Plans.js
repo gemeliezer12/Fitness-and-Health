@@ -50,7 +50,7 @@ const Plans = () => {
                     "Dedicated App"
                 ]
             },
-            id: "K1qdhamkbNwizcN"
+            id: "XQPbQgSIA5ZuMLa"
         },
         {
             plan: {
@@ -75,7 +75,7 @@ const Plans = () => {
                     "Dedicated App"
                 ]
             },
-            id: "K1qdhamkbNwizcN"
+            id: "3MjsKVSlCXELj6S"
         },
         {
             plan: {
@@ -100,7 +100,7 @@ const Plans = () => {
                     "Dedicated App"
                 ]
             },
-            id: "K1qdhamkbNwizcN"
+            id: "89b4HP208bqK4gr"
         }
     ]
 
