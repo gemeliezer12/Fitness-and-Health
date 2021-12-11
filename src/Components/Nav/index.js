@@ -36,7 +36,7 @@ const Index = () => {
                     }}>
                         <img className="icon" src="../../../images/logo.png" alt=""/>
                     </Link>
-                    <div className="row uppercase fs-16 gap-10">
+                    <div className="row uppercase fs-16 gap-10 xEbmIF5vqf">
                         <Link to="" className="solid-btn small xEbmIF5vqf sPF9B2SD15" style={{
                             borderWidth: "1px",
                         }}>
