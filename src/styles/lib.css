@@ -227,36 +227,6 @@
 }
 
 /*  */
-/*  */
-
-/*  */
-/*  */
-
-.translate-top-2-hover {
-  cursor: pointer;
-}
-
-.translate-top-2-hover:hover {
-  transform: translateY(-2px);
-}
-
-.scale-hover-105pc {
-  cursor: pointer;
-}
-
-.scale-hover-105pc:hover {
-  transform: scale(105%);
-}
-
-.scale-hover-120pc {
-  cursor: pointer;
-}
-
-.scale-hover-120pc:hover {
-  transform: scale(120%);
-}
-
-/*  */
 
 .input-label {
   border-bottom: 2px solid var(--text-color-1);

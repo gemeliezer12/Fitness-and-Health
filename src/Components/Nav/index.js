@@ -25,10 +25,7 @@ const Index = () => {
     return (
         <>
             <div className={`color-inherit FO4mElxbi0${scrollPosition > 200 ? " hide" : ""}`}>
-                <div className="row space-between align-center padding-x-32" style={{
-                    maxWidth: "1200px",
-                    width: "100%",
-                    margin: "auto",
+                <div className="row space-between align-center padding-x-32 HPNXA06qJ7" style={{
                     height: "100%"
                 }}>
                     <Link to="/" className="img-40 icon" style={{
