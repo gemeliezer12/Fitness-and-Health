@@ -3,7 +3,7 @@ const MyAccount = () => {
         <>
             <div className="space-between align-center">
                 <div>
-                    <p className="ff-title fs-20">My Account</p>
+                    <p className="ff-title fs-16">My Account</p>
                 </div>
                 <div className="img-32 icon color-inherit cursor-pointer" style={{
                     backgroundColor: "var(--bg-color-5)",

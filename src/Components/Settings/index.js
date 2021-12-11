@@ -31,10 +31,10 @@ const Index = () => {
                 justifySelf: "end"
             }}>
                 <div className="column gap-2">
-                    <div className="space-between padding-all-4">
+                    <div className="space-between padding-all-4 fs-14">
                         <p>User Settings</p>
                     </div>
-                    <div className="column fs-20 gap-2">
+                    <div className="column fs-16 gap-2">
                         <div className={`Edv8pGdED0 ${currentSettings === "my-account" ? "selected" : ""}`} onClick={() => setCurrentSettings("my-account")}>
                             <p>My Account</p>
                         </div>
