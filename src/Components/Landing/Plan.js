@@ -1,32 +1,24 @@
-const Plan = () => {
+const Plan = ({plan, id}) => {
     return (
         <div className="XmX5263cNA padding-all-32 column gap-32" style={{
             backgroundColor: "var(--bg-color-4)",
         }}>
             <div>
-                <p className="ff-title">Basic Plan</p>
+                <p className="ff-title">{plan.name}</p>
             </div>
             <div>
                 <span className="fs-32" style={{
                     color: "var(--text-color-2)"
                 }}>
-                    $9
+                    {plan.payment.symbol}{plan.payment.price}
                 </span> <span className="fw-700">
-                    /Month
+                    /{plan.payment.duration}
                 </span>
             </div>
             <div style={{
                 border: "1px solid var(--bg-color-5)"
             }}/>
-            <div>
-                <p>
-                    Starter pack <span style={{
-                        color: "var(--text-color-2)"
-                    }}>
-                        for non demanding users. 
-                    </span>
-                    It gives you a lot of freedom and some limitations
-                </p>
+            <div dangerouslySetInnerHTML={{__html: plan.description}}>
             </div>
             <div className="solid-btn iGeeEa3h6v">
                 <p>

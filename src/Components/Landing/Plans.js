@@ -1,8 +1,111 @@
 import Plan from "./Plan"
 
 const Plans = () => {
+    const plans = [
+        {
+            plan: {
+                name: "Basic Plan",
+                payment: {
+                    currency:"usd",
+                    symbol: "$",
+                    price: 9,
+                    duration: "month"
+                },
+                description: `
+                <p> Starter pack <span style="
+                    color: var(--text-color-2)
+                ">
+                    for non demanding users. </span>
+                    It gives you a lot of freedom and some limitations
+                </p>
+                `,
+                features: [
+                    "Free Card",
+                    "Free Transactions",
+                    "Dedicated App"
+                ]
+            },
+            id: "K1qdhamkbNwizcN"
+        },
+        {
+            plan: {
+                name: "Basic Plan",
+                payment: {
+                    currency:"usd",
+                    symbol: "$",
+                    price: 9,
+                    duration: "month"
+                },
+                description: `
+                <p> Starter pack <span style="
+                    color: var(--text-color-2)
+                ">
+                    for non demanding users. </span>
+                    It gives you a lot of freedom and some limitations
+                </p>
+                `,
+                features: [
+                    "Free Card",
+                    "Free Transactions",
+                    "Dedicated App"
+                ]
+            },
+            id: "K1qdhamkbNwizcN"
+        },
+        {
+            plan: {
+                name: "Basic Plan",
+                payment: {
+                    currency:"usd",
+                    symbol: "$",
+                    price: 9,
+                    duration: "month"
+                },
+                description: `
+                <p> Starter pack <span style="
+                    color: var(--text-color-2)
+                ">
+                    for non demanding users. </span>
+                    It gives you a lot of freedom and some limitations
+                </p>
+                `,
+                features: [
+                    "Free Card",
+                    "Free Transactions",
+                    "Dedicated App"
+                ]
+            },
+            id: "K1qdhamkbNwizcN"
+        },
+        {
+            plan: {
+                name: "Basic Plan",
+                payment: {
+                    currency:"usd",
+                    symbol: "$",
+                    price: 9,
+                    duration: "month"
+                },
+                description: `
+                <p> Starter pack <span style="
+                    color: var(--text-color-2)
+                ">
+                    for non demanding users. </span>
+                    It gives you a lot of freedom and some limitations
+                </p>
+                `,
+                features: [
+                    "Free Card",
+                    "Free Transactions",
+                    "Dedicated App"
+                ]
+            },
+            id: "K1qdhamkbNwizcN"
+        }
+    ]
+
     return (
-        <div className="padding-x-32 padding-y-80">
+        <div className="padding-x-32 padding-y-80 HPNXA06qJ7">
             <div className="text-center column gap-10">
                 <p className="ff-title fs-32">
                     Choose your plan
@@ -13,8 +116,10 @@ const Plans = () => {
                     }}>three flexible plans</span> to choose from. It depends what you demand from your banking experience.
                 </p>
             </div>
-            <div className="MiEWhFVt9T margin-top-40">
-                <Plan/>
+            <div className="MiEWhFVt9T margin-top-40 gap-20">
+                {plans.map((plan) => (
+                    <Plan plan={plan.plan} id={plan.id} key={plan.id}/>
+                ))}
             </div>
         </div>
     )
