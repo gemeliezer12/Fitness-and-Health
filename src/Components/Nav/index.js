@@ -31,12 +31,10 @@ const Index = () => {
                     margin: "auto",
                     height: "100%"
                 }}>
-                    <Link to="/" className="img-40 cursor-pointer">
-                        <div className="img" style={{
-                            background: "var(--bg-comp-color-2)"
-                        }}>
-                            <img src="../../../images/logo.png" alt=""/>
-                        </div>
+                    <Link to="/" className="img-40 icon" style={{
+                        background: "var(--bg-comp-color-2)"
+                    }}>
+                        <img className="icon" src="../../../images/logo.png" alt=""/>
                     </Link>
                     <div className="row uppercase fs-16 gap-10">
                         <Link to="" className="solid-btn small sPF9B2SD15" style={{
