@@ -1,7 +1,7 @@
 const Header = () => {
     return (
         <>
-            <div className="column padding-x-32 padding-top-80 HPNXA06qJ7 align-center color-inherit" style={{
+            <div className="column padding-x-32 padding-y-80 HPNXA06qJ7 align-center color-inherit" style={{
                 color: "var(--text-color-2)"
             }}>
                 <div className="column text-center gap-10">

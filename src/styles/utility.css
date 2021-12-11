@@ -17,6 +17,12 @@
   --purple: #a855f7;
   --violet: #7c3aed;
 
+  --indigo-fuchsia: linear-gradient(
+    90deg,
+    var(--indigo) 0%,
+    var(--fuchsia) 100%
+  );
+
   --title-font: "poppins", sans-serif;
   --text-font: "poppins", sans-serif;
   --ui-font: "sofia-pro", sans-serif;

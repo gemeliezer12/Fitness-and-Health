@@ -34,8 +34,8 @@
 }
 
 .iGeeEa3h6v {
-  background: linear-gradient(90deg, var(--indigo) 0%, var(--fuchsia) 100%);
-  border: transparent;
+  background: var(--indigo-fuchsia);
+  border: none;
 }
 
 @media only screen and (max-width: 299px) {
@@ -64,8 +64,19 @@
 
 .XmX5263cNA {
   border-radius: 20px;
+  width: 50%;
 }
 
 .XmX5263cNA:hover {
   transform: scale();
+}
+
+.MiEWhFVt9T {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.LP1Gc3MOBi {
 }

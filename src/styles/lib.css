@@ -475,51 +475,15 @@ img {
   align-items: center;
   justify-content: center;
   color: white;
-  border-radius: inherit;
+  border-radius: 50%;
   font-family: var(--misc-font);
   font-weight: 700;
 }
 
-/*  */
-
-.badge-10-absolute {
-  width: 10px;
-  height: 10px;
-  font-size: 6px;
-}
-
-.badge-16-absolute {
-  width: 16px;
-  height: 16px;
-  font-size: 10px;
-}
-
-.badge-20-absolute {
-  width: 20px;
-  height: 20px;
-  font-size: 14px;
-}
-
-.badge-10-absolute,
-.badge-16-absolute,
-.badge-20-absolute {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  border-radius: 50%;
-  z-index: 110;
-  font-family: var(--misc-font);
-}
-
-.badge-10-absolute div,
-.badge-16-absolute div,
-.badge-20-absolute div {
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
-  background-color: var(--bg-color-1);
-  z-index: -10;
-  position: absolute;
+.badge-20 *,
+.badge-16 *,
+.badge-10 * {
+  color: inherit;
 }
 
 /*  */

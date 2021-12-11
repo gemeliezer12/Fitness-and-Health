@@ -29,7 +29,7 @@ const Index = () => {
                     height: "100%"
                 }}>
                     <Link to="/" className="img-40 icon" style={{
-                        background: "var(--bg-comp-color-2)"
+                        background: "var(--bg-color-5)"
                     }}>
                         <img className="icon" src="../../../images/logo.png" alt=""/>
                     </Link>
