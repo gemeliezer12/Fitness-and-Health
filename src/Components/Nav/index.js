@@ -37,12 +37,12 @@ const Index = () => {
                         <img className="icon" src="../../../images/logo.png" alt=""/>
                     </Link>
                     <div className="row uppercase fs-16 gap-10">
-                        <Link to="" className="solid-btn small sPF9B2SD15" style={{
+                        <Link to="" className="solid-btn small xEbmIF5vqf sPF9B2SD15" style={{
                             borderWidth: "1px",
                         }}>
                             <p>Tutorials</p>
                         </Link>
-                        <Link to="" className="solid-btn small sPF9B2SD15" style={{
+                        <Link to="" className="solid-btn small xEbmIF5vqf sPF9B2SD15" style={{
                             borderWidth: "1px"
                         }}>
                             <p>Pricing</p>
