@@ -1,9 +1,9 @@
-const MyAccount = () => {
+const UserProfile = () => {
     return (
         <>
             <div className="space-between align-center">
                 <div>
-                    <p className="ff-title fs-20">My Account</p>
+                    <p className="ff-title fs-20">User Profile</p>
                 </div>
                 <div className="img-32 icon color-inherit cursor-pointer" style={{
                     backgroundColor: "var(--bg-color-5)",
@@ -19,4 +19,4 @@ const MyAccount = () => {
     )
 }
 
-export default MyAccount
+export default UserProfile

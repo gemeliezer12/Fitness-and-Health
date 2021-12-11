@@ -1,7 +1,23 @@
 import { useState } from "react"
+import MyAccount from "./Options/MyAccount"
+import UserProfile from "./Options/UserProfile"
 
 const Index = () => {
     const [currentSettings, setCurrentSettings] = useState("my-account")
+
+    const CurrentSettings = () => {
+        switch (currentSettings) {
+            case "my-account":
+                return <MyAccount/>
+                break
+            case "user-profile":
+                return <UserProfile/>
+                break
+            default:
+                break
+        }
+    }
+
     return (
         <div style={{
             height: "100vh",
@@ -16,7 +32,7 @@ const Index = () => {
             }}>
                 <div className="column gap-2">
                     <div className="space-between padding-all-4">
-                        <p>My Account</p>
+                        <p>User Settings</p>
                     </div>
                     <div className="column fs-20 gap-2">
                         <div className={`Edv8pGdED0 ${currentSettings === "my-account" ? "selected" : ""}`} onClick={() => setCurrentSettings("my-account")}>
@@ -28,12 +44,10 @@ const Index = () => {
                     </div>
                 </div>   
             </div> 
-            <div className="padding-top-40" style={{
+            <div className="padding-top-40 padding-x-32" style={{
                 backgroundColor: "var(--bg-color-3)"
             }}>
-                <div className="space-between">
-                    
-                </div>
+                <CurrentSettings/>
             </div> 
         </div>
     )

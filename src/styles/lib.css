@@ -184,7 +184,8 @@
   padding: 25px;
   padding-top: 10px;
   padding-bottom: 10px;
-  border: 2px solid transparent;
+  border-style: solid;
+  border-width: 2px;
   border-radius: 4px;
   align-items: center;
   justify-content: center;
@@ -518,11 +519,18 @@ img {
 }
 /*  */
 
-.img-40.img {
+.img-50.img,
+.img-40.img,
+.img-32.img,
+.img-26.img {
   border-radius: 50%;
   overflow: hidden;
 }
-.img-40.icon {
+
+.img-40.icon,
+.img-32.icon,
+.img-26.icon,
+.img-50.icon {
   display: flex;
   align-items: center;
   justify-content: center;

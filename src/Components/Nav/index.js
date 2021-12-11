@@ -48,7 +48,7 @@ const Index = () => {
                         <Link to="/settings" className="solid-btn small sPF9B2SD15" style={{
                             borderWidth: "1px"
                         }}>
-                            <p>My Account</p>
+                            <p>User Settings</p>
                         </Link>
                         :
                         <Link to="/signin" className="solid-btn small sPF9B2SD15" style={{
