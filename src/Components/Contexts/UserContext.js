@@ -23,6 +23,11 @@ export const UserProvider = ({ children }) => {
         })
     }
 
+    const signOut = () => {
+        firebase.auth().signOut()
+        navigate("/")
+    }
+
     useEffect(() => {
         firebase.auth().onAuthStateChanged( async (user) => {
             if (user) {
@@ -35,7 +40,8 @@ export const UserProvider = ({ children }) => {
     }, [])
 
     const value = {
-        selfUser
+        selfUser,
+        signOut
     }
 
     return (

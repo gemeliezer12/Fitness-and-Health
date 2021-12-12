@@ -1,7 +1,10 @@
-import { firebase } from "../../firebase"
+import { useUser } from "../Contexts/UserContext"
 
 
 const Options = ({ currentSettings, setCurrentSettings }) => {
+
+    const { signOut } = useUser()
+
     return (
         <div className="column gap-2">
             <div className="space-between padding-all-4 fs-14">
@@ -19,7 +22,7 @@ const Options = ({ currentSettings, setCurrentSettings }) => {
                 borderBottom: "1px solid var(--bg-color-4)"
             }}/>
             <div>
-                <div className="Edv8pGdED0" onClick={() => firebase.auth().signOut()}>
+                <div className="Edv8pGdED0" onClick={() => signOut()}>
                     <p style={{
                         color: "var(--red)"
                     }}>Log out</p>
