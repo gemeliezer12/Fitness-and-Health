@@ -1303,6 +1303,11 @@ body {
   background-color: rgba(55, 55, 55, 0.05);
 }
 
+textarea::-webkit-scrollbar {
+  width: 2px;
+  background-color: rgba(55, 55, 55, 0.05);
+}
+
 *::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: rgb(55, 55, 55);

@@ -1,13 +1,25 @@
+import { useState } from "react"
+
 import { useNavigate } from "react-router-dom"
 import { useUser } from "../../../Contexts/UserContext"
 import TextareaAutosizeProps from "react-textarea-autosize"
+import AboutMe from "./AboutMe"
 
 const Index = (setCurrentSettings) => {
     const { selfUser } = useUser()
     const navigate = useNavigate()
-
     const user = selfUser.user
     const id = selfUser.id
+
+    const [ aboutMe, setAboutMe ] = useState({name: "aboutMe", label: "About Me", type: "text", value: "", isValid: true, isRequired: true})
+
+    const onChange = (e) => {
+
+        switch (e.name) {
+            case "aboutMe":
+                setAboutMe({...aboutMe, value: e.value})
+        }
+    }
 
     return (
         <>
@@ -24,9 +36,9 @@ const Index = (setCurrentSettings) => {
                     <i className="fas fa-times"></i>
                 </div>
             </div>
-            <div className="column border-radius-10" style={{
+            <form className="column border-radius-10" style={{
                 backgroundColor: "var(--bg-color-1)"
-            }}>
+            }} onChange={(e) => onChange(e.target)}>
                 <div style={{
                     aspectRatio: "32/9",
                     backgroundColor: "rgb(80,20,71)",
@@ -75,17 +87,27 @@ const Index = (setCurrentSettings) => {
                         <div className="margin-y-10" style={{
                             borderBottom: "1px solid var(--bg-color-5)"
                         }}/>
-                        <div className="column gap-6">
-                            <p>About Me</p>
-                            <div className="border-radius-10 padding-left-10 padding-y-10 padding-right-32" style={{
-                                backgroundColor: "var(--bg-color-4)"
+                        <AboutMe aboutMe={aboutMe}/>
+                        <div className="row flex-wrap margin-top-20 gap-6">
+                            <select className="kvcdz3lpy3 cursor-pointer" name="fitness-level" style={{
+                                backgroundColor: "var(--indigo)"
                             }}>
-                                <TextareaAutosizeProps className="width-100pc" minRows={2} maxRows={6}/>
+                                <option value="select">Fitness level</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                            <div className="kvcdz3lpy3 pos-relative" style={{
+                                backgroundColor: "var(--green)"
+                            }}>
+                                <p>
+                                    Trainer
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </>
     )
 }

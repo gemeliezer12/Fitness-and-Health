@@ -170,6 +170,10 @@
   color: white;
   font-weight: 700;
   font-family: var(--ui-font);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
 .kvcdz3lpy3 * {
