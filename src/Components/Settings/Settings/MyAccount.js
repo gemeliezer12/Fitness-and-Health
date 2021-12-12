@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom"
 import { useUser } from "../../Contexts/UserContext"
 
 const MyAccount = () => {
 
     const { selfUser } = useUser()
+    const navigate = useNavigate()
 
     if (!selfUser) return ""
 
@@ -17,7 +19,7 @@ const MyAccount = () => {
                 <div>
                     <p className="ff-title fs-16">My Account</p>
                 </div>
-                <div className="img-32 icon color-inherit cursor-pointer" style={{
+                <div onClick={() => navigate(-1)} className="img-32 icon color-inherit cursor-pointer" style={{
                     backgroundColor: "var(--bg-color-5)",
                     color: "var(--text-color-2)"
                 }}>

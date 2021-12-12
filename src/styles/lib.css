@@ -217,15 +217,30 @@
   font-family: var(--ui-font);
 }
 
-.solid-btn:disabled,
-.solid-btn.disabled {
+.solid-btn.tiny {
+  font-size: 10px;
+  padding: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  gap: 6px;
+  font-family: var(--ui-font);
+}
+
+:disabled {
   cursor: not-allowed;
-  background-color: rgba(150, 150, 150) !important;
-  border-color: rgba(150, 150, 150) !important;
 }
 
 .solid-btn img {
   height: 14px;
+}
+
+.solid-btn.small.fs-14 img {
+  height: 14px;
+}
+
+.solid-btn.small img,
+.solid-btn.tiny img {
+  height: 10px;
 }
 
 /*  */

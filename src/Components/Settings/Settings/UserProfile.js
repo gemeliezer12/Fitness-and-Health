@@ -1,4 +1,4 @@
-const UserProfile = () => {
+const UserProfile = (setCurrentSettings) => {
     return (
         <>
             <div className="space-between">
@@ -38,7 +38,7 @@ const UserProfile = () => {
                                 </div>
                             </div>
                             <div className="space-between">
-                                <div>
+                                <div onClick={() => setCurrentSettings("user-profile")}>
                                     <p>
                                         <span>username</span>
                                     </p>

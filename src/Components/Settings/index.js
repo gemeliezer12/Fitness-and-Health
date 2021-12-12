@@ -1,7 +1,9 @@
 import { useState } from "react"
 
-import MyAccount from "./Options/MyAccount"
-import UserProfile from "./Options/UserProfile"
+import Options from "./Options"
+
+import MyAccount from "./Settings/MyAccount"
+import UserProfile from "./Settings/UserProfile"
 
 const Index = () => {
     const [currentSettings, setCurrentSettings] = useState("my-account")
@@ -9,15 +11,16 @@ const Index = () => {
     const CurrentSettings = () => {
         switch (currentSettings) {
             case "my-account":
-                return <MyAccount/>
+                return <MyAccount setCurrentSettings={setCurrentSettings}/>
                 break
             case "user-profile":
-                return <UserProfile/>
+                return <UserProfile setCurrentSettings={setCurrentSettings}/>
                 break
             default:
                 break
         }
     }
+
     return (
         <div style={{
             height: "100vh",
@@ -26,24 +29,7 @@ const Index = () => {
             display: "grid",
             gridTemplateColumns: "230px 1fr"
         }}>
-            <div className="column padding-x-10 padding-top-40" style={{
-                width: "215px",
-                justifySelf: "end"
-            }}>
-                <div className="column gap-2">
-                    <div className="space-between padding-all-4 fs-14">
-                        <p>User Settings</p>
-                    </div>
-                    <div className="column fs-16 gap-2">
-                        <div className={`Edv8pGdED0 ${currentSettings === "my-account" ? "selected" : ""}`} onClick={() => setCurrentSettings("my-account")}>
-                            <p>My Account</p>
-                        </div>
-                        <div className={`Edv8pGdED0 ${currentSettings === "user-profile" ? "selected" : ""}`} onClick={() => setCurrentSettings("user-profile")}>
-                            <p>User Profile</p>
-                        </div>
-                    </div>
-                </div>   
-            </div> 
+            <Options currentSettings={currentSettings} setCurrentSettings={setCurrentSettings}/>
             <div className="padding-top-40 padding-x-32" style={{
                 backgroundColor: "var(--bg-color-3)"
             }}>

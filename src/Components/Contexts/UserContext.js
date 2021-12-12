@@ -25,6 +25,9 @@ export const UserProvider = ({ children }) => {
             if (user) {
                 getUser(user.uid)
             }
+            else {
+                setSelfUser(null)
+            }
         })
     }, [])
 
