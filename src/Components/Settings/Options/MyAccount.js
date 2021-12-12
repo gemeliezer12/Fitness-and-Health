@@ -1,7 +1,19 @@
+import { useUser } from "../../Contexts/UserContext"
+
 const MyAccount = () => {
+
+    const { selfUser } = useUser()
+
+    if (!selfUser) return ""
+
+    const user = selfUser.user
+    const id = selfUser.id
+
     return (
         <>
-            <div className="space-between align-center">
+            <div className="space-between" style={{
+                height: "40px"
+            }}>
                 <div>
                     <p className="ff-title fs-16">My Account</p>
                 </div>
@@ -12,9 +24,60 @@ const MyAccount = () => {
                     <i className="fas fa-times"></i>
                 </div>
             </div>
-            <div className="margin-y-20" style={{
-                borderBottom: "1px solid var(--bg-color-5)"
-            }}/>
+            <div className="column border-radius-10" style={{
+                backgroundColor: "var(--bg-color-1)"
+            }}>
+                <div style={{
+                    aspectRatio: "32/9",
+                    backgroundColor: "rgb(80,20,71)",
+                    borderTopLeftRadius: "10px",
+                    borderTopRightRadius: "10px",
+                }}></div>
+                <div className="padding-x-15 padding-bottom-15">
+                    <div>
+                        <div className="row margin-top-10 gap-10" style={{
+                            height: "40px",
+                        }}>
+                            <div style={{
+                                alignSelf: "end",
+                            }}>
+                                <div className="align-center justify-center" style={{
+                                    width: "80px",
+                                    height: "80px",
+                                    
+                                    backgroundColor: "var(--bg-color-1)",
+                                    borderRadius: "50%",
+                                }}>
+                                    <div className="img-72 img">
+                                        <img src="../../images/profile.png" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="space-between width-100pc">
+                                <div className="fs-20">
+                                    <p>
+                                        <span style={{
+                                            color: "var(--text-color-2)"
+                                        }}>{user.username}</span>
+                                        <span>#{user.user_number}</span>
+                                    </p>
+                                </div>
+                                <div>
+                                    <div className="solid-btn small" style={{
+                                        background: "var(--indigo)",
+                                        border: "none"
+                                    }}>
+                                        <p>Edit Profile</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

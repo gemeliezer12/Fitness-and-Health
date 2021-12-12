@@ -1,4 +1,5 @@
 import { useState } from "react"
+
 import MyAccount from "./Options/MyAccount"
 import UserProfile from "./Options/UserProfile"
 
@@ -17,16 +18,15 @@ const Index = () => {
                 break
         }
     }
-
     return (
         <div style={{
             height: "100vh",
             width: "100vw",
             maxWidth: "1200px",
             display: "grid",
-            gridTemplateColumns: "300px 1fr"
+            gridTemplateColumns: "230px 1fr"
         }}>
-            <div className="column padding-x-15 padding-top-40" style={{
+            <div className="column padding-x-10 padding-top-40" style={{
                 width: "215px",
                 justifySelf: "end"
             }}>

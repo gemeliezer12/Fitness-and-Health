@@ -17,34 +17,37 @@ const UserProfile = () => {
             }}>
                 <div style={{
                     aspectRatio: "32/9",
-                    backgroundColor: "var(--rose)",
+                    backgroundColor: "rgb(80,20,71)",
                     borderTopLeftRadius: "10px",
                     borderTopRightRadius: "10px",
                 }}></div>
-                <div className="padding-x-15">
+                <div className="padding-x-15 padding-bottom-15">
                     <div>
-                        <div className="space-between" style={{
+                        <div className="row margin-top-10 gap-10" style={{
                             height: "40px",
                         }}>
-                            <div style={{
-                                height: "80px",
+                            <div className="align-center justify-center" style={{
                                 width: "80px",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
+                                height: "80px",
+                                alignSelf: "end",
                                 backgroundColor: "var(--bg-color-1)",
                                 borderRadius: "50%",
-                                overflow: "hidden",
-                                alignSelf: "end"
                             }}>
-                                <img src="images/logo.png" alt="" style={{
-                                    widows: "72px",
-                                    height: "72px"
-                                }}/>
+                                <div className="img-72 img">
+                                    <img src="../../images/profile.png" alt="" />
+                                </div>
+                            </div>
+                            <div className="space-between">
+                                <div>
+                                    <p>
+                                        <span>username</span>
+                                    </p>
+                                </div>
+                                <div></div>
                             </div>
                         </div>
                         <div>
-
+                            
                         </div>
                     </div>
                 </div>
