@@ -34,7 +34,6 @@ const Index = () => {
                 justifySelf: "end",
                 overflowY: "auto"
             }}>
-
                 <Options currentSettings={currentSettings} setCurrentSettings={setCurrentSettings}/>
             </div>
             <div className="padding-top-40 padding-x-32" style={{

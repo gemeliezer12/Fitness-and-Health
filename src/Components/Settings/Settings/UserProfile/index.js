@@ -1,9 +1,15 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import { useNavigate } from "react-router-dom"
 import { useUser } from "../../../Contexts/UserContext"
-import TextareaAutosizeProps from "react-textarea-autosize"
 import AboutMe from "./AboutMe"
+import { firebase } from "../../../../firebase"
+
+const db = firebase.firestore()
+
+const onlySpaces = (str) => {
+    return str.trim().length === 0;
+}
 
 const Index = (setCurrentSettings) => {
     const { selfUser } = useUser()
@@ -20,6 +26,19 @@ const Index = (setCurrentSettings) => {
                 setAboutMe({...aboutMe, value: e.value})
         }
     }
+
+    const onSubmit = async (e) => {
+        console.log(
+            await db.collection("users").doc(id).set({
+                ...user,
+                about_me: aboutMe.value
+            })
+        )
+    }
+    
+    useEffect(() => {
+        setAboutMe({...aboutMe, value: user.about_me})
+    }, [selfUser])
 
     return (
         <>
@@ -38,7 +57,10 @@ const Index = (setCurrentSettings) => {
             </div>
             <form className="column border-radius-10" style={{
                 backgroundColor: "var(--bg-color-1)"
-            }} onChange={(e) => onChange(e.target)}>
+            }} onChange={(e) => onChange(e.target)} onSubmit={(e) => {
+                e.preventDefault()
+                onSubmit()
+            }}>
                 <div style={{
                     aspectRatio: "32/9",
                     backgroundColor: "rgb(80,20,71)",
@@ -70,7 +92,7 @@ const Index = (setCurrentSettings) => {
                                 <div>
                                     <div className="solid-btn tiny" style={{
                                         backgroundColor: "var(--green)"
-                                    }}>
+                                    }} onClick={(e) => onSubmit(e)}>
                                         <p>Save</p>
                                     </div>
                                 </div>
