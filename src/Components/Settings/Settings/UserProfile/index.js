@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom"
 import { useUser } from "../../../Contexts/UserContext"
 import AboutMe from "./AboutMe"
 import { firebase } from "../../../../firebase"
+import Banner from "./Banner"
+import ProfilePicture from "./ProfilePicture"
 
 const db = firebase.firestore()
 
@@ -26,8 +28,10 @@ const Index = (setCurrentSettings) => {
         switch (e.name) {
             case "aboutMe":
                 setAboutMe({...aboutMe, value: e.value})
+                break
             case "fitnessLevel":
                 setSelectedFitnessLevel(e.value)
+                break
         }
     }
 
@@ -41,7 +45,7 @@ const Index = (setCurrentSettings) => {
     }
     
     useEffect(() => {
-        setAboutMe({...aboutMe, value: user.about_me})
+        setAboutMe({...aboutMe, value: !user.about_me ? "" : user.about_me})
         setSelectedFitnessLevel(user.fitness_level)
     }, [selfUser])
 
@@ -51,7 +55,7 @@ const Index = (setCurrentSettings) => {
                 height: "40px"
             }}>
                 <div>
-                    <p className="ff-title fs-16">My Account</p>
+                    <p className="ff-title fs-16">User Profile</p>
                 </div>
                 <div onClick={() => navigate(-1)} className="img-32 icon color-inherit cursor-pointer" style={{
                     backgroundColor: "var(--bg-color-5)",
@@ -66,71 +70,50 @@ const Index = (setCurrentSettings) => {
                 e.preventDefault()
                 onSubmit(e)
             }}>
-                <div style={{
-                    aspectRatio: "32/9",
-                    backgroundColor: "rgb(80,20,71)",
-                    borderTopLeftRadius: "10px",
-                    borderTopRightRadius: "10px",
-                }}></div>
+                <Banner/>
                 <div className="padding-x-15 padding-bottom-15">
-                    <div>
-                        <div className="row margin-top-10 gap-10" style={{
-                            height: "40px",
-                        }}>
-                            <div style={{
-                                alignSelf: "end",
-                            }}>
-                                <div className="align-center justify-center" style={{
-                                    width: "80px",
-                                    height: "80px",
-                                    
-                                    backgroundColor: "var(--bg-color-1)",
-                                    borderRadius: "50%",
+                    <div className="row margin-top-10 gap-10" style={{
+                        height: "40px",
+                    }}>
+                        <ProfilePicture/>
+                        <div className="space-between width-100pc">
+                            <div/>
+                            <div>
+                                <button type="submit" className="solid-btn tiny" style={{
+                                    backgroundColor: "var(--green)"
                                 }}>
-                                    <div className="img-72 img">
-                                        <img src="../../images/profile.png" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="space-between width-100pc">
-                                <div/>
-                                <div>
-                                    <button type="submit" className="solid-btn tiny" style={{
-                                        backgroundColor: "var(--green)"
-                                    }}>
-                                        <p>Save</p>
-                                    </button>
-                                </div>
+                                    <p>Save</p>
+                                </button>
                             </div>
                         </div>
-                        <div className="fs-20 margin-top-20">
+                    </div>
+                    <div className="fs-20 margin-top-20">
+                        <p>
+                            <span style={{
+                                color: "var(--text-color-2)"
+                            }}>{user.username}</span>
+                            <span>#{user.user_number}</span>
+                        </p>
+                    </div>
+                    <div className="margin-y-10" style={{
+                        borderBottom: "1px solid var(--bg-color-5)"
+                    }}/>
+                    <AboutMe aboutMe={aboutMe}/>
+                    <div className="row flex-wrap margin-top-20 gap-6">
+                        <select className="kvcdz3lpy3 cursor-pointer" name="fitnessLevel" style={{
+                            backgroundColor: "var(--indigo)"
+                        }}>
+                            <option>Fitness level</option>
+                            {fitnessLevels.map((fitnessLevel) => (
+                                <option key={fitnessLevel.name} selected={selectedFitnessLevel === fitnessLevel.name ? true : false} value={fitnessLevel.name}>{fitnessLevel.label}</option>
+                            ))}
+                        </select>
+                        <div className="kvcdz3lpy3 pos-relative" style={{
+                            backgroundColor: "var(--green)"
+                        }}>
                             <p>
-                                <span style={{
-                                    color: "var(--text-color-2)"
-                                }}>{user.username}</span>
-                                <span>#{user.user_number}</span>
+                                Trainer
                             </p>
-                        </div>
-                        <div className="margin-y-10" style={{
-                            borderBottom: "1px solid var(--bg-color-5)"
-                        }}/>
-                        <AboutMe aboutMe={aboutMe}/>
-                        <div className="row flex-wrap margin-top-20 gap-6">
-                            <select className="kvcdz3lpy3 cursor-pointer" name="fitnessLevel" style={{
-                                backgroundColor: "var(--indigo)"
-                            }}>
-                                <option>Fitness level</option>
-                                {fitnessLevels.map((fitnessLevel) => (
-                                    <option key={fitnessLevel.name} selected={selectedFitnessLevel === fitnessLevel.name ? true : false} value={fitnessLevel.name}>{fitnessLevel.label}</option>
-                                ))}
-                            </select>
-                            <div className="kvcdz3lpy3 pos-relative" style={{
-                                backgroundColor: "var(--green)"
-                            }}>
-                                <p>
-                                    Trainer
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>
