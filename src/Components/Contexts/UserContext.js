@@ -15,9 +15,6 @@ export const UserProvider = ({ children }) => {
     const navigate = useNavigate()
 
     const getSelfUser = async (userId) => {
-        // const user = await db.collection("users").doc(userId).get()
-
-        // setSelfUser({ user: user.data(), id: user.id})
         db.collection("users").doc(userId).onSnapshot((user) => {
             setSelfUser({ user: user.data(), id: user.id})
         })

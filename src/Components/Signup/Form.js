@@ -6,6 +6,19 @@ import Input from "../Assets/Input"
 const date = new Date()
 const db = firebase.firestore()
 
+const toUserNumber = (number) => {
+    switch (number.length) {
+        case 1:
+            return `000`+ number
+        case 2:
+            return `00`+ number
+        case 3:
+            return `0`+ number
+        case 4:
+            return number
+    }
+}
+
 const Form = () => {
     const [email, setEmail] = useState({name: "email", label: "Email", type: "email", value: "", isValid: false, isRequired: true})
     const [username, setUsername] = useState({name: "username", label: "Username", type: "text", value: "", isValid: false, isRequired: true})
@@ -19,9 +32,14 @@ const Form = () => {
         try {
             const res = await new firebase.auth().createUserWithEmailAndPassword( email.value, password.value)
 
+            const number = String(parseInt((await db.collection("users").orderBy("user_number", "desc").limit("1").get()).docs[0].data().user_number) + 1)
+            
+            const userNumber = toUserNumber(number)
+
             try {
                 db.collection("users").doc(res.user.uid).set({
-                    username: username.value
+                    username: username.value,
+                    user_number: userNumber
                 })
             }
             catch (err) {
