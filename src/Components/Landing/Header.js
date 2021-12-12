@@ -1,24 +1,34 @@
+import { ReactComponent as YourSvg1 } from './Assets/undraw_junior_soccer_6sop.svg';
+import { ReactComponent as YourSvg2 } from './Assets/undraw_personal_training_0dqn.svg';
+
 const Header = () => {
     return (
         <>
-            <div className="column padding-x-32 padding-y-80 HPNXA06qJ7 align-center color-inherit" style={{
-                color: "var(--text-color-2)"
+            <div className="column padding-x-32 padding-top-80 HPNXA06qJ7 align-center color-inherit" style={{
+                color: "var(--text-color-2)",
+                zIndex: "1"
             }}>
-                <div className="column text-center gap-10">
-                    <p className="ff-title fs-40">
-                        Astra
-                    </p>
-                    <p className="fs-20">
-                        Personal Training Made Personal
-                    </p>
+                <p className="ff-title fs-40 text-center">
+                    AIO Fitness Platform Made for Everyone
+                </p>
+                
+            </div>
+            <div className="flex align-end justify-center gap-20 margin-top-80" style={{
+                width: "100%",
+                overflow: "hidden",
+                gap: "300px",
+                height: "400px"
+            }}>
+                <div style={{
+                    height: "100%"
+                }}>
+                    <YourSvg1/>
                 </div>
-                <div className="flex gap-10 flex-wrap margin-top-20 justify-center">
-                    <a className="solid-btn iGeeEa3h6v">
-                        <p>Become A Trainer</p>
-                    </a>
-                    <a target="_blank" className="solid-btn iGeeEa3h6v">
-                        <p>Hire A Trainer</p>
-                    </a>
+                <div style={{
+                    transform: "rotateY(-180deg)",
+                    height: "100%"
+                }}>
+                    <YourSvg2/>
                 </div>
             </div>
         </>
