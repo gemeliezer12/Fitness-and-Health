@@ -2,8 +2,8 @@ import { useState } from "react"
 
 import Options from "./Options"
 
-import MyAccount from "./Settings/MyAccount"
-import UserProfile from "./Settings/UserProfile"
+import MyAccount from "./Settings/MyAccount/"
+import UserProfile from "./Settings/UserProfile/"
 
 const Index = () => {
     const [currentSettings, setCurrentSettings] = useState("my-account")

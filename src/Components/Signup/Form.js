@@ -19,14 +19,9 @@ const Form = () => {
         try {
             const res = await new firebase.auth().createUserWithEmailAndPassword( email.value, password.value)
 
-            console.log(
-                await db.collection("users").doc(res.user.uid).get()
-            )
-
             try {
                 db.collection("users").doc(res.user.uid).set({
-                    username: username.value,
-                    user_number: ""
+                    username: username.value
                 })
             }
             catch (err) {
@@ -59,8 +54,6 @@ const Form = () => {
     const allInputIsValid = () => {
         return email.isValid && password.isValid && passwordRepeat.isValid && username.isValid
     }
-
-    console.log(username)
 
     return (
         <form onSubmit={(e) => signInWithEmailPassword(e)} onChange={(e) => onChange(e.target)} className="column padding-top-20">

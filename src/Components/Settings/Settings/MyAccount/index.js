@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom"
-import { useUser } from "../../Contexts/UserContext"
+import { useUser } from "../../../Contexts/UserContext"
+import Form from "./Form"
 
-const MyAccount = () => {
+const Index = ({setCurrentSettings}) => {
 
     const { selfUser } = useUser()
     const navigate = useNavigate()
@@ -65,18 +66,17 @@ const MyAccount = () => {
                                     </p>
                                 </div>
                                 <div>
-                                    <div className="solid-btn small" style={{
+                                    <div className="solid-btn tiny fs-14" style={{
                                         background: "var(--indigo)",
-                                        border: "none"
-                                    }}>
+                                        border: "none",
+                                        textTransform: "revert"
+                                    }} onClick={() => setCurrentSettings("user-profile")}>
                                         <p>Edit Profile</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="">
-                            
-                        </div>
+                        <Form user={user} id={id}/>
                     </div>
                 </div>
             </div>
@@ -84,4 +84,4 @@ const MyAccount = () => {
     )
 }
 
-export default MyAccount
+export default Index

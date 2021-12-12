@@ -20,7 +20,7 @@ const Options = ({ currentSettings, setCurrentSettings }) => {
                     </div>
                 </div>
                 <div>
-                    <div className={`Edv8pGdED0 ${currentSettings === "user-profile" ? "selected" : ""}`} onClick={() => firebase.auth().signOut()}>
+                    <div className="Edv8pGdED0" onClick={() => firebase.auth().signOut()}>
                         <p style={{
                             color: "var(--red)"
                         }}>Log out</p>
