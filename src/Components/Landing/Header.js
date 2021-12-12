@@ -16,8 +16,8 @@ const Header = () => {
             <div className="flex align-end justify-center gap-20 margin-top-80" style={{
                 width: "100%",
                 overflow: "hidden",
-                gap: "200px",
-                height: "400px"
+                gap: "300px",
+                height: "300px"
             }}>
                 <div style={{
                     height: "100%"
