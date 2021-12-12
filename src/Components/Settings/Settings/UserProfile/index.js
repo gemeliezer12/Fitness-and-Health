@@ -42,9 +42,8 @@ const Index = (setCurrentSettings) => {
     
     useEffect(() => {
         setAboutMe({...aboutMe, value: user.about_me})
-        setSelectedFitnessLevel(user.fitness_level === "undefined" ? null : user.fitness_level)
+        setSelectedFitnessLevel(user.fitness_level)
     }, [selfUser])
-
 
     return (
         <>
@@ -117,14 +116,14 @@ const Index = (setCurrentSettings) => {
                         }}/>
                         <AboutMe aboutMe={aboutMe}/>
                         <div className="row flex-wrap margin-top-20 gap-6">
-                            {selectedFitnessLevel !== undefined && <select defaultValue={selectedFitnessLevel} className="kvcdz3lpy3 cursor-pointer" name="fitnessLevel" style={{
+                            <select className="kvcdz3lpy3 cursor-pointer" name="fitnessLevel" style={{
                                 backgroundColor: "var(--indigo)"
                             }}>
                                 <option>Fitness level</option>
                                 {fitnessLevels.map((fitnessLevel) => (
-                                    <option key={fitnessLevel.name} value={fitnessLevel.name}>{fitnessLevel.label}</option>
+                                    <option key={fitnessLevel.name} selected={selectedFitnessLevel === fitnessLevel.name ? true : false} value={fitnessLevel.name}>{fitnessLevel.label}</option>
                                 ))}
-                            </select>}
+                            </select>
                             <div className="kvcdz3lpy3 pos-relative" style={{
                                 backgroundColor: "var(--green)"
                             }}>
