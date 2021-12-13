@@ -25,8 +25,9 @@ const Index = () => {
     return (
         <>
             <div className={`color-inherit FO4mElxbi0${scrollPosition > 200 ? " hide" : ""}`} style={{
-                backgroundColor: "var(--bg-color-4)",
-                zIndex: "1"
+                backgroundColor: "var(--indigo)",
+                zIndex: "1",
+                color: "white"
             }}>
                 <div className="row space-between align-center padding-x-32 HPNXA06qJ7" style={{
                     height: "100%"

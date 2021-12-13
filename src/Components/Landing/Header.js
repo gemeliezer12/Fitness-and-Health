@@ -3,35 +3,29 @@ import { ReactComponent as YourSvg2 } from './Assets/undraw_personal_training_0d
 
 const Header = () => {
     return (
-        <>
-            <div className="column padding-x-32 padding-top-80 HPNXA06qJ7 align-center color-inherit" style={{
-                color: "var(--text-color-2)",
-                zIndex: "1"
-            }}>
-                <p className="ff-title fs-40 text-center">
-                    AIO Fitness Platform Made for Everyone
-                </p>
-                
-            </div>
-            <div className="flex align-end justify-center gap-20 margin-top-80" style={{
-                width: "100%",
-                overflow: "hidden",
-                gap: "300px",
-                height: "300px"
-            }}>
-                <div style={{
-                    height: "100%"
+        <div className="padding-top-80" style={{
+            background: "var(--indigo)"
+        }}>
+            <div className="HPNXA06qJ7">
+                <div className="column ILadfB9CNM padding-x-32 align-center color-inherit" style={{
+                    color: "var(--text-color-2)",
+                    zIndex: "1",
                 }}>
+                    <p className="ff-title fs-40">
+                        AIO Fitness Platform Made for Everyone
+                    </p>
+                    
+                </div>
+            </div>
+            <div className="Zzjc6ji3p4">
+                <div className="E9aLNbU5Gm">
                     <YourSvg1/>
                 </div>
-                <div style={{
-                    transform: "rotateY(-180deg)",
-                    height: "100%"
-                }}>
+                <div className='WfvBsQnlrQ'>
                     <YourSvg2/>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
