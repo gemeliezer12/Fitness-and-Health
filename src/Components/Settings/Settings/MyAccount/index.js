@@ -106,15 +106,8 @@ const Index = ({setCurrentSetting}) => {
             {currentForm && 
             <>
                 {/* Backdrop */}
-                <div className="align-center flex justify-center width-100vw height-100vh pos-absolute" style={{
-                    top: "0",
-                    left: "0",
-                }}>
-                    <div className="width-100vw height-100vh pos-absolute" style={{
-                        top: "0",
-                        left: "0",
-                        backgroundColor: "rgba(0, 0, 0, 0.2)",
-                    }} onClick={() => setCurrentForm(null)}/>
+                <div className="Y2cec8Lddp">
+                    <div className="XbQJna4BsT" onClick={() => setCurrentForm(null)}/>
                     <CurrentForm/>
                 </div>
             </>

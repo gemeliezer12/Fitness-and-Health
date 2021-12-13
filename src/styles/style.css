@@ -212,4 +212,27 @@
   .jdpGeNx7Ai {
     transform: translateX(-100vw);
   }
+  .Y2cec8Lddp {
+    transform: translateX(100%);
+  }
+}
+
+.Y2cec8Lddp {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.XbQJna4BsT {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
 }
