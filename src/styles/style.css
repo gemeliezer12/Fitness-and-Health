@@ -26,9 +26,8 @@
 }
 
 .iGeeEa3h6v {
-  /* background: var(--indigo-fuchsia); */
-  color: black;
-  background-color: white;
+  color: var(--text-comp-color-2);
+  background-color: var(--bg-comp-color-4);
   border: none;
 }
 
@@ -143,6 +142,9 @@
   }
   .oq0sHQbGE1 {
     width: 50%;
+  }
+  .CgaRRAc6to.reverse {
+    flex-direction: row-reverse;
   }
 }
 

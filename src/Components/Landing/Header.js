@@ -3,7 +3,7 @@ import { ReactComponent as YourSvg2 } from './Assets/undraw_personal_training_0d
 
 const Header = () => {
     return (
-        <div className="padding-top-80" style={{
+        <div className="padding-top-80 dark" style={{
             background: "var(--indigo)"
         }}>
             <div className="HPNXA06qJ7">

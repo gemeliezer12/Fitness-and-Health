@@ -24,7 +24,7 @@ const Index = () => {
 
     return (
         <>
-            <div className={`color-inherit FO4mElxbi0${scrollPosition > 200 ? " hide" : ""}`} style={{
+            <div className={`dark color-inherit FO4mElxbi0${scrollPosition > 200 ? " hide" : ""}`} style={{
                 backgroundColor: "var(--indigo)",
                 zIndex: "1",
                 color: "white"
@@ -33,7 +33,7 @@ const Index = () => {
                     height: "100%"
                 }}>
                     <Link to="/" className="img-40 icon" style={{
-                        background: "var(--bg-color-5)"
+                        background: "var(--bg-comp-color-5)"
                     }}>
                         <img className="icon" src="../../../images/logo.png" alt=""/>
                     </Link>
