@@ -1,16 +1,30 @@
 import { useNavigate } from "react-router-dom"
+import { useState } from "react/cjs/react.development"
 import { useUser } from "../../../Contexts/UserContext"
 import Form from "./Form"
+import UsernameForm from "./UsernameForm"
 
 const Index = ({setCurrentSettings}) => {
 
     const { selfUser } = useUser()
     const navigate = useNavigate()
+    
+    const [currentForm, setCurrentForm] = useState()
 
     if (!selfUser) return ""
 
     const user = selfUser.user
     const id = selfUser.id
+
+    const CurrentForm = () => {
+        console.log(currentForm);
+        switch (currentForm) {
+            case "usernameForm":
+                return <UsernameForm/>
+            default:
+                return "" 
+        }
+    }
 
     return (
         <>
@@ -76,10 +90,11 @@ const Index = ({setCurrentSettings}) => {
                                 </div>
                             </div>
                         </div>
-                        <Form user={user} id={id}/>
+                        <Form user={user} id={id} setCurrentForm={setCurrentForm}/>
                     </div>
                 </div>
             </div>
+            <CurrentForm/>
         </>
     )
 }
