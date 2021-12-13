@@ -19,7 +19,7 @@ const Index = (setCurrentSettings) => {
     const user = selfUser.user
     const id = selfUser.id
 
-    const [ aboutMe, setAboutMe ] = useState({name: "aboutMe", label: "About Me", type: "text", value: "", isValid: true, isRequired: true})
+    const [ aboutMe, setAboutMe ] = useState({name: "aboutMe", label: "About Me", type: "text", value: "", isValid: true, isRequired: false})
     const [selectedFitnessLevel, setSelectedFitnessLevel] = useState()
     const fitnessLevels = [{label: "Beginner", name: "beginner"}, {label: "Intermidiate", name: "intermidiate"}, {label: "Advanced", name: "advanced"}]
 
@@ -51,7 +51,7 @@ const Index = (setCurrentSettings) => {
 
     return (
         <>
-            <div className="space-between" style={{
+            <div className="space-between row" style={{
                 height: "40px"
             }}>
                 <div>
@@ -76,7 +76,7 @@ const Index = (setCurrentSettings) => {
                         height: "40px",
                     }}>
                         <ProfilePicture/>
-                        <div className="space-between width-100pc">
+                        <div className="space-between row width-100pc">
                             <div/>
                             <div>
                                 <button type="submit" className="solid-btn tiny" style={{

@@ -3,7 +3,7 @@ const ProfilePicture = () => {
         <div style={{
             alignSelf: "end",
         }}>
-            <div className="align-center justify-center pos-relative" style={{
+            <div className="align-center justify-center flex pos-relative" style={{
                 width: "80px",
                 height: "80px",
                 

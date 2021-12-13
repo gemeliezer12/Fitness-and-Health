@@ -6,7 +6,7 @@ import { firebase } from "../../../../firebase"
 
 const db = firebase.firestore()
 
-const UsernameForm = () => {
+const UsernameForm = (setCurrentForm) => {
     
     const { selfUser } = useUser()
     const [username, setUsername] = useState({name: "username", value: undefined, type: "text", label: "Username", isValid: undefined, isRequired: true})
@@ -14,6 +14,7 @@ const UsernameForm = () => {
     const user = selfUser.user
     const id = selfUser.id
     
+    // Username Handler
     const onChange = (e) => {
         switch (e.name) {
             case "username":
@@ -23,6 +24,7 @@ const UsernameForm = () => {
         }   
     }
 
+    // Username Submitter
     const onSubmit = async () => {
         console.log(
             await db.collection("users").doc(id).set({
@@ -37,17 +39,11 @@ const UsernameForm = () => {
     }, [selfUser])
     
     return (
-        <form className="align-center justify-center" style={{
-            width: "100vw",
-            height: "100vh",
-            position: "absolute",
-            top: "0",
-            left: "0",
-            backgroundColor: "rgba(0, 0, 0, 0.2)"
-        }} onChange={(e) => onChange(e.target)} onSubmit={(e) => {
+       
+        <form onChange={(e) => onChange(e.target)} onSubmit={(e) => {
             e.preventDefault()
             onSubmit()
-        }}>
+        }} className="z-1">
             <div className="column padding-all-15 gap-20" style={{
                 backgroundColor: "var(--bg-color-2)",
                 borderRadius: "10px"

@@ -20,7 +20,7 @@ const Index = ({setCurrentSettings}) => {
         console.log(currentForm);
         switch (currentForm) {
             case "usernameForm":
-                return <UsernameForm/>
+                return <UsernameForm setCurrentForm={setCurrentForm}/>
             default:
                 return "" 
         }
@@ -28,7 +28,7 @@ const Index = ({setCurrentSettings}) => {
 
     return (
         <>
-            <div className="space-between" style={{
+            <div className="space-between row" style={{
                 height: "40px"
             }}>
                 <div>
@@ -58,10 +58,9 @@ const Index = ({setCurrentSettings}) => {
                             <div style={{
                                 alignSelf: "end",
                             }}>
-                                <div className="align-center justify-center" style={{
+                                <div className="align-center flex justify-center" style={{
                                     width: "80px",
                                     height: "80px",
-                                    
                                     backgroundColor: "var(--bg-color-1)",
                                     borderRadius: "50%",
                                 }}>
@@ -70,7 +69,7 @@ const Index = ({setCurrentSettings}) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="space-between width-100pc">
+                            <div className="space-between row width-100pc">
                                 <div className="fs-20">
                                     <p>
                                         <span style={{
@@ -94,7 +93,22 @@ const Index = ({setCurrentSettings}) => {
                     </div>
                 </div>
             </div>
-            <CurrentForm/>
+            {currentForm && 
+            <>
+                {/* Backdrop */}
+                <div className="align-center flex justify-center width-100vw height-100vh pos-absolute" style={{
+                    top: "0",
+                    left: "0",
+                }}>
+                    <div className="width-100vw height-100vh pos-absolute" style={{
+                        top: "0",
+                        left: "0",
+                        backgroundColor: "rgba(0, 0, 0, 0.2)",
+                    }} onClick={() => setCurrentForm(null)}/>
+                    <CurrentForm/>
+                </div>
+            </>
+            }
         </>
     )
 }

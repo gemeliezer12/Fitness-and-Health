@@ -127,7 +127,6 @@
 
 .cNoBDHSUSz .label-container .label {
   transform-origin: 0% 0%;
-  width: 100%;
   display: block;
 }
 
@@ -136,6 +135,7 @@
   transform: scale(0.8);
 }
 
-.cNoBDHSUSz input {
+.cNoBDHSUSz input,
+.cNoBDHSUSz textarea {
   color: var(--text-color-2);
 }

@@ -4,7 +4,7 @@ const Form = ({user, id, setCurrentForm}) => {
             <div className="column padding-all-15 border-radius-10 gap-15 margin-top-20" style={{
                 backgroundColor: "var(--bg-color-4)"
             }}>
-                <div className="space-between align-center">
+                <div className="space-between row align-center">
                     <div>
                         <p>Username</p>
                         <p>
