@@ -146,26 +146,17 @@
   }
 }
 
-@media only screen and (min-width: 400px) {
-  .WfvBsQnlrQ {
-    transform: rotateY(180deg) translateX(0) !important;
-  }
-  .E9aLNbU5Gm {
-    display: none;
-  }
-  .ILadfB9CNM {
-    width: 100%;
-    text-align: center;
-  }
+.ILadfB9CNM {
+  width: 100%;
+  text-align: center;
 }
-
 .E9aLNbU5Gm {
+  display: none;
   transform: translateX(-50%);
   height: 100%;
 }
-
 .WfvBsQnlrQ {
-  transform: rotateZ(180deg) translateX(-50%);
+  transform: rotateY(180deg) translateX(0%);
   height: 100%;
 }
 
