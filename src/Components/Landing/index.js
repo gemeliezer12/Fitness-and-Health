@@ -29,9 +29,11 @@ const Index = () => {
                             <SVG2/>
                         </div>
                         <div className="column justify-center oq0sHQbGE1">
-                            <p className="ff-title fs-32">Grow & Experience</p>
+                            <p className="ff-title fs-32">Ease</p>
                             <p className="fs-20">
-                                Experienced or not, we believe there is always room to grow and we made that easier than ever. Experience a straightforward platform designed to help you and your business grow
+                            Enjoy a simplistic and modern design, created so that you can
+skip the headaches. Track macronutrients, clients, and exercises
+with ease.
                             </p>
                         </div>
                     </div>
@@ -41,9 +43,10 @@ const Index = () => {
                             <SVG6/>
                         </div>
                         <div className="column justify-center oq0sHQbGE1">
-                            <p className="ff-title fs-32">Grow & Experience</p>
+                            <p className="ff-title fs-32">Customize</p>
                             <p className="fs-20">
-                                Experienced or not, we believe there is always room to grow and we made that easier than ever. Experience a straightforward platform designed to help you and your business grow
+                            Customize your profile to your liking with a selection of
+colours, or match your profile to your business with ease.
                             </p>
                         </div>
                     </div>
@@ -52,9 +55,10 @@ const Index = () => {
                             <SVG3/>
                         </div>
                         <div className="column justify-center oq0sHQbGE1">
-                            <p className="ff-title fs-32">Grow & Experience</p>
+                            <p className="ff-title fs-32">Sign up</p>
                             <p className="fs-20">
-                                Experienced or not, we believe there is always room to grow and we made that easier than ever. Experience a straightforward platform designed to help you and your business grow
+                            We’re tired of hearing “We’ll start on Monday”, start now and
+get a free 14 day trial on us.
                             </p>
                         </div>
                     </div>
@@ -63,9 +67,11 @@ const Index = () => {
                             <SVG4/>
                         </div>
                         <div className="column justify-center oq0sHQbGE1">
-                            <p className="ff-title fs-32">Grow & Experience</p>
+                            <p className="ff-title fs-32">You’re in Charge</p>
                             <p className="fs-20">
-                                Experienced or not, we believe there is always room to grow and we made that easier than ever. Experience a straightforward platform designed to help you and your business grow
+                            Introducing the most simplified, easy to use
+application for your fitness needs. Find, or become
+a personal trainer and interact with other users!
                             </p>
                         </div>
                     </div>
@@ -74,9 +80,11 @@ const Index = () => {
                             <SVG5/>
                         </div>
                         <div className="column justify-center oq0sHQbGE1">
-                            <p className="ff-title fs-32">Grow & Experience</p>
+                            <p className="ff-title fs-32">Scale</p>
                             <p className="fs-20">
-                                Experienced or not, we believe there is always room to grow and we made that easier than ever. Experience a straightforward platform designed to help you and your business grow
+                            Scale your business through a simple client
+manager. Track yours or your client’s progress,
+and macronutrients with a modern interface.
                             </p>
                         </div>
                     </div>
