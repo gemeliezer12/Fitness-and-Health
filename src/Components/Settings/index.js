@@ -6,15 +6,15 @@ import MyAccount from "./Settings/MyAccount/"
 import UserProfile from "./Settings/UserProfile/"
 
 const Index = () => {
-    const [currentSettings, setCurrentSettings] = useState("my-account")
+    const [currentSetting, setCurrentSetting] = useState("")
 
-    const CurrentSettings = () => {
-        switch (currentSettings) {
+    const CurrentSetting = () => {
+        switch (currentSetting) {
             case "my-account":
-                return <MyAccount setCurrentSettings={setCurrentSettings}/>
+                return <MyAccount setCurrentSetting={setCurrentSetting}/>
                 break
             case "user-profile":
-                return <UserProfile setCurrentSettings={setCurrentSettings}/>
+                return <UserProfile setCurrentSetting={setCurrentSetting}/>
                 break
             default:
                 break
@@ -23,26 +23,25 @@ const Index = () => {
 
     return (
         <div style={{
-            height: "100vh",
+            overflow: "hidden",
             width: "100vw",
-            maxWidth: "1200px",
-            display: "grid",
-            gridTemplateColumns: "230px 1fr",
-            margin: "auto"
+            height: "100vh"
         }}>
-            <div className="column padding-x-10 padding-top-40" style={{
-                width: "215px",
-                justifySelf: "end",
-                overflowY: "auto"
-            }}>
-                <Options currentSettings={currentSettings} setCurrentSettings={setCurrentSettings}/>
+            <div className={`zfURiv2hFW${currentSetting ? " jdpGeNx7Ai" : ""}`}>
+                <div className="column padding-x-10 padding-top-40 VF7wvnxFpr" style={{
+                    width: "215px",
+                    justifySelf: "end",
+                    overflowY: "auto"
+                }}>
+                    <Options currentSetting={currentSetting} setCurrentSetting={setCurrentSetting}/>
+                </div>
+                <div className="padding-top-40 padding-x-32" style={{
+                    backgroundColor: "var(--bg-color-3)",
+                    overflowY: "auto",
+                }}>
+                    {currentSetting && <CurrentSetting/>}
+                </div> 
             </div>
-            <div className="padding-top-40 padding-x-32" style={{
-                backgroundColor: "var(--bg-color-3)",
-                overflowY: "auto",
-            }}>
-                <CurrentSettings/>
-            </div> 
         </div>
     )
 }

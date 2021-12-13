@@ -1,7 +1,7 @@
 import { useUser } from "../Contexts/UserContext"
 
 
-const Options = ({ currentSettings, setCurrentSettings }) => {
+const Options = ({ currentSetting, setCurrentSetting }) => {
 
     const { signOut } = useUser()
 
@@ -11,10 +11,10 @@ const Options = ({ currentSettings, setCurrentSettings }) => {
                 <p>User Settings</p>
             </div>
             <div className="column fs-16 gap-2">
-                <div className={`Edv8pGdED0 ${currentSettings === "my-account" ? "selected" : ""}`} onClick={() => setCurrentSettings("my-account")}>
+                <div className={`Edv8pGdED0 ${currentSetting === "my-account" ? "selected" : ""}`} onClick={() => setCurrentSetting("my-account")}>
                     <p>My Account</p>
                 </div>
-                <div className={`Edv8pGdED0 ${currentSettings === "user-profile" ? "selected" : ""}`} onClick={() => setCurrentSettings("user-profile")}>
+                <div className={`Edv8pGdED0 ${currentSetting === "user-profile" ? "selected" : ""}`} onClick={() => setCurrentSetting("user-profile")}>
                     <p>User Profile</p>
                 </div>
             </div>

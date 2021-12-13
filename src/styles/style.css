@@ -192,3 +192,26 @@
     text-align: center;
   }
 }
+
+.zfURiv2hFW {
+  /* width: 100vw;
+  height: 100vh; */
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  margin: auto;
+}
+
+@media only screen and (max-width: 599px) {
+  .zfURiv2hFW {
+    grid-template-columns: 100vw 100vw;
+  }
+  .zfURiv2hFW .VF7wvnxFpr {
+    width: 100% !important;
+  }
+  .jdpGeNx7Ai {
+    transform: translateX(-100vw);
+  }
+}

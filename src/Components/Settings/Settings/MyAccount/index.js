@@ -4,7 +4,7 @@ import { useUser } from "../../../Contexts/UserContext"
 import Form from "./Form"
 import UsernameForm from "./UsernameForm"
 
-const Index = ({setCurrentSettings}) => {
+const Index = ({setCurrentSetting}) => {
 
     const { selfUser } = useUser()
     const navigate = useNavigate()
@@ -28,10 +28,15 @@ const Index = ({setCurrentSettings}) => {
 
     return (
         <>
-            <div className="space-between row" style={{
+            <div className="space-between row align-start" style={{
                 height: "40px"
             }}>
-                <div>
+                <div className="row gap-6 align-center">
+                    <div onClick={() => setCurrentSetting("")} className="img-32 icon color-inherit cursor-pointer" style={{
+                        color: "var(--text-color-2)"
+                    }}>
+                        <i className="fas fa-arrow-left"></i>
+                    </div>
                     <p className="ff-title fs-16">My Account</p>
                 </div>
                 <div onClick={() => navigate(-1)} className="img-32 icon color-inherit cursor-pointer" style={{
@@ -88,7 +93,7 @@ const Index = ({setCurrentSettings}) => {
                                         background: "var(--indigo)",
                                         border: "none",
                                         textTransform: "revert"
-                                    }} onClick={() => setCurrentSettings("user-profile")}>
+                                    }} onClick={() => setCurrentSetting("user-profile")}>
                                         <p>Edit Profile</p>
                                     </div>
                                 </div>
