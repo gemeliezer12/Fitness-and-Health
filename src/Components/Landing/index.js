@@ -5,7 +5,7 @@ import { ReactComponent as SVG2 } from "./Assets/undraw_meditation_re_gll0.svg"
 import { ReactComponent as SVG3 } from "./Assets/undraw_order_confirmed_re_g0if.svg"
 import { ReactComponent as SVG4 } from "./Assets/undraw_powerful_re_frhr.svg"
 import { ReactComponent as SVG5 } from "./Assets/undraw_in_progress_re_m1l6.svg"
-import { ReactComponent as SVG6 } from "./Assets/undraw_grid_design_obmd.svg"
+import { ReactComponent as SVG6 } from "./Assets/undraw_profile_details_f8b7.svg"
 
 const Index = () => {
     return (
