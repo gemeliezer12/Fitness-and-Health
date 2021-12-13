@@ -42,7 +42,8 @@ const Index = ({setCurrentSettings}) => {
                 </div>
             </div>
             <div className="column border-radius-10" style={{
-                backgroundColor: "var(--bg-color-1)"
+                backgroundColor: "var(--bg-color-1)",
+                overflowX: "hidden"
             }}>
                 <div style={{
                     aspectRatio: "32/9",
@@ -69,8 +70,12 @@ const Index = ({setCurrentSettings}) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="space-between row width-100pc">
-                                <div className="fs-20">
+                            <div className="space-between row width-100pc gap-6" style={{
+                                overflowX: "hidden"
+                            }}>
+                                <div className="fs-20" style={{
+                                    overflowX: "hidden"
+                                }}>
                                     <p>
                                         <span style={{
                                             color: "var(--text-color-2)"
@@ -79,7 +84,7 @@ const Index = ({setCurrentSettings}) => {
                                     </p>
                                 </div>
                                 <div>
-                                    <div className="solid-btn tiny fs-14" style={{
+                                    <div className="solid-btn tiny" style={{
                                         background: "var(--indigo)",
                                         border: "none",
                                         textTransform: "revert"

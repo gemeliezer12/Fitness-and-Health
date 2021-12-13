@@ -65,7 +65,8 @@ const Index = (setCurrentSettings) => {
                 </div>
             </div>
             <form className="column border-radius-10" style={{
-                backgroundColor: "var(--bg-color-1)"
+                backgroundColor: "var(--bg-color-1)",
+                overflowX: "hidden"
             }} onChange={(e) => onChange(e.target)} onSubmit={(e) => {
                 e.preventDefault()
                 onSubmit(e)
