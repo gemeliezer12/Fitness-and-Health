@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { useUser } from "../Contexts/UserContext"
 
 import Options from "./Options"
 
@@ -7,6 +9,8 @@ import UserProfile from "./Settings/UserProfile/"
 
 const Index = () => {
     const [currentSetting, setCurrentSetting] = useState("")
+    const { selfUser } = useUser()
+    const navigate = useNavigate()
 
     const CurrentSetting = () => {
         switch (currentSetting) {
@@ -20,6 +24,8 @@ const Index = () => {
                 break
         }
     }
+
+    selfUser === null && navigate("/")
 
     return (
         <div style={{
