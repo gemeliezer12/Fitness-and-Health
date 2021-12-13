@@ -99,7 +99,7 @@ const Index = (setCurrentSettings) => {
                         borderBottom: "1px solid var(--bg-color-5)"
                     }}/>
                     <AboutMe aboutMe={aboutMe}/>
-                    <div className="row flex-wrap margin-top-20 gap-6">
+                    <div className="row flex-wrap margin-top-20 gap-6 fs-14">
                         <select className="kvcdz3lpy3 cursor-pointer" name="fitnessLevel" style={{
                             backgroundColor: "var(--indigo)"
                         }}>

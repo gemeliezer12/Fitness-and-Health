@@ -28,6 +28,7 @@ const Index = () => {
             maxWidth: "1200px",
             display: "grid",
             gridTemplateColumns: "230px 1fr",
+            margin: "auto"
         }}>
             <div className="column padding-x-10 padding-top-40" style={{
                 width: "215px",
