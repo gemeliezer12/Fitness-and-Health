@@ -1,11 +1,12 @@
 import TextareaAutosizeProps from "react-textarea-autosize"
+import Input from "../../../Assets/Input"
 
 const AboutMe = ({aboutMe}) => {
-
 
     return (
         <div className="column gap-6">
             <p>{aboutMe.label}</p>
+            {/* <Input input={aboutMe}/> */}
             <div className="cNoBDHSUSz border-radius-10 padding-x-10 padding-y-10" style={{
                 backgroundColor: "var(--bg-color-4)",
             }}>

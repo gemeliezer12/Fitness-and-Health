@@ -116,6 +116,8 @@
   transform: translateY(50%);
   white-space: nowrap;
   overflow: hidden;
+  pointer-events: none;
+  user-select: none;
 }
 
 .cNoBDHSUSz:focus-within .label-container,
@@ -125,16 +127,13 @@
 
 .cNoBDHSUSz .label-container .label {
   transform-origin: 0% 0%;
-  white-space: nowrap;
+  width: 100%;
   display: block;
-  pointer-events: none;
 }
 
 .cNoBDHSUSz:focus-within .label-container .label,
 .cNoBDHSUSz.filled .label-container .label {
   transform: scale(0.8);
-  align-self: start;
-  transform-origin: 0% 50%;
 }
 
 .cNoBDHSUSz input {

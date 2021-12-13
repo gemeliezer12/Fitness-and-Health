@@ -74,12 +74,12 @@ const Form = () => {
     }
 
     return (
-        <form onSubmit={(e) => signInWithEmailPassword(e)} onChange={(e) => onChange(e.target)} className="column padding-top-20">
+        <form onSubmit={(e) => signInWithEmailPassword(e)} onChange={(e) => onChange(e.target)} className="column padding-top-20 gap-20">
             <Input input={email}/>
             <Input input={username}/>
             <Input input={password}/>
             <Input input={passwordRepeat}/>
-            <button className="solid-btn margin-top-20" style={{
+            <button className="solid-btn" style={{
                 backgroundColor: "var(--indigo)",
                 borderRadius: "200px"
             }}>
