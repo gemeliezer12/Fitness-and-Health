@@ -35,7 +35,7 @@ const Index = () => {
             case "appearance":
                 return (
                     <>
-                        <SettingHeader settingTitle="Appearance" setCurrentSetting={setCurrentSetting}/>
+                        <SettingHeader settingTitle="My Account" setCurrentSetting={setCurrentSetting}/>
                         <Appearance setCurrentSetting={setCurrentSetting}/>
                     </>
                 )
@@ -68,7 +68,7 @@ const Index = () => {
                     backgroundColor: "var(--bg-color-3)",
                     overflowY: "auto",
                 }}>
-                    {currentSetting && <CurrentSetting/>}
+                    {currentSetting ? <CurrentSetting/> : <SettingHeader settingTitle="Settings"/>}
                 </div> 
             </div>
         </div>

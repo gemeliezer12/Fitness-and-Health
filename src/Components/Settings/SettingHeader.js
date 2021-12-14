@@ -8,11 +8,13 @@ const SettingHeader = ({setCurrentSetting, settingTitle}) => {
             height: "40px"
         }}>
             <div className="row gap-6 align-center">
-                <div onClick={() => setCurrentSetting("")} className="img-32 icon color-inherit cursor-pointer" style={{
-                    color: "var(--text-color-2)"
-                }}>
-                    <i className="fas fa-arrow-left"></i>
-                </div>
+                {setCurrentSetting &&
+                    <div onClick={() => setCurrentSetting("")} className="img-32 icon color-inherit cursor-pointer" style={{
+                        color: "var(--text-color-2)"
+                    }}>
+                        <i className="fas fa-arrow-left"></i>
+                    </div>
+                }
                 <p className="ff-title fs-16">{settingTitle}</p>
             </div>
             <div onClick={() => navigate(-1)} className="img-32 icon color-inherit cursor-pointer" style={{
