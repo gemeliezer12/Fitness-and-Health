@@ -3,8 +3,6 @@ import { useTheme } from "../../../Contexts/ThemeContext"
 const Index = () => {
     const { theme, setTheme } = useTheme()
 
-    console.log(theme);
-
     return (
         <div>
             <div className="column space-between">
