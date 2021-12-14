@@ -647,3 +647,69 @@ img {
 .img-26.icon i {
   font-size: 16px;
 }
+
+/*  */
+
+.icon-50-absolute.x {
+  width: 50px;
+}
+.icon-40-absolute.x {
+  width: 40px;
+}
+.icon-32-absolute.x {
+  width: 32px;
+}
+.icon-26-absolute.x {
+  width: 26px;
+}
+
+.icon-26-absolute,
+.icon-32-absolute,
+.icon-40-absolute,
+.icon-50-absolute {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-32-absolute .background {
+  height: 32px;
+  width: 32px;
+}
+.icon-26-absolute .background {
+  height: 26px;
+  width: 26px;
+}
+.icon-40-absolute .background {
+  height: 40px;
+  width: 40px;
+}
+.icon-50-absolute .background {
+  height: 50px;
+  width: 50px;
+}
+
+.icon-32-absolute .background,
+.icon-26-absolute .background,
+.icon-40-absolute .background,
+.icon-50-absolute .background {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.icon-26-absolute * {
+  font-size: 16px;
+}
+.icon-32-absolute * {
+  font-size: 16px;
+}
+.icon-40-absolute * {
+  font-size: 20px;
+}
+.icon-50-absolute * {
+  font-size: 26px;
+}
+
+.icon-32-absolute * {
+  z-index: 1;
+}

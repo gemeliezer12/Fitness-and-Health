@@ -23,7 +23,7 @@ const Input = ({input, maxLength, minRows, maxRows}) => {
                     <input name={input.name} type={isPasswordShown ? "text" : "password"} value={input.value}/>
                 </div>
                 <div className="row align-center justify-center">
-                    <div className="ima10jhEuB cursor-pointer" onClick={() => setIsPasswordShown(!isPasswordShown)}>
+                    <div className="icon-32-absolute x cursor-pointer" onClick={() => setIsPasswordShown(!isPasswordShown)}>
                         <div className="K63no3Cr8s"/>
                         {isPasswordShown ?
                         <i className="fas fa-eye pos-relative" style={{

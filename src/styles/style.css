@@ -236,22 +236,3 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
 }
-
-.ima10jhEuB {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-}
-
-.K63no3Cr8s {
-  height: 32px;
-  width: 32px;
-  position: absolute;
-  border-radius: 50%;
-}
-
-.K63no3Cr8s i {
-  font-size: 16px;
-  z-index: 1;
-}
