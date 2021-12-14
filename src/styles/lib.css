@@ -647,13 +647,3 @@ img {
 .img-26.icon i {
   font-size: 16px;
 }
-
-/*  */
-
-.grayscale {
-  filter: grayscale(100%);
-}
-
-.brightness {
-  filter: brightness(100%);
-}
