@@ -28,24 +28,6 @@ const Index = ({setCurrentSetting}) => {
 
     return (
         <>
-            <div className="space-between row align-start" style={{
-                height: "40px"
-            }}>
-                <div className="row gap-6 align-center">
-                    <div onClick={() => setCurrentSetting("")} className="img-32 icon color-inherit cursor-pointer" style={{
-                        color: "var(--text-color-2)"
-                    }}>
-                        <i className="fas fa-arrow-left"></i>
-                    </div>
-                    <p className="ff-title fs-16">My Account</p>
-                </div>
-                <div onClick={() => navigate(-1)} className="img-32 icon color-inherit cursor-pointer" style={{
-                    backgroundColor: "var(--bg-color-5)",
-                    color: "var(--text-color-2)"
-                }}>
-                    <i className="fas fa-times"></i>
-                </div>
-            </div>
             <div className="column border-radius-10" style={{
                 backgroundColor: "var(--bg-color-1)",
                 overflowX: "hidden"

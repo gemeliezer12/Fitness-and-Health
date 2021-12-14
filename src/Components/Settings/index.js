@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useUser } from "../Contexts/UserContext"
+import SettingHeader from "./SettingHeader"
 
 import Options from "./Options"
 
 import MyAccount from "./Settings/MyAccount/"
 import UserProfile from "./Settings/UserProfile/"
+import Appearance from "./Settings/Appearance"
 
 const Index = () => {
     const [currentSetting, setCurrentSetting] = useState("")
@@ -15,13 +17,30 @@ const Index = () => {
     const CurrentSetting = () => {
         switch (currentSetting) {
             case "my-account":
-                return <MyAccount setCurrentSetting={setCurrentSetting}/>
+                return (
+                    <>
+                        <SettingHeader settingTitle="My Account" setCurrentSetting={setCurrentSetting}/>
+                        <MyAccount setCurrentSetting={setCurrentSetting}/>
+                    </>
+                )
                 break
             case "user-profile":
-                return <UserProfile setCurrentSetting={setCurrentSetting}/>
+                return( 
+                    <>
+                        <SettingHeader settingTitle="User Profile" setCurrentSetting={setCurrentSetting}/>
+                        <UserProfile setCurrentSetting={setCurrentSetting}/>
+                    </>
+                )
                 break
+            case "appearance":
+                return (
+                    <>
+                        <SettingHeader settingTitle="Appearance" setCurrentSetting={setCurrentSetting}/>
+                        <Appearance setCurrentSetting={setCurrentSetting}/>
+                    </>
+                )
             default:
-                break
+                return ""
         }
     }
 
