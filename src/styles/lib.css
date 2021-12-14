@@ -650,6 +650,19 @@ img {
 
 /*  */
 
+.icon-50-absolute.y {
+  height: 50px;
+}
+.icon-40-absolute.y {
+  height: 40px;
+}
+y .icon-32-absolute.y {
+  height: 32px;
+}
+.icon-26-absolute.y {
+  height: 26px;
+}
+
 .icon-50-absolute.x {
   width: 50px;
 }
