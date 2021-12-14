@@ -17,11 +17,56 @@
   --purple: #a855f7;
   --violet: #7c3aed;
 
-  --indigo-fuchsia: linear-gradient(
-    90deg,
-    var(--indigo) 0%,
-    var(--fuchsia) 100%
-  );
+  /* --bg-dark-1: rgb(15, 20, 25);
+  --bg-dark-2: rgb(20, 25, 30);
+  --bg-dark-3: rgba(28, 35, 42);
+  --bg-dark-4: rgba(37, 45, 53);
+  --bg-dark-5: rgba(56, 65, 74); */
+  --bg-dark-1: rgb(3, 9, 41);
+  --bg-dark-2: rgb(8, 14, 46);
+  --bg-dark-3: rgba(18, 24, 56);
+  --bg-dark-4: rgba(28, 34, 66);
+  --bg-dark-5: rgba(48, 54, 86);
+
+  --bg-light-1: rgb(220, 230, 240);
+  --bg-light-2: rgb(225, 235, 245);
+  --bg-light-3: rgb(231, 245, 255);
+  --bg-light-4: rgb(255, 255, 255);
+  --bg-light-5: rgb(255, 255, 255);
+
+  --text-dark-1: rgba(145, 150, 155);
+  --text-dark-2: white;
+  --text-dark-3: rgba(120, 125, 130);
+
+  --text-light-1: rgba(60, 75, 90);
+  --text-light-2: black;
+  --text-light-3: rgba(100, 115, 130);
+
+  --base-dark-1: rgba(255, 255, 255);
+  --base-dark-08: rgba(255, 255, 255, 0.8);
+  --base-dark-06: rgba(255, 255, 255, 0.6);
+  --base-dark-04: rgba(255, 255, 255, 0.4);
+  --base-dark-03: rgba(255, 255, 255, 0.3);
+  --base-dark-02: rgba(255, 255, 255, 0.2);
+  --base-dark-01: rgba(255, 255, 255, 0.1);
+  --base-dark-008: rgba(255, 255, 255, 0.08);
+  --base-dark-006: rgba(255, 255, 255, 0.06);
+  --base-dark-004: rgba(255, 255, 255, 0.04);
+  --base-dark-002: rgba(255, 255, 255, 0.02);
+  --base-dark-001: rgba(255, 255, 255, 0.01);
+
+  --base-light-1: rgba(0, 0, 0);
+  --base-light-08: rgba(0, 0, 0, 0.8);
+  --base-light-06: rgba(0, 0, 0, 0.6);
+  --base-light-04: rgba(0, 0, 0, 0.4);
+  --base-light-03: rgba(0, 0, 0, 0.3);
+  --base-light-02: rgba(0, 0, 0, 0.2);
+  --base-light-01: rgba(0, 0, 0, 0.1);
+  --base-light-008: rgba(0, 0, 0, 0.08);
+  --base-light-006: rgba(0, 0, 0, 0.06);
+  --base-light-004: rgba(0, 0, 0, 0.04);
+  --base-light-002: rgba(0, 0, 0, 0.02);
+  --base-light-002: rgba(0, 0, 0, 0.01);
 
   --title-font: "poppins", sans-serif;
   --text-font: "poppins", sans-serif;
@@ -33,94 +78,101 @@
 
 .dark,
 .light .opposite {
-  --bg-color-1: rgb(3, 9, 41);
-  --bg-color-2: rgb(8, 14, 46);
-  --bg-color-3: rgba(18, 24, 56);
-  --bg-color-4: rgba(28, 34, 66);
-  --bg-color-5: rgba(48, 54, 86);
-  /* --bg-color-1: rgb(15, 20, 25);
-  --bg-color-2: rgb(20, 25, 30);
-  --bg-color-3: rgba(28, 35, 42);
-  --bg-color-4: rgba(37, 45, 53);
-  --bg-color-5: rgba(56, 65, 74); */
+  --bg-color-1: var(--bg-dark-1);
+  --bg-color-2: var(--bg-dark-2);
+  --bg-color-3: var(--bg-dark-3);
+  --bg-color-4: var(--bg-dark-4);
+  --bg-color-5: var(--bg-dark-5);
+
   /*  */
-  --text-color-1: rgba(145, 150, 155);
-  --text-color-2: white;
-  --text-color-3: rgba(120, 125, 130);
+  --text-color-1: var(--text-dark-1);
+  --text-color-2: var(--text-dark-2);
+  --text-color-3: var(--text-dark-3);
   /*  */
-  --text-comp-color-1: rgba(60, 75, 90);
-  --text-comp-color-2: black;
-  --text-comp-color-3: rgba(100, 115, 130);
+  --text-comp-color-1: var(--text-light-1);
+  --text-comp-color-2: var(--text-light-2);
+  --text-comp-color-3: var(--text-light-3);
   /*  */
-  --bg-comp-color-1: rgb(207, 203, 235);
-  --bg-comp-color-2: rgb(217, 213, 245);
-  --bg-comp-color-3: rgb(227, 223, 255);
-  --bg-comp-color-4: rgb(255, 255, 255);
-  --bg-comp-color-5: rgb(255, 255, 255);
+  --bg-comp-color-1: var(--bg-light-1);
+  --bg-comp-color-2: var(--bg-light-2);
+  --bg-comp-color-3: var(--bg-light-3);
+  --bg-comp-color-4: var(--bg-light-4);
+  --bg-comp-color-5: var(--bg-light-5);
   /*  */
-  --base-1: rgba(0, 0, 0);
-  --base-08: rgba(0, 0, 0, 0.8);
-  --base-06: rgba(0, 0, 0, 0.6);
-  --base-04: rgba(0, 0, 0, 0.4);
-  --base-03: rgba(0, 0, 0, 0.3);
-  --base-02: rgba(0, 0, 0, 0.2);
-  --base-01: rgba(0, 0, 0, 0.1);
-  --base-004: rgba(0, 0, 0, 0.04);
+  --base-1: var(--base-dark-1);
+  --base-08: var(--base-dark-08);
+  --base-06: var(--base-dark-06);
+  --base-04: var(--base-dark-04);
+  --base-03: var(--base-dark-03);
+  --base-02: var(--base-dark-02);
+  --base-01: var(--base-dark-01);
+  --base-008: var(--base-dark-008);
+  --base-006: var(--base-dark-006);
+  --base-004: var(--base-dark-004);
+  --base-002: var(--base-dark-002);
+  --base-001: var(--base-dark-001);
   /*  */
-  --base-comp-1: rgba(255, 255, 255);
-  --base-comp-08: rgba(255, 255, 255, 0.8);
-  --base-comp-06: rgba(255, 255, 255, 0.6);
-  --base-comp-04: rgba(255, 255, 255, 0.4);
-  --base-comp-03: rgba(255, 255, 255, 0.3);
-  --base-comp-02: rgba(255, 255, 255, 0.2);
-  --base-comp-01: rgba(255, 255, 255, 0.1);
-  --base-comp-004: rgba(255, 255, 255, 0.04);
+  --base-comp-1: var(--base-light-1);
+  --base-comp-08: var(--base-light-08);
+  --base-comp-06: var(--base-light-06);
+  --base-comp-04: var(--base-light-04);
+  --base-comp-03: var(--base-light-03);
+  --base-comp-02: var(--base-light-02);
+  --base-comp-01: var(--base-light-01);
+  --base-comp-008: var(--base-light-008);
+  --base-comp-006: var(--base-light-006);
+  --base-comp-004: var(--base-light-004);
+  --base-comp-002: var(--base-light-002);
+  --base-comp-001: var(--base-light-001);
 }
 
 .light,
 .dark .opposite {
-  /* --bg-color-1: rgb(207, 113, 235);
-  --bg-color-2: rgb(217, 213, 245);
-  --bg-color-3: rgb(227, 223, 255);
-  --bg-color-4: rgb(255, 255, 255);
-  --bg-color-5: rgb(255, 255, 255); */
-  --bg-color-1: rgb(220, 230, 240);
-  --bg-color-2: rgb(225, 235, 245);
-  --bg-color-3: rgb(231, 245, 255);
-  --bg-color-4: rgb(255, 255, 255);
-  --bg-color-5: rgb(255, 255, 255);
+  --bg-color-1: var(--bg-light-1);
+  --bg-color-2: var(--bg-light-2);
+  --bg-color-3: var(--bg-light-3);
+  --bg-color-4: var(--bg-light-4);
+  --bg-color-5: var(--bg-light-5);
 
-  --text-color-1: rgba(60, 75, 90);
-  --text-color-2: black;
-  --text-color-3: rgba(100, 115, 130);
+  --text-color-1: var(--text-light-1);
+  --text-color-2: var(--text-light-2);
+  --text-color-3: var(--text-light-4);
 
-  --text-comp-color-1: rgba(145, 150, 155);
-  --text-comp-color-2: white;
-  --text-comp-color-3: rgba(120, 125, 130);
+  --text-comp-color-1: var(--text-dark-1);
+  --text-comp-color-2: var(--text-dark-2);
+  --text-comp-color-3: var(--text-dark-3);
 
-  --bg-comp-color-1: rgb(3, 9, 41);
-  --bg-comp-color-2: rgb(8, 14, 46);
-  --bg-comp-color-3: rgba(18, 24, 56);
-  --bg-comp-color-4: rgba(28, 34, 66);
-  --bg-comp-color-5: rgba(48, 54, 86);
+  --bg-comp-color-1: var(--bg-dark-1);
+  --bg-comp-color-2: var(--bg-dark-2);
+  --bg-comp-color-3: var(--bg-dark-3);
+  --bg-comp-color-4: var(--bg-dark-4);
+  --bg-comp-color-5: var(--bg-dark-5);
 
-  --base-comp-1: rgba(0, 0, 0);
-  --base-comp-08: rgba(0, 0, 0, 0.8);
-  --base-comp-06: rgba(0, 0, 0, 0.6);
-  --base-comp-04: rgba(0, 0, 0, 0.4);
-  --base-comp-03: rgba(0, 0, 0, 0.3);
-  --base-comp-02: rgba(0, 0, 0, 0.2);
-  --base-comp-01: rgba(0, 0, 0, 0.1);
-  --base-comp-004: rgba(0, 0, 0, 0.04);
+  --base-comp-1: var(--base-dark-1);
+  --base-comp-08: var(--base-dark-08);
+  --base-comp-06: var(--base-dark-06);
+  --base-comp-04: var(--base-dark-04);
+  --base-comp-03: var(--base-dark-03);
+  --base-comp-02: var(--base-dark-02);
+  --base-comp-01: var(--base-dark-01);
+  --base-comp-008: var(--base-dark-008);
+  --base-comp-006: var(--base-dark-006);
+  --base-comp-004: var(--base-dark-004);
+  --base-comp-002: var(--base-dark-002);
+  --base-comp-001: var(--base-dark-001);
 
-  --base-1: rgba(255, 255, 255);
-  --base-08: rgba(255, 255, 255, 0.8);
-  --base-06: rgba(255, 255, 255, 0.6);
-  --base-04: rgba(255, 255, 255, 0.4);
-  --base-03: rgba(255, 255, 255, 0.3);
-  --base-02: rgba(255, 255, 255, 0.2);
-  --base-01: rgba(255, 255, 255, 0.1);
-  --base-004: rgba(255, 255, 255, 0.04);
+  --base-1: var(--base-light-1);
+  --base-08: var(--base-light-08);
+  --base-06: var(--base-light-06);
+  --base-04: var(--base-light-04);
+  --base-03: var(--base-light-03);
+  --base-02: var(--base-light-02);
+  --base-01: var(--base-light-01);
+  --base-008: var(--base-light-008);
+  --base-006: var(--base-light-006);
+  --base-004: var(--base-light-004);
+  --base-002: var(--base-light-002);
+  --base-001: var(--base-light-001);
 }
 
 .dark {
