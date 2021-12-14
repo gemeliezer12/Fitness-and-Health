@@ -6,7 +6,7 @@ import { firebase } from "../../../../firebase"
 
 const db = firebase.firestore()
 
-const UsernameForm = (setCurrentForm) => {
+const UsernameForm = ({setCurrentForm}) => {
     
     const { selfUser } = useUser()
     const [username, setUsername] = useState({name: "username", value: undefined, type: "text", label: "Username", isValid: undefined, isRequired: true})
@@ -55,6 +55,21 @@ const UsernameForm = (setCurrentForm) => {
                     <p>Enter your new username and your existing password</p>
                 </div>
                 <Input input={username}/>
+                <div className="row space-between">
+                    <div/>
+                    <div className="row gap-6">
+                        <div className="solid-btn tiny" style={{
+                            color: "var(--red)"
+                        }} onClick={() => setCurrentForm(null)}>
+                            <p>Cancel</p>
+                        </div>
+                        <button type="submit" className="solid-btn tiny" style={{
+                            backgroundColor: "var(--green)"
+                        }}>
+                            <p>Save</p>
+                        </button>
+                    </div>
+                </div>
             </div>
         </form>
     )
