@@ -16,8 +16,10 @@ const UsernameForm = ({setCurrentForm}) => {
         switch (e.name) {
             case "username":
                 setUsername({...username, value: e.value, isValid: e.value.length > 1})
+                break
             case "password":
                 setPassword({...password, value: e.value, isValid: e.value.length >= 8})
+                break
             default:
                 break
         }   

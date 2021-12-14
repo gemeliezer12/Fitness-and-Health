@@ -1258,7 +1258,7 @@ body {
 .align-self-center {
   align-self: center !important;
 }
-.align-self-center {
+.align-self-start {
   align-self: flex-start !important;
 }
 .align-self-end {

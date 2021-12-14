@@ -19,7 +19,7 @@ const Index = ({setCurrentSetting}) => {
     const user = selfUser.user
     const id = selfUser.id
 
-    const [ aboutMe, setAboutMe ] = useState({name: "aboutMe", label: "About Me", type: "text", value: "", isValid: true, isRequired: false})
+    const [ aboutMe, setAboutMe ] = useState({name: "aboutMe", label: "About Me", type: "textarea", value: "", isValid: true, isRequired: false})
     const [selectedFitnessLevel, setSelectedFitnessLevel] = useState()
     const fitnessLevels = [{label: "Beginner", name: "beginner"}, {label: "Intermidiate", name: "intermidiate"}, {label: "Advanced", name: "advanced"}]
 
