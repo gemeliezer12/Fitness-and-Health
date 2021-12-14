@@ -6,7 +6,7 @@ const Banner = () => {
             borderTopLeftRadius: "10px",
             borderTopRightRadius: "10px",
         }}>
-            <div style={{
+            <div className="dark" style={{
                 backgroundColor: "var(--text-color-2)",
                 padding: "2px",
                 position: "absolute",

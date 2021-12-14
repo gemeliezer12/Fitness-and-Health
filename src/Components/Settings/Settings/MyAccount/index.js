@@ -74,7 +74,6 @@ const Index = ({setCurrentSetting}) => {
                                     <div className="solid-btn tiny" style={{
                                         background: "var(--indigo)",
                                         border: "none",
-                                        textTransform: "revert"
                                     }} onClick={() => setCurrentSetting("user-profile")}>
                                         <p>Edit Profile</p>
                                     </div>

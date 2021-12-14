@@ -14,7 +14,7 @@ const ProfilePicture = () => {
                     <div className="img-72 img">
                         <img src="../../images/profile.png" alt="" />
                     </div>
-                    <div style={{
+                    <div className="dark" style={{
                         backgroundColor: "var(--text-color-2)",
                         padding: "2px",
                         position: "absolute",

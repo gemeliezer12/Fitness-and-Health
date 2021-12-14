@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { firebase } from "../../firebase"
 
 const db = firebase.firestore()
+const auth = firebase.auth()
 
 const UserContext = createContext()
 
@@ -12,6 +13,7 @@ export const useUser = () => useContext(UserContext)
 export const UserProvider = ({ children }) => {
     
     const [selfUser, setSelfUser] = useState()
+    const selfUserAuth = auth.currentUser
     const navigate = useNavigate()
 
     const getSelfUser = async (userId) => {
@@ -21,12 +23,12 @@ export const UserProvider = ({ children }) => {
     }
 
     const signOut = () => {
-        firebase.auth().signOut()
+        auth.signOut()
         navigate("/")
     }
 
     useEffect(() => {
-        firebase.auth().onAuthStateChanged( async (user) => {
+        auth.onAuthStateChanged( async (user) => {
             if (user) {
                 getSelfUser(user.uid)
             }
@@ -38,9 +40,11 @@ export const UserProvider = ({ children }) => {
 
     const value = {
         selfUser,
-        signOut
+        signOut,
+        selfUserAuth,
+        auth,
+        db
     }
-
     return (
         <UserContext.Provider value={value}>
             {children}

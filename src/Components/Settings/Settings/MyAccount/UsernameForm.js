@@ -2,14 +2,11 @@ import { useEffect, useState } from "react"
 import Input from "../../../Assets/Input"
 import { useUser } from "../../../Contexts/UserContext"
 
-import { firebase } from "../../../../firebase"
-
-const db = firebase.firestore()
-
 const UsernameForm = ({setCurrentForm}) => {
     
-    const { selfUser } = useUser()
-    const [username, setUsername] = useState({name: "username", value: undefined, type: "text", label: "Username", isValid: undefined, isRequired: true})
+    const { selfUser, selfUserAuth, auth, db } = useUser()
+    const [username, setUsername] = useState({name: "username", value: "", type: "text", label: "Username", isValid: undefined, isRequired: true})
+    const [password, setPassword] = useState({name: "password", value: "", type: "password", label: "Password", isValid: undefined, isRequired: true})
 
     const user = selfUser.user
     const id = selfUser.id
@@ -19,6 +16,8 @@ const UsernameForm = ({setCurrentForm}) => {
         switch (e.name) {
             case "username":
                 setUsername({...username, value: e.value, isValid: e.value.length > 1})
+            case "password":
+                setPassword({...password, value: e.value, isValid: e.value.length >= 8})
             default:
                 break
         }   
@@ -26,12 +25,10 @@ const UsernameForm = ({setCurrentForm}) => {
 
     // Username Submitter
     const onSubmit = async () => {
-        console.log(
-            await db.collection("users").doc(id).set({
-                ...user,
-                username: username.value
-            })
-        )
+        await db.collection("users").doc(id).set({
+            ...user,
+            username: username.value
+        })
     }
 
     useEffect(() => {
@@ -55,6 +52,7 @@ const UsernameForm = ({setCurrentForm}) => {
                     <p>Enter your new username and your existing password</p>
                 </div>
                 <Input input={username}/>
+                <Input input={password}/>
                 <div className="row space-between">
                     <div/>
                     <div className="row gap-6">

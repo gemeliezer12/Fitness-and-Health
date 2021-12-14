@@ -43,6 +43,11 @@ const Index = ({setCurrentSetting}) => {
             fitness_level: selectedFitnessLevel
         })
     }
+
+    const reset = () => {
+        setAboutMe({...aboutMe, value: !user.about_me ? "" : user.about_me})
+        setSelectedFitnessLevel(user.fitness_level)
+    }
     
     useEffect(() => {
         setAboutMe({...aboutMe, value: !user.about_me ? "" : user.about_me})
@@ -66,7 +71,12 @@ const Index = ({setCurrentSetting}) => {
                         <ProfilePicture/>
                         <div className="space-between row width-100pc">
                             <div/>
-                            <div>
+                            <div className="row gap-6">
+                                <button className="solid-btn tiny" style={{
+                                    color: "var(--red)"
+                                }} onClick={() => reset()}>
+                                    <p>Reset</p>
+                                </button>
                                 <button type="submit" className="solid-btn tiny" style={{
                                     backgroundColor: "var(--green)"
                                 }}>

@@ -4,11 +4,11 @@ const Index = () => {
     const { theme, setTheme } = useTheme()
 
     return (
-        <div>
+        <div className="column gap-6">
             <div className="column space-between">
-                <p>Theme</p>
+                <p className="ff-title">Theme</p>
             </div>
-            <div className="column gap-6">
+            <div className="column gap-4">
                 <div className="row gap-6 solid-btn justify-start" style={{
                     backgroundColor: "var(--bg-color-1)"
                 }} onClick={() => setTheme("dark")}>
