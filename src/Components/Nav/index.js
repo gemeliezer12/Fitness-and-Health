@@ -59,7 +59,7 @@ const Index = () => {
                         <div className="solid-btn sPF9B2SD15" style={{
                             padding: "10px"
                         }}>
-                            <i class="fas fa-search"></i>
+                            <i className="fas fa-search"></i>
                         </div>
                     </div>
                 </div>
