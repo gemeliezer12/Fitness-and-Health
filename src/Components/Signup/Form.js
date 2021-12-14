@@ -32,19 +32,33 @@ const Form = () => {
         try {
             const res = await new firebase.auth().createUserWithEmailAndPassword( email.value, password.value)
 
-            const number = String(parseInt((await db.collection("users").orderBy("user_number", "desc").limit("1").get()).docs[0].data().user_number) + 1)
-            
-            const userNumber = toUserNumber(number)
-
             try {
-                db.collection("users").doc(res.user.uid).set({
-                    username: username.value,
-                    user_number: userNumber
-                })
+                const number = String(parseInt((await db.collection("users").orderBy("user_number", "desc").limit("1").get()).docs[0].data().user_number) + 1)
+            
+                const userNumber = toUserNumber(number)
+
+                try {
+                    db.collection("users").doc(res.user.uid).set({
+                        username: username.value,
+                        user_number: userNumber
+                    })
+                }
+                catch (err) {
+                    console.log(err)
+                }
             }
             catch (err) {
-                console.log(err)
+                try {
+                    db.collection("users").doc(res.user.uid).set({
+                        username: username.value,
+                        user_number: "0001"
+                    })
+                }
+                catch (err) {
+                    console.log(err)
+                }
             }
+            
         }
         catch (err) {
             console.log(err)
