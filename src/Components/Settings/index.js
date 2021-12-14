@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useUser } from "../Contexts/UserContext"
 
@@ -24,6 +24,10 @@ const Index = () => {
                 break
         }
     }
+
+    useEffect(() => {
+        window.innerWidth > 599 && setCurrentSetting("my-account")
+    }, [])
 
     selfUser === null && navigate("/")
 
