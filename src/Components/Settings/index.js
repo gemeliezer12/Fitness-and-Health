@@ -12,7 +12,6 @@ import Appearance from "./Settings/Appearance"
 const Index = () => {
     const [currentSetting, setCurrentSetting] = useState("")
     const { selfUser } = useUser()
-    const [windowSize, setWindowSize] = useState()
     const navigate = useNavigate()
 
     const CurrentSetting = () => {
@@ -47,18 +46,6 @@ const Index = () => {
 
     useEffect(() => {
         window.innerWidth > 599 && setCurrentSetting("my-account")
-    }, [])
-
-    useEffect(() => {
-        const handleSize = () => {
-            setWindowSize({width: window.innerWidth, window: window.innerHeight})
-        }        
-
-        window.addEventListener("resize", handleSize)
-        
-        return () => {
-            window.removeEventListener("resize", handleSize)
-        }
     }, [])
 
     selfUser === null && navigate("/")
