@@ -202,7 +202,7 @@
   margin: auto;
 }
 
-@media only screen and (max-width: 599px) {
+/* @media only screen and (max-width: 599px) {
   .zfURiv2hFW {
     grid-template-columns: 100vw 100vw;
   }
@@ -215,7 +215,7 @@
   .Y2cec8Lddp {
     transform: translateX(100%);
   }
-}
+} */
 
 .Y2cec8Lddp {
   width: 100vw;
