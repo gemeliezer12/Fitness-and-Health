@@ -6,7 +6,7 @@ const Index = () => {
 
     return (
         <div className={`kt3ZmTsWK1 column color-inherit gap-40${isOpen ? " open" : " close"}`} style={{
-            backgroundColor: "var(--indigo)",
+            backgroundColor: "var(--bg-color-1)",
             color: 'white'
         }}>
             <div className="column">
@@ -18,7 +18,7 @@ const Index = () => {
                         minWidth: "70px"
                     }}>
                         <div className="img-50 icon cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-                            <img src="images/logo.png" alt="" />
+                            <img src="../../../../images/logo.png" alt="" />
                         </div>
                     </div>
                     <div className="flex space-between align-center" style={{

@@ -250,12 +250,13 @@
 }
 
 .kt3ZmTsWK1.open {
-  width: 300px;
-  max-width: 300px;
+  width: 285px;
+  max-width: 285px;
 }
 
 .kt3ZmTsWK1 {
   white-space: nowrap;
+  height: 100%;
 }
 
 .kt3ZmTsWK1.close {
@@ -263,4 +264,19 @@
   min-width: 70px;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.lvC9OT67bA {
+  cursor: pointer;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.lvC9OT67bA:hover {
+  background-color: var(--base-004);
 }
