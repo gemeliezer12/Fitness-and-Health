@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
     const [isOpen, setIsOpen] = useState()
@@ -36,7 +37,7 @@ const Index = () => {
                         minWidth: "70px",
                     }}>
                         <div className="img-50 icon">
-                            <i className="fas fa-comment"></i>
+                            <i className="far fa-comment"></i>
                         </div>
                     </div>
                     <div className="flex space-between align-center" style={{
@@ -62,6 +63,23 @@ const Index = () => {
                         <p className="ff-title">My Profile</p>
                     </div>
                 </div>
+                <Link to="/settings" className="row JSfQXwCUGp">
+                    <div style={{
+                        width: "70px",
+                        display: "flex",
+                        justifyContent: "center",
+                        minWidth: "70px",
+                    }}>
+                        <div className="img-50 icon">
+                            <i className="fas fa-cog"></i>
+                        </div>
+                    </div>
+                    <div className="flex space-between align-center" style={{
+                        width: "230px"
+                    }}>
+                        <p className="ff-title">Settings</p>
+                    </div>
+                </Link>
             </div>
         </div>
     )
