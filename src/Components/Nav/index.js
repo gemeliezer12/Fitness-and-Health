@@ -36,7 +36,7 @@ const Index = () => {
                     </div>
                     <div className="row uppercase fs-16 gap-10 xEbmIF5vqf">
                         {selfUser ?
-                        <Link to="/signin" className="solid-btn small" style={{
+                        <Link to="/app" className="solid-btn small" style={{
                             borderRadius: "200px",
                             backgroundColor: "var(--bg-comp-color-2)",
                             color: "var(--text-comp-color-2)"

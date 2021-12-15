@@ -2,19 +2,21 @@
 
 :root {
   --indigo: #4f46e5;
-  --blue: #2563eb;
-  --light-blue: #0ea5e9;
+  --blue: #3b82f6;
+  --sky: #0ea5e9;
+  --cyan: #22d3ee;
   --teal: #2dd4bf;
   --emerald: #34d399;
   --green: #4ade80;
-  --lime: #84cc16;
-  --yellow: #fde047;
+  --lime: #a3e635;
+  --yellow: #eab308;
   --amber: #f59e0b;
+  --orange: #ea580c;
   --red: #dc2626;
   --rose: #e11d48;
-  --pink: #ec4899;
-  --fuchsia: #d946ef;
-  --purple: #a855f7;
+  --pink: #db2777;
+  --fuchsia: #c026d3;
+  --purple: #9333ea;
   --violet: #7c3aed;
 
   /* --bg-dark-1: rgb(15, 20, 25);
