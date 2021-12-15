@@ -28,7 +28,7 @@ const Plan = ({plan, id}) => {
             <div className="column">
                 <div className="row gap-10 align-center">
                     <div className="badge-16" style={{
-                        background: "var(--indigo-fuchsia)"
+                        background: "var(--bg-comp-color-2)"
                     }}>
                         <i className="fas fa-check fs-10"></i>
                     </div>
@@ -36,7 +36,7 @@ const Plan = ({plan, id}) => {
                 </div>
                 <div className="row gap-10 align-center">
                     <div className="badge-16" style={{
-                        background: "var(--indigo-fuchsia)"
+                        background: "var(--bg-comp-color-2)"
                     }}>
                         <i className="fas fa-check fs-10"></i>
                     </div>
@@ -44,7 +44,7 @@ const Plan = ({plan, id}) => {
                 </div>
                 <div className="row gap-10 align-center">
                     <div className="badge-16" style={{
-                        background: "var(--indigo-fuchsia)"
+                        background: "var(--bg-comp-color-2)"
                     }}>
                         <i className="fas fa-check fs-10"></i>
                     </div>

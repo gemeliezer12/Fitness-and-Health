@@ -6,25 +6,10 @@ import { useUser } from "../Contexts/UserContext";
 const Index = () => {
 
     const { selfUser } = useUser()
-    // const [scrollPosition, setScrollPosition] = useState(0)
-
-    // const handleScroll = () => {
-    //     const position = window.pageYOffset
-    //     setScrollPosition(position);
-    // };
-
-    // useEffect(() => {
-    //     window.addEventListener("scroll", handleScroll);
-
-    //     return () => {
-    //     window.removeEventListener("scroll", handleScroll);
-    //     };
-    // }, []);
 
 
     return (
         <>
-            {/* <div className={`dark color-inherit FO4mElxbi0${scrollPosition > 200 ? " hide" : ""}`} style={{ */}
             <div className={`dark color-inherit FO4mElxbi0`} style={{
                 backgroundColor: "var(--indigo)",
                 zIndex: "1",
@@ -39,29 +24,27 @@ const Index = () => {
                         <img className="icon" src="../../../images/logo.png" alt=""/>
                     </Link>
                     <div className="row uppercase fs-16 gap-10 xEbmIF5vqf">
-                        <Link to="" className="solid-btn tiny sPF9B2SD15 first">
+                        <Link to="" className="solid-btn small sPF9B2SD15 first">
                             <p>Tutorials</p>
                         </Link>
-                        <Link to="" className="solid-btn tiny sPF9B2SD15">
+                        <Link to="" className="solid-btn small sPF9B2SD15">
                             <p>Pricing</p>
                         </Link>
                         {selfUser ?
-                        <Link to="/settings" className="solid-btn tiny sPF9B2SD15">
+                        <Link to="/settings" className="solid-btn small sPF9B2SD15">
                             <p>Settings</p>
                         </Link>
                         :
-                        <Link to="/signin" className="solid-btn tiny sPF9B2SD15">
+                        <Link to="/signin" className="solid-btn small sPF9B2SD15">
                             <p>Register</p>
                         </Link>
                         }
-                        <Link to="/signin" className="solid-btn tiny iGeeEa3h6v">
+                        <Link to="/signin" className="solid-btn small iGeeEa3h6v" style={{
+                            borderRadius: "200px"
+                        }}>
                             <p>Open Astra</p>
                         </Link>
-                        <div className="solid-btn sPF9B2SD15" style={{
-                            padding: "10px"
-                        }}>
-                            <i className="fas fa-search"></i>
-                        </div>
+
                     </div>
                 </div>
             </div>
