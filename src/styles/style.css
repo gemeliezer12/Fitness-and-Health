@@ -12,18 +12,18 @@
 .FO4mElxbi0 {
   width: 100%;
   height: 70px;
-  position: sticky;
+  /* position: sticky; */
   top: 0;
   color: var(--text-color-2);
 }
 
-.FO4mElxbi0.hide {
+/* .FO4mElxbi0.hide {
   transform: translateY(calc(-100% + 15px));
 }
 
 .FO4mElxbi0.hide:hover {
   transform: translateY(0%);
-}
+} */
 
 .iGeeEa3h6v {
   color: var(--text-comp-color-2);

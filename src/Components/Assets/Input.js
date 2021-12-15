@@ -4,11 +4,15 @@ import { useState } from "react"
 const Input = ({input, maxLength, minRows, maxRows}) => {
     const [isPasswordShown, setIsPasswordShown] = useState(false)
 
+    const isTextOrEmail = () => {
+        return input.type === "text" || input.type === "email"
+    }
+
     return (
         <>
             {input.type === "password" &&
             <div className="padding-x-10 padding-y-6 border-radius-10 row" style={{
-                backgroundColor: "var(--bg-color-5)",
+                backgroundColor: "var(--bg-color-4)",
             }}>
                 <div className={`cNoBDHSUSz${input.value !== "" ? " filled" : ""}`} style={{
                     width: "100%",
@@ -25,23 +29,17 @@ const Input = ({input, maxLength, minRows, maxRows}) => {
                 <div className="row align-center justify-center">
                     <div className="icon-32-absolute x cursor-pointer" onClick={() => setIsPasswordShown(!isPasswordShown)}>
                         <div className="K63no3Cr8s"/>
-                        {isPasswordShown ?
-                        <i className="fas fa-eye pos-relative" style={{
-                            zIndex: "1"
+                        <i className={`${isPasswordShown ? "fas fa-eye" : "fas fa-eye-slash"} pos-relative`} style={{
+                            zIndex: "1",
                         }}></i>
-                        :
-                        <i className="fas fa-eye-slash pos-relative" style={{
-                            zIndex: "1"
-                        }}></i>
-                        }
                     </div>
                 </div>
             </div>
             }
             {
-            input.type === "text" || input.type === "email" &&
+            isTextOrEmail() &&
             <div className={`cNoBDHSUSz padding-x-10 padding-y-6 border-radius-10${input.value !== "" ? " filled" : ""}`} style={{
-                backgroundColor: "var(--bg-color-5)",
+                backgroundColor: "var(--bg-color-4)",
             }}>
                 <div className="label-container">
                     <div className="label">
@@ -55,7 +53,7 @@ const Input = ({input, maxLength, minRows, maxRows}) => {
             }
             {input.type === "textarea" &&
             <div className={`cNoBDHSUSz padding-x-10 padding-y-6 border-radius-10${input.value !== "" ? " filled" : ""}`} style={{
-                backgroundColor: "var(--bg-color-5)",
+                backgroundColor: "var(--bg-color-4)",
             }}>
                 <div className="label-container">
                         <div className="label">

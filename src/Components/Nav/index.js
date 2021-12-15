@@ -5,26 +5,27 @@ import { useUser } from "../Contexts/UserContext";
 
 const Index = () => {
 
-    const [scrollPosition, setScrollPosition] = useState(0)
     const { selfUser } = useUser()
+    // const [scrollPosition, setScrollPosition] = useState(0)
 
-    const handleScroll = () => {
-        const position = window.pageYOffset
-        setScrollPosition(position);
-    };
+    // const handleScroll = () => {
+    //     const position = window.pageYOffset
+    //     setScrollPosition(position);
+    // };
 
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
+    // useEffect(() => {
+    //     window.addEventListener("scroll", handleScroll);
 
-        return () => {
-        window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+    //     return () => {
+    //     window.removeEventListener("scroll", handleScroll);
+    //     };
+    // }, []);
 
 
     return (
         <>
-            <div className={`dark color-inherit FO4mElxbi0${scrollPosition > 200 ? " hide" : ""}`} style={{
+            {/* <div className={`dark color-inherit FO4mElxbi0${scrollPosition > 200 ? " hide" : ""}`} style={{ */}
+            <div className={`dark color-inherit FO4mElxbi0`} style={{
                 backgroundColor: "var(--indigo)",
                 zIndex: "1",
                 color: "white"
@@ -32,8 +33,8 @@ const Index = () => {
                 <div className="row space-between align-center padding-x-32 HPNXA06qJ7" style={{
                     height: "100%"
                 }}>
-                    <Link to="/" className="img-40 icon" style={{
-                        background: "var(--bg-comp-color-5)"
+                    <Link to="/" className="img-40 img" style={{
+                        overflow: "visible"
                     }}>
                         <img className="icon" src="../../../images/logo.png" alt=""/>
                     </Link>
@@ -54,7 +55,7 @@ const Index = () => {
                         </Link>
                         }
                         <Link to="/signin" className="solid-btn tiny iGeeEa3h6v">
-                            <p>Download</p>
+                            <p>Open Astra</p>
                         </Link>
                         <div className="solid-btn sPF9B2SD15" style={{
                             padding: "10px"

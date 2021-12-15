@@ -69,7 +69,7 @@ const Index = ({setCurrentSetting}) => {
                         height: "40px",
                     }}>
                         <ProfilePicture/>
-                        <div className="space-between row width-100pc">
+                        <div className="space-between row width-100pc align-start">
                             <div/>
                             <div className="row gap-6">
                                 <button className="solid-btn tiny" style={{
