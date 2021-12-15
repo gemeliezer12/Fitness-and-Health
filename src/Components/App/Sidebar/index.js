@@ -29,7 +29,7 @@ const Index = () => {
                 </div>
             </div>
             <div className="column">
-                <div className="row JSfQXwCUGp">
+                <Link to="/app/chat" className={`row JSfQXwCUGp${window.location.pathname.split("/")[2] === "chat" ? " hovering" : ""}`}>
                     <div style={{
                         width: "70px",
                         display: "flex",
@@ -45,7 +45,7 @@ const Index = () => {
                     }}>
                         <p className="ff-title">Chats</p>
                     </div>
-                </div>
+                </Link>
                 <div className="row JSfQXwCUGp">
                     <div style={{
                         width: "70px",

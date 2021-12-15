@@ -1,21 +1,29 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { firebase } from "../../../firebase"
+import { firebase } from "../../../../firebase"
+import { useUser } from "../../../Contexts/UserContext"
 
 const db = firebase.firestore()
 
 const User = ({id}) => {
-    const [user, setUser] = useState()
+    const {selfUserFriends} = useUser()
+
+    console.log(selfUserFriends)
     
-    const getUser = async () => {
-        setUser(
-            (await db.collection("users").doc(id).get()).data()
-        )
+    
+    const getUser =  () => {
+        for (let i = 0; i < selfUserFriends.length; i++) {
+            const user = selfUserFriends[i]
+            if(user.id === id) {
+                return user
+            }
+        }
     }
 
-    useEffect(() => {
-        getUser()
-    }, [])
+
+    const user = selfUserFriends && getUser().user
+
+    console.log(selfUserFriends);
 
     if (!user) return ""
 

@@ -13,9 +13,9 @@ export const useUser = () => useContext(UserContext)
 export const UserProvider = ({ children }) => {
     
     const [selfUser, setSelfUser] = useState()
+    const [selfUserFriends, setSelfUserFriends] = useState()
     const selfUserAuth = auth.currentUser
     const navigate = useNavigate()
-    const [currentUser, setCurrentUser] = useState()
 
     const getSelfUser = async (userId) => {
         db.collection("users").doc(userId).onSnapshot((user) => {
@@ -45,8 +45,8 @@ export const UserProvider = ({ children }) => {
         selfUserAuth,
         auth,
         db,
-        currentUser,
-        setCurrentUser
+        selfUserFriends,
+        setSelfUserFriends
     }
     return (
         <UserContext.Provider value={value}>

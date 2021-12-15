@@ -212,7 +212,8 @@
   cursor: pointer;
 }
 
-.JSfQXwCUGp:hover {
+.JSfQXwCUGp:hover,
+.JSfQXwCUGp.hovering {
   position: relative;
   background-color: var(--bg-color-2);
   color: var(--indigo) !important;

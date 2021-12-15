@@ -55,17 +55,8 @@ const Main = () => {
                             <Settings/>
                         </>
                     }/>
-                    <Route path="/app/chat" element={
-                        <>
-                            <App/>
-                        </>
-                    }/>
-                    <Route path="/app/chat/:userId" element={
-                        <>
-                            <App/>
-                        </>
-                    }/>
                 </Routes>
+                <App/>
             </ThemeProvider>
         </UserProvider>
     )
