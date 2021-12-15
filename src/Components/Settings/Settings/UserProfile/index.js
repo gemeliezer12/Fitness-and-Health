@@ -37,12 +37,18 @@ const Index = ({setCurrentSetting}) => {
 
     // Form submitter
     const onSubmit = async (e) => {
-        await db.collection("users").doc(id).set({
+        const result = {
             ...user,
             about_me: aboutMe.value,
-            fitness_level: selectedFitnessLevel
+            fitness_level: !selectedFitnessLevel ? "" : selectedFitnessLevel
+        }
+        console.log(result);
+        await db.collection("users").doc(id).set({
+            ...result
         })
     }
+
+    
 
     const reset = () => {
         setAboutMe({...aboutMe, value: !user.about_me ? "" : user.about_me})
@@ -53,7 +59,6 @@ const Index = ({setCurrentSetting}) => {
         setAboutMe({...aboutMe, value: !user.about_me ? "" : user.about_me})
         setSelectedFitnessLevel(user.fitness_level)
     }, [selfUser])
-
     return (
         <>
             <form className="column border-radius-10" style={{
