@@ -35,6 +35,12 @@
   flex-wrap: wrap;
 }
 
+@media only screen and (max-width: 599px) {
+  .TrKa6wFHDh {
+    display: none;
+  }
+}
+
 /*  */
 
 .Edv8pGdED0 {
@@ -212,6 +218,11 @@
   color: var(--indigo) !important;
   border-top-left-radius: 200px;
   border-bottom-left-radius: 200px;
+}
+
+.JSfQXwCUGp:before,
+.JSfQXwCUGp::after {
+  pointer-events: none;
 }
 
 .JSfQXwCUGp:hover:before {
