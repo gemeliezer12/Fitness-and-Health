@@ -7,8 +7,6 @@ const db = firebase.firestore()
 
 const User = ({id}) => {
     const {selfUserFriends} = useUser()
-
-    console.log(selfUserFriends)
     
     
     const getUser =  () => {
@@ -22,8 +20,6 @@ const User = ({id}) => {
 
 
     const user = selfUserFriends && getUser().user
-
-    console.log(selfUserFriends);
 
     if (!user) return ""
 

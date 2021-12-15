@@ -4,10 +4,6 @@ import User from "./User"
 const Index = () => {
     const { selfUser } = useUser()
 
-    const onChange = (e) => {
-        console.log(e)
-    }
-
     return (
         <div style={{
             width: "215px",
@@ -23,7 +19,7 @@ const Index = () => {
             }}>
                 <input className="height-100pc width-100pc padding-x-6 padding-y-4 border-radius-4 fs-14" type="text" placeholder="Search for a Trainer" style={{
                     backgroundColor: "var(--bg-color-1)",
-                }} onChange={(e) => onChange(e.target)}/>
+                }}/>
             </div>
             <div className="column padding-x-10" style={{
                 height: "100%",
