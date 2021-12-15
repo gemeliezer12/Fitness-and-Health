@@ -23,22 +23,19 @@ const Index = () => {
                     }}>
                         <img className="icon" src="../../../images/logo.png" alt=""/>
                     </Link>
-                    <div className="row uppercase fs-16 gap-10 xEbmIF5vqf">
+                    <div>
                         <Link to="" className="solid-btn small sPF9B2SD15 first">
-                            <p>Tutorials</p>
+                            <p>Home</p>
+                        </Link>
+                        <Link to="" className="solid-btn small sPF9B2SD15">
+                            <p>About</p>
                         </Link>
                         <Link to="" className="solid-btn small sPF9B2SD15">
                             <p>Pricing</p>
                         </Link>
+                    </div>
+                    <div className="row uppercase fs-16 gap-10 xEbmIF5vqf">
                         {selfUser ?
-                        <Link to="/settings" className="solid-btn small sPF9B2SD15">
-                            <p>Settings</p>
-                        </Link>
-                        :
-                        <Link to="/signin" className="solid-btn small sPF9B2SD15">
-                            <p>Register</p>
-                        </Link>
-                        }
                         <Link to="/signin" className="solid-btn small" style={{
                             borderRadius: "200px",
                             backgroundColor: "var(--bg-comp-color-2)",
@@ -46,7 +43,15 @@ const Index = () => {
                         }}>
                             <p>Open Astra</p>
                         </Link>
-
+                        :
+                        <Link to="/signin" className="solid-btn small" style={{
+                            borderRadius: "200px",
+                            backgroundColor: "var(--bg-comp-color-2)",
+                            color: "var(--text-comp-color-2)"
+                        }}>
+                            <p>Register</p>
+                        </Link>
+                        }
                     </div>
                 </div>
             </div>

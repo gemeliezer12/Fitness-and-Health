@@ -35,22 +35,6 @@
   flex-wrap: wrap;
 }
 
-@media only screen and (max-width: 349px) {
-  .xEbmIF5vqf :nth-child(3) {
-    display: none;
-  }
-}
-@media only screen and (max-width: 399px) {
-  .xEbmIF5vqf :nth-child(2) {
-    display: none;
-  }
-}
-@media only screen and (max-width: 499px) {
-  .xEbmIF5vqf .first {
-    display: none;
-  }
-}
-
 /*  */
 
 .Edv8pGdED0 {

@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react"
 import { Route, Routes } from "react-router-dom"
 
-import Landing from "./Components/Landing/"
-import Nav from "./Components/Nav/"
-import Signin from "./Components/Signin/"
-import Signup from "./Components/Signup/"
-import Footer from "./Components/Footer/"
-import Settings from "./Components/Settings/"
+import Landing from "./Components/Landing"
+import Nav from "./Components/Nav"
+import Signin from "./Components/Signin"
+import Signup from "./Components/Signup"
+import Footer from "./Components/Footer"
+import Settings from "./Components/Settings"
+import App from "./Components/App"
 
 import { UserProvider } from "./Components/Contexts/UserContext"
 import { ThemeProvider } from "./Components/Contexts/ThemeContext"
@@ -15,12 +16,11 @@ import "./styles/utility.css"
 import "./styles/lib.css"
 import "./styles/style.css"
 
-function App() {
+const Main = () => {
     
     return (
         <UserProvider>
             <ThemeProvider>
-
                 <Routes>
                     <Route path="/" element={
                         <>
@@ -55,10 +55,15 @@ function App() {
                             <Settings/>
                         </>
                     }/>
+                    <Route path="/app" element={
+                        <>
+                            <App/>
+                        </>
+                    }/>
                 </Routes>
             </ThemeProvider>
         </UserProvider>
     )
 }
 
-export default App;
+export default Main;
