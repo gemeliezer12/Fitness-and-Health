@@ -20,15 +20,19 @@ const Plan = ({plan, id}) => {
             }}/>
             <div dangerouslySetInnerHTML={{__html: plan.description}}>
             </div>
-            <div className="solid-btn iGeeEa3h6v">
-                <p>
+            <div className="solid-btn iGeeEa3h6v" style={{
+                background: "var(--indigo)"
+            }}>
+                <p style={{
+                    color: "var(--text-dark-2)"
+                }}>
                     Get Started
                 </p>
             </div>
             <div className="column">
                 <div className="row gap-10 align-center">
                     <div className="badge-16" style={{
-                        background: "var(--bg-comp-color-2)"
+                        background: "var(--indigo)"
                     }}>
                         <i className="fas fa-check fs-10"></i>
                     </div>
@@ -36,7 +40,7 @@ const Plan = ({plan, id}) => {
                 </div>
                 <div className="row gap-10 align-center">
                     <div className="badge-16" style={{
-                        background: "var(--bg-comp-color-2)"
+                        background: "var(--indigo)"
                     }}>
                         <i className="fas fa-check fs-10"></i>
                     </div>
@@ -44,7 +48,7 @@ const Plan = ({plan, id}) => {
                 </div>
                 <div className="row gap-10 align-center">
                     <div className="badge-16" style={{
-                        background: "var(--bg-comp-color-2)"
+                        background: "var(--indigo)"
                     }}>
                         <i className="fas fa-check fs-10"></i>
                     </div>

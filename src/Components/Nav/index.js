@@ -39,8 +39,10 @@ const Index = () => {
                             <p>Register</p>
                         </Link>
                         }
-                        <Link to="/signin" className="solid-btn small iGeeEa3h6v" style={{
-                            borderRadius: "200px"
+                        <Link to="/signin" className="solid-btn small" style={{
+                            borderRadius: "200px",
+                            backgroundColor: "var(--bg-comp-color-2)",
+                            color: "var(--text-comp-color-2)"
                         }}>
                             <p>Open Astra</p>
                         </Link>
