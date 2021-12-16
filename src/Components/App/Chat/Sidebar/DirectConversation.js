@@ -7,7 +7,6 @@ const db = firebase.firestore()
 
 const DirectConversation = ({id, directConversation, users, messages}) => {
     const { currentDirectConversationId } = useParams()
-
     return (
         <Link to={`/app/chat/${id}`} className={`lvC9OT67bA ${currentDirectConversationId === id ? " selected" : ""}`}>
             <div className="row gap-6" style={{

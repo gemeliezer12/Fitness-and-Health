@@ -6,19 +6,17 @@ const Messages = () => {
     const { selfUserDirectConversationsData } = useUser()
     const { currentDirectConversationId } = useParams()
 
-    const [currentDirectMessages, setCurrentDirectMessages] = useState()
-
     const getCurrentMessages = () => {
-        setCurrentDirectMessages(selfUserDirectConversationsData.filter((selfUserDirectConversation) => selfUserDirectConversation.id === currentDirectConversationId)[0].messages)
+        for (let i = 0; i < selfUserDirectConversationsData.length; i++) {
+            if (selfUserDirectConversationsData[i].id === currentDirectConversationId) return selfUserDirectConversationsData[i]
+        }
     }
 
-    useEffect(() => {
-        getCurrentMessages()
-    }, [currentDirectConversationId, selfUserDirectConversationsData])
+    const currentDirectConversation = getCurrentMessages()
 
     return (
         <>
-            {currentDirectMessages && currentDirectMessages.map((message) =>
+            {currentDirectConversation.messages && currentDirectConversation.messages.map((message) =>
                 <div className="row" style={{
                     display: "flex",
                     flexDirection: "row",
@@ -34,7 +32,6 @@ const Messages = () => {
                     }}>
                         <div className="flex space-between">
                             <div className="row gap-6">
-                                {/* <p>{message.user.username}</p> */}
                             </div>
                         </div>
                         <p>
@@ -43,7 +40,7 @@ const Messages = () => {
                     </div>
                 </div>
             )}
-    </>
+        </>
     )
 }
 

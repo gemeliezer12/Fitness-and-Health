@@ -5,7 +5,7 @@ import { useUser } from "../UserContext"
 const db = firebase.firestore()
 
 const DirectMessages = ({directConversation, id}) => {
-    const { setSelfUserDirectMessages, selfUserDirectConversations, setselfUserDirectConversations, setSelfUserDirectConversationsData } = useUser()
+    const { setSelfUserDirectMessages, selfUserDirectConversations, setselfUserDirectConversations, setSelfUserDirectConversationsData, selfUserDirectConversationsData } = useUser()
     const [directMessages, setDirectMessages] = useState()
     const [users, setUsers] = useState()
 
@@ -48,13 +48,19 @@ const DirectMessages = ({directConversation, id}) => {
 
     useEffect(() => {
         setSelfUserDirectConversationsData(
-            selfUserDirectConversations.map((selfUserDirectConversation) => (
-                {
-                    ...selfUserDirectConversation,
-                    users: users,
-                    messages: directMessages
+            selfUserDirectConversations.map((selfUserDirectConversation, index) => {
+                if (selfUserDirectConversation.id === id) return (
+                    {
+                        ...selfUserDirectConversation,
+                        users: users,
+                        messages: directMessages
+                    }
+                )
+                else {
+                    if(selfUserDirectConversationsData) return selfUserDirectConversationsData[index]
+                    else return selfUserDirectConversation
                 }
-            ))
+            })
         )
     }, [directMessages, users, selfUserDirectConversations])
 

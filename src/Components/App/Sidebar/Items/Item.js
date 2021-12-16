@@ -5,7 +5,7 @@ const Item = ({item}) => {
     const [isHovering, setIsHovering] = useState()
 
     return (
-        <Link to="/app/chat" className={`row JSfQXwCUGp${window.location.pathname.split("/")[2] === item.name || isHovering ? " hovering" : ""}`} onMouseOver={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+        <Link to={`${item.link}`} className={`row JSfQXwCUGp${window.location.pathname.split("/")[2] === item.name || isHovering ? " hovering" : ""}`} onMouseOver={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
             <div style={{
                 width: "70px",
                 display: "flex",

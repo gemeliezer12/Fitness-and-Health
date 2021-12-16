@@ -32,15 +32,18 @@ const Index = () => {
             <div className="column gap-6">
                 <Item item={{
                     icon: "fas fa-comment",
-                    name: "chat"
+                    name: "chat",
+                    link: "app/chat/"
                 }}/>
                 <Item item={{
                     icon: "fas fa-user",
-                    name: "user"
+                    name: "user",
+                    link: "app/"
                 }}/>
                 <Item item={{
                     icon: "fas fa-cog",
-                    name: "settings"
+                    name: "settings",
+                    link: "/settings"
                 }}/>
             </div>
         </div>
