@@ -3,49 +3,47 @@ import { useEffect, useState } from "react"
 import { useUser } from "../../../Contexts/UserContext"
 
 const Messages = () => {
-    const { currentUserMessages } = useUser()
-    const { userId } = useParams()
+    const { selfUserDirectConversationsData } = useUser()
+    const { currentDirectConversationId } = useParams()
+
+    const [currentDirectMessages, setCurrentDirectMessages] = useState()
 
     const getCurrentMessages = () => {
-        if(currentUserMessages) return currentUserMessages.filter((message) => message.message.sender_user_id === userId || message.message.sent_user_id)
+        setCurrentDirectMessages(selfUserDirectConversationsData.filter((selfUserDirectConversation) => selfUserDirectConversation.id === currentDirectConversationId)[0].messages)
     }
 
     useEffect(() => {
         getCurrentMessages()
-    }, [])
+    }, [currentDirectConversationId, selfUserDirectConversationsData])
 
     return (
         <>
-            <div style={{
-                height: "100%"
-            }}>
-                {currentUserMessages && getCurrentMessages().map((message) => 
-                    <div className="row" style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        gap: "6px"
-                    }}>
-                        <div className="img-32 img">
-                            <img src={`../../../../images/profile.png`} alt="" />
-                        </div>
-                        <div style={{
-                            width: "100%",
-                            display: "flex",
-                            flexDirection: "column"
-                        }}>
-                            <div className="flex space-between">
-                                <div className="row gap-6">
-                                    <p>{message.user.username}</p>
-                                </div>
-                            </div>
-                            <p>
-                                {message.message.value}
-                            </p>
-                        </div>
+            {currentDirectMessages && currentDirectMessages.map((message) =>
+                <div className="row" style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: "6px"
+                }}>
+                    <div className="img-32 img">
+                        <img src={`../../../../images/profile.png`} alt="" />
                     </div>
-                )}
-            </div>
-        </>
+                    <div style={{
+                        width: "100%",
+                        display: "flex",
+                        flexDirection: "column"
+                    }}>
+                        <div className="flex space-between">
+                            <div className="row gap-6">
+                                {/* <p>{message.user.username}</p> */}
+                            </div>
+                        </div>
+                        <p>
+                            {message.message.message}
+                        </p>
+                    </div>
+                </div>
+            )}
+    </>
     )
 }
 

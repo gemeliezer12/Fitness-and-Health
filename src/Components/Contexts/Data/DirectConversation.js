@@ -19,7 +19,7 @@ const DirectMessages = ({directConversation, id}) => {
                 const directMessage = directMessages[i].data()
                 const id = directMessages[i].id
                 results.push({
-                    directMessage: directMessage,
+                    message: directMessage,
                     id: id
                 })
             }
@@ -52,7 +52,7 @@ const DirectMessages = ({directConversation, id}) => {
                 {
                     ...selfUserDirectConversation,
                     users: users,
-                    direct_messages: directMessages
+                    messages: directMessages
                 }
             ))
         )

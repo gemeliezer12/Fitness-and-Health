@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { firebase } from "../../../../firebase"
 import { useUser } from "../../../Contexts/UserContext"
 
 const db = firebase.firestore()
 
 const DirectConversation = ({id, directConversation, users, messages}) => {
+    const { currentDirectConversationId } = useParams()
 
     return (
-        <Link to={`/app/chat/${id}`} className="lvC9OT67bA">
+        <Link to={`/app/chat/${id}`} className={`lvC9OT67bA ${currentDirectConversationId === id ? " selected" : ""}`}>
             <div className="row gap-6" style={{
                 whiteSpace: "nowrap",
                 overflow: "hidden"

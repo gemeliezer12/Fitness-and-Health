@@ -241,6 +241,7 @@
   padding-right: 6px;
 }
 
-.lvC9OT67bA:hover {
+.lvC9OT67bA:hover,
+.lvC9OT67bA.selected {
   background-color: var(--base-004);
 }

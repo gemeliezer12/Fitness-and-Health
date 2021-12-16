@@ -1,5 +1,4 @@
 import Sidebar from "./Sidebar/"
-import { firebase } from "../../firebase"
 import Chat from "./Chat/"
 import { Route, Routes } from "react-router-dom"
 

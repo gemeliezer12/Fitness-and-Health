@@ -8,25 +8,22 @@ import Messages from "./Messages"
 const db = firebase.firestore()
 
 const Index = () => {
+    const { selfUserDirectConversationsData } = useUser()
 
     return (
         <>
             <div style={{
-                width: "100%",
-                backgroundColor: "var(--bg-color-3)",
-                display: "flex",
-                flexDirection: "column",
-                overflowY: "hidden"
-            }}>
-                <div style={{
-                    height: "50px",
-                    minHeight: "50px"
-                }}>
-                    
-                </div>
-                <Messages/>
-                <Form/>
+                height: "50px",
+                minHeight: "50px"
+            }}> 
             </div>
+            <div style={{
+                height: "100%"
+            }}>
+
+                { selfUserDirectConversationsData && <Messages/>}
+            </div>
+            <Form/>
         </>
     )
 }
