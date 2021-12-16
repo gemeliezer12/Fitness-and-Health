@@ -3,8 +3,6 @@ import { firebase } from "../../firebase"
 import Chat from "./Chat/"
 import { Route, Routes } from "react-router-dom"
 
-const db = firebase.firestore()
-
 
 const Index = () => {
 
@@ -32,7 +30,7 @@ const Index = () => {
                         <Sidebar/>
                     </div>
                 }/>
-                <Route path="/app/chat/:userId" element={
+                <Route path="/app/chat/:currentDirectConversationId" element={
                     <div style={{
                         display: "flex",
                         flexDirection: "row",

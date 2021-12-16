@@ -10,7 +10,7 @@ const db = firebase.firestore()
 const Form = () => {
     const { selfUser, setSelfUserFriends } = useUser()
     const date = new Date()
-    const {userId} = useParams()
+    const {currentDirectConversationId} = useParams()
 
     const onlySpaces = (str) => {
         return str.trim().length === 0;
@@ -38,10 +38,10 @@ const Form = () => {
         if (!allInputIsValid()) return
 
         setmessage({...message, value: "", isValid: false})
-        await db.collection("direct_messages").doc(userId).collection("messages").add(
+        await db.collection("direct_messages").add(
             {
-                user_id: selfUser.id,
-                value: message.value,
+                direct_conversation_id: currentDirectConversationId,
+                message: message.value,
                 date_created: date.getTime()
             }
         )
@@ -52,7 +52,6 @@ const Form = () => {
             onSubmit(e)
         }
     }
-
 
     return (
         <div className="column padding-x-15">

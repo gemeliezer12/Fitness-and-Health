@@ -1,9 +1,9 @@
 import { useSearch } from "../../../Contexts/SearchContext"
 import { useUser } from "../../../Contexts/UserContext"
-import User from "./User"
+import DirectConversation from "./DirectConversation"
 
 const Index = () => {
-    const { selfUser, selfUserDirectMessages } = useUser()
+    const { selfUserDirectConversationsData } = useUser()
     const { setSearch } = useSearch()
 
     return (
@@ -27,9 +27,9 @@ const Index = () => {
                 height: "100%",
                 borderTop: "1px solid var(--base-002)"
             }}>
-                {/* {selfUserDirectMessages.map((directMessage) => (
-                    <User id={directMessage.id} directMessage={directMessage.direct_message}/>
-                ))} */}
+                {selfUserDirectConversationsData && selfUserDirectConversationsData.map((directConversation) => (
+                    <DirectConversation id={directConversation.id} directConversation={directConversation.direct_conversation} key={directConversation.id} users={directConversation.users} messages={directConversation.messages}/>
+                ))}
             </div>
             <div style={{
                 height: "50px",

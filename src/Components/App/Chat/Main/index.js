@@ -5,29 +5,9 @@ import { firebase } from "../../../../firebase"
 
 import Form from "./Form"
 import Messages from "./Messages"
-import DirectMessages from "./DirectMessages"
 const db = firebase.firestore()
 
 const Index = () => {
-    const { selfUser, setSelfUserFriends, currentUserMessages, setCurrentUserMessages } = useUser()
-    const {userId} = useParams()
-
-    const getFriendsOfUser = async () => {
-        const friend = []
-
-        for (let i = 0; i < selfUser.user.friends.length; i++) {
-            const id = selfUser.user.friends[i]
-            const user = await db.collection("users").doc(id).get()
-            
-            user.data().friends.includes(selfUser.id) && friend.push({user: user.data(), id: user.id})
-        }
-
-        setSelfUserFriends(friend)
-    }
-
-    useEffect(() => {
-        getFriendsOfUser()
-    }, [])
 
     return (
         <>
@@ -47,7 +27,6 @@ const Index = () => {
                 <Messages/>
                 <Form/>
             </div>
-            <DirectMessages/>
         </>
     )
 }

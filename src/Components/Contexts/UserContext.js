@@ -2,7 +2,7 @@ import { useState, useEffect, createContext, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 
 import { firebase } from "../../firebase"
-import DirectMessages from "./Data/DirectMessages"
+import DirectConversation from "./Data/DirectConversation"
 
 const db = firebase.firestore()
 const auth = firebase.auth()
@@ -17,10 +17,9 @@ export const UserProvider = ({ children }) => {
     const [selfUserFriends, setSelfUserFriends] = useState()
     const [selfUserFriendRequests, setSelfUserFriendRequests] = useState()
     const [selfUserFriendRequesting, setSelfUserFriendRequesting] = useState()
-    const [selfUserdirectConversations, setSelfUserdirectConversations] = useState()
+    const [selfUserDirectConversations, setselfUserDirectConversations] = useState()
+    const [selfUserDirectConversationsData, setSelfUserDirectConversationsData] = useState()
     const navigate = useNavigate()
-    const [currentUserMessages, setCurrentUserMessages] = useState()
-    const [selfUserDirectMessages, setSelfUserDirectMessages] = useState()
 
     const getSelfUser = async (userId) => {
         db.collection("users").doc(userId).onSnapshot((user) => {
@@ -84,7 +83,7 @@ export const UserProvider = ({ children }) => {
             })
         }
 
-        setSelfUserdirectConversations(results)
+        setselfUserDirectConversations(results)
     }
 
     useEffect(() => {
@@ -114,15 +113,16 @@ export const UserProvider = ({ children }) => {
         setSelfUserFriendRequests,
         selfUserFriendRequesting,
         setSelfUserFriendRequesting,
-        currentUserMessages,
-        setCurrentUserMessages,
-        selfUserDirectMessages,
-        setSelfUserDirectMessages
+        selfUserDirectConversations,
+        setselfUserDirectConversations,
+        selfUserDirectConversationsData,
+        setSelfUserDirectConversationsData
     }
+
     return (
         <UserContext.Provider value={value}>
-            {selfUserdirectConversations && selfUserdirectConversations.map(directConversation =>
-                <DirectMessages directConversation={directConversation.direct_conversation} id={directConversation.id} key={directConversation.id}/>
+            {selfUserDirectConversations && selfUserDirectConversations.map(directConversation =>
+                <DirectConversation directConversation={directConversation.direct_conversation} id={directConversation.id} key={directConversation.id}/>
             )}
             {children}
         </UserContext.Provider>
