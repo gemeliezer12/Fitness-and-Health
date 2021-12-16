@@ -207,47 +207,10 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.JSfQXwCUGp {
-  transition: none;
-  cursor: pointer;
-}
+/*  */
 
-.JSfQXwCUGp:hover,
-.JSfQXwCUGp.hovering {
-  position: relative;
-  background-color: var(--bg-color-2);
-  color: var(--indigo) !important;
-  border-top-left-radius: 200px;
-  border-bottom-left-radius: 200px;
-}
-
-.JSfQXwCUGp:before,
-.JSfQXwCUGp::after {
-  pointer-events: none;
-}
-
-.JSfQXwCUGp:hover:before {
-  content: "";
-  height: 40px;
-  width: 40px;
-  background-color: transparent;
-  position: absolute;
-  right: 0;
-  bottom: 100%;
-  border-radius: 200px;
-  box-shadow: 20px 20px var(--bg-color-2);
-}
-
-.JSfQXwCUGp:hover:after {
-  content: "";
-  height: 40px;
-  width: 40px;
-  background-color: transparent;
-  position: absolute;
-  right: 0;
-  top: 100%;
-  border-radius: 200px;
-  box-shadow: 20px -20px var(--bg-color-2);
+.JSfQXwCUGp.hovering .icon {
+  border-radius: 25%;
 }
 
 .kt3ZmTsWK1.open {

@@ -14,8 +14,12 @@ export const UserProvider = ({ children }) => {
     
     const [selfUser, setSelfUser] = useState()
     const [selfUserFriends, setSelfUserFriends] = useState()
-    const selfUserAuth = auth.currentUser
+    const [selfUserFriendRequests, setSelfUserFriendRequests] = useState()
+    const [selfUserFriendRequesting, setSelfUserFriendRequesting] = useState()
+    const [privateConversation, setSelfPrivateConversation] = useState()
     const navigate = useNavigate()
+    const [currentUserMessages, setCurrentUserMessages] = useState()
+    const [selfUserDirectMessages, setSelfUserDirectMessages] = useState()
 
     const getSelfUser = async (userId) => {
         db.collection("users").doc(userId).onSnapshot((user) => {
@@ -26,6 +30,43 @@ export const UserProvider = ({ children }) => {
     const signOut = () => {
         auth.signOut()
         navigate("/")
+    }
+
+    const friendsHandler = async () => {
+        const friends = []
+        const friendRequesting = []
+        const friendRequests = []
+
+        const f = (await db.collection("users").where("friends", "array-contains", selfUser.id).get()).docs
+
+        for (let i = 0; i < f.length; i++) {
+            const user = f[i]
+
+            selfUser.user.friends.includes(user.id) ?
+            friends.push({
+                user: user.data(),
+                id: user.id
+            })
+            :
+            friendRequests.push({
+                user: user.data(),
+                id: user.id
+            })
+        }
+
+        for (let i = 0; i < selfUser.user.friends.length; i++) {
+            const user = selfUser.user.friends[i]
+            const f = await db.collection("users").doc(user).get()
+
+            !f.data().friends.includes(selfUser.id) && friendRequesting.push({
+                user: f.data(),
+                id: f.id
+            })
+        }
+
+        setSelfUserFriendRequests(friendRequests)
+        setSelfUserFriendRequesting(friendRequesting)
+        setSelfUserFriends(friends)
     }
 
     useEffect(() => {
@@ -39,14 +80,24 @@ export const UserProvider = ({ children }) => {
         })
     }, [])
 
+    useEffect(() => {
+        if (selfUser) friendsHandler()
+    }, [selfUser])
+
     const value = {
         selfUser,
         signOut,
-        selfUserAuth,
-        auth,
-        db,
         selfUserFriends,
-        setSelfUserFriends
+        setSelfUserFriends,
+        selfUserFriendRequests,
+        setSelfUserFriendRequests,
+        selfUserFriendRequesting,
+        setSelfUserFriendRequesting,
+        currentUserMessages,
+        setCurrentUserMessages,
+        selfUserDirectMessages,
+        setSelfUserDirectMessages,
+
     }
     return (
         <UserContext.Provider value={value}>

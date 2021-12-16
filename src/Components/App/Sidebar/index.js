@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Item from "./Items/Item";
 
 const Index = () => {
     const [isOpen, setIsOpen] = useState()
@@ -28,58 +29,19 @@ const Index = () => {
                     </div>
                 </div>
             </div>
-            <div className="column">
-                <Link to="/app/chat" className={`row JSfQXwCUGp${window.location.pathname.split("/")[2] === "chat" ? " hovering" : ""}`}>
-                    <div style={{
-                        width: "70px",
-                        display: "flex",
-                        justifyContent: "center",
-                        minWidth: "70px",
-                    }}>
-                        <div className="img-50 icon">
-                            <i className="far fa-comment"></i>
-                        </div>
-                    </div>
-                    <div className="flex space-between align-center" style={{
-                        width: "230px"
-                    }}>
-                        <p className="ff-title">Chats</p>
-                    </div>
-                </Link>
-                <div className="row JSfQXwCUGp">
-                    <div style={{
-                        width: "70px",
-                        display: "flex",
-                        justifyContent: "center",
-                        minWidth: "70px",
-                    }}>
-                        <div className="img-50 icon">
-                            <i className="far fa-user"></i>
-                        </div>
-                    </div>
-                    <div className="flex space-between align-center" style={{
-                        width: "230px"
-                    }}>
-                        <p className="ff-title">My Profile</p>
-                    </div>
-                </div>
-                <Link to="/settings" className="row JSfQXwCUGp">
-                    <div style={{
-                        width: "70px",
-                        display: "flex",
-                        justifyContent: "center",
-                        minWidth: "70px",
-                    }}>
-                        <div className="img-50 icon">
-                            <i className="fas fa-cog"></i>
-                        </div>
-                    </div>
-                    <div className="flex space-between align-center" style={{
-                        width: "230px"
-                    }}>
-                        <p className="ff-title">Settings</p>
-                    </div>
-                </Link>
+            <div className="column gap-6">
+                <Item item={{
+                    icon: "fas fa-comment",
+                    name: "chat"
+                }}/>
+                <Item item={{
+                    icon: "fas fa-user",
+                    name: "user"
+                }}/>
+                <Item item={{
+                    icon: "fas fa-cog",
+                    name: "settings"
+                }}/>
             </div>
         </div>
     )

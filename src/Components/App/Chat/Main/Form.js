@@ -38,10 +38,9 @@ const Form = () => {
         if (!allInputIsValid()) return
 
         setmessage({...message, value: "", isValid: false})
-        await db.collection("messages").add(
+        await db.collection("direct_messages").doc(userId).collection("messages").add(
             {
-                sender_user_id: selfUser.id,
-                sent_user_id: userId,
+                user_id: selfUser.id,
                 value: message.value,
                 date_created: date.getTime()
             }

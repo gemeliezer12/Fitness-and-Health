@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react"
 
 const Context  = createContext()
 
-export const use = useContext()
+export const use = () => useContext(Context)
 
 export const Provider = ({children}) => {
 

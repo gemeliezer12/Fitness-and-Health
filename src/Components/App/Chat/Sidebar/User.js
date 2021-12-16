@@ -5,27 +5,18 @@ import { useUser } from "../../../Contexts/UserContext"
 
 const db = firebase.firestore()
 
-const User = ({id}) => {
-    const {selfUserFriends} = useUser()
+const User = ({id, directMessage}) => {
+    const {selfUserFriends, selfUser} = useUser()
     
-    
-    const getUser =  () => {
-        for (let i = 0; i < selfUserFriends.length; i++) {
-            const user = selfUserFriends[i]
-            if(user.id === id) {
-                return user
-            }
-        }
-    }
+    useEffect(() => {
+        // console.log(directMessage.users_id.filter((user_id) => console.log(user_id))
 
-
-    const user = selfUserFriends && getUser().user
-
-    if (!user) return ""
+        console.log(directMessage.users_id.filter((userId) => userId !== selfUser.id)[0])
+    }, [])
 
     return (
         <Link to={`/app/chat/${id}`} className="lvC9OT67bA">
-            <div className="row gap-6" style={{
+            {/* <div className="row gap-6" style={{
                 whiteSpace: "nowrap",
                 overflow: "hidden"
             }}>
@@ -53,7 +44,7 @@ const User = ({id}) => {
                         color: "var(--text-color-2)",
                     }}>{user.username}</p>
                 </div>
-            </div>
+            </div> */}
         </Link>
     )
 }

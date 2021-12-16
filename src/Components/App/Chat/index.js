@@ -21,7 +21,6 @@ const Index = () => {
             user.data().friends.includes(selfUser.id) && friend.push({user: user.data(), id: user.id})
         }
 
-        console.log(friend);
 
         setSelfUserFriends(friend)
     }
@@ -30,7 +29,6 @@ const Index = () => {
         selfUser && getFriendsOfUser()
     }, [])
     
-    console.log(selfUser);
     if (!selfUser) return ""
     return (
         <>
