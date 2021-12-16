@@ -33,12 +33,12 @@ const Index = () => {
                 <Item item={{
                     icon: "fas fa-comment",
                     name: "chat",
-                    link: "app/chat/"
+                    link: "/app/chat/"
                 }}/>
                 <Item item={{
                     icon: "fas fa-user",
                     name: "user",
-                    link: "app/"
+                    link: "/app/"
                 }}/>
                 <Item item={{
                     icon: "fas fa-cog",
