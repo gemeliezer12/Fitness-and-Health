@@ -56,6 +56,8 @@ const Index = () => {
         })
     }, [])
 
+    console.log(selfUser)
+
     selfUser === null && navigate("/")
 
     if (!windowSize) return ""

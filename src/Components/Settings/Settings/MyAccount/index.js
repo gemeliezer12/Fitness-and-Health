@@ -27,6 +27,7 @@ const Index = ({setCurrentSetting}) => {
         }
     }
 
+
     return (
         <div className={`flex ${currentForm ? "J1Pq6FHKmT" : ""}`}>
             <div className="column" style={{
@@ -113,21 +114,18 @@ const Index = ({setCurrentSetting}) => {
                     </div>
                 </div>
             </div>
-            {currentForm && 
-            <>
-                <div className={`Y2cec8Lddp`} style={{
-                    height: "100vh",
-                    width: "100vw",
-                    display: 'flex',
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "space-between"
-                }}>
-                    <div className="XbQJna4BsT" onClick={() => setCurrentForm(null)}/>
-                    <CurrentForm/>
-                </div>
-            </>
-            }
+            <div className={`Y2cec8Lddp`} style={{
+                height: "100vh",
+                width: "100vw",
+                display: 'flex',
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "space-between"
+            }}>
+                {currentForm &&
+                   ( <CurrentForm/>)
+                }
+            </div>
         </div>
     )
     // return (
