@@ -36,18 +36,6 @@ const Index = () => {
         }
     }
 
-    useEffect(() => {
-        const onResize = () => {
-            setWindowSize(
-                {
-                    width: window.innerWidth,
-                    height: window.innerHeight
-                }
-            )
-        }
-
-        return window.addEventListener("resize", onResize)
-    }, [])
 
     useEffect(() => {
         setWindowSize({
@@ -55,8 +43,6 @@ const Index = () => {
             height: window.innerHeight
         })
     }, [])
-
-    console.log(selfUser)
 
     selfUser === null && navigate("/")
 
@@ -95,6 +81,7 @@ const Index = () => {
             </div>
         </div>
     )
+
     else return (
         <div style={{
             overflow: "hidden",
@@ -133,6 +120,40 @@ const Index = () => {
             </div>
         </div>
     )
+
+    // return (
+    //     <div style={{
+    //         overflow: "hidden",
+    //         width: "100vw",
+    //         height: "100vh"
+    //     }}>
+    //         <div style={{
+    //             display: "flex",
+    //             height: "100%"
+    //         }}>
+    //             <div className="column" style={{
+    //                 width: "300px",
+    //                 minWidth: "300px",
+    //             }}>
+    //                 <div className="padding-x-10 padding-top-40 VF7wvnxFpr" style={{
+    //                     width: "285px",
+    //                     minWidth: "285px",
+    //                     overflowY: "auto",
+    //                     alignSelf: "end"
+    //                 }}>
+    //                     <Options currentSetting={currentSetting} setCurrentSetting={setCurrentSetting}/>
+    //                 </div>
+    //             </div>
+    //             <div className="padding-top-40 padding-x-32" style={{
+    //                 backgroundColor: "var(--bg-color-3)",
+    //                 overflowY: "auto",
+    //                 width: "100%"
+    //             }}>
+    //                 {currentSetting ? <CurrentSetting/> : <SettingHeader settingTitle="Settings"/>}
+    //             </div> 
+    //         </div>
+    //     </div>
+    // )
 }
 
 export default Index
