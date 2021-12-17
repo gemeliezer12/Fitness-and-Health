@@ -3,47 +3,51 @@ import { Link } from "react-router-dom";
 import Item from "./Items/Item";
 
 const Index = () => {
-    const [isOpen, setIsOpen] = useState()
 
     return (
-        <div className={`kt3ZmTsWK1 column color-inherit gap-40${isOpen ? " open" : " close"}`} style={{
+        <div className={`kt3ZmTsWK1 column color-inherit`} style={{
             backgroundColor: "var(--bg-color-1)",
             color: 'white'
         }}>
-            <div className="column">
-                <div className="row">
-                    <div style={{
-                        width: "70px",
-                        display: "flex",
-                        justifyContent: "center",
-                        minWidth: "70px"
+            <div className="column gap-6">
+                <div className={`LmpjrdduO8`}>
+                    <div className="img-50 icon cursor-pointer" style={{
+                        backgroundColor: "var(--bg-color-3)"
                     }}>
-                        <div className="img-50 icon cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-                            <img src="../../../../images/logo.png" alt="" />
-                        </div>
+                        <img src="../../../../images/logo.png" style={{
+                            color: "var(--green)"
+                        }}></img>
                     </div>
-                    <div className="flex space-between align-center" style={{
-                        width: "230px"
-                    }}>
-                        <p className="ff-title">Astra</p>
+                    <div className="ab6gXaWuu4 tK2nXrgvko">
+                        <div className="triangle" style={{
+                            left: "0",
+                            top: "50%",
+                            transform: "translateX(-50%) translateY(-50%)"
+                        }}>
+                            <div style={{
+                                backgroundColor: "var(--bg-color-3)"
+                            }}/>
+                        </div>
+                        <p></p>
                     </div>
                 </div>
-            </div>
-            <div className="column gap-6">
                 <Item item={{
                     icon: "fas fa-comment",
                     name: "chat",
-                    link: "/app/chat/"
+                    link: "/app/chat/",
+                    label: "Chat"
                 }}/>
                 <Item item={{
                     icon: "fas fa-user",
                     name: "user",
-                    link: "/app/"
+                    link: "/app/",
+                    label: "Profile"
                 }}/>
                 <Item item={{
                     icon: "fas fa-cog",
                     name: "settings",
-                    link: "/settings"
+                    link: "/settings",
+                    label: "Settings"
                 }}/>
             </div>
         </div>

@@ -14,7 +14,7 @@ const Form = ({user, id, setCurrentForm}) => {
         else return selfUserAuth.email
     }
 
-    if (!selfUserAuth) return ""
+    // if (!selfUserAuth) return ""
 
     return (
         <>
@@ -43,7 +43,7 @@ const Form = ({user, id, setCurrentForm}) => {
                         </p>
                     </div>
                 </div>
-                <div className="space-between row align-center gap-6" style={{
+                {selfUserAuth && <div className="space-between row align-center gap-6" style={{
                     overflowX: "hidden"
                 }}>
                     <div style={{
@@ -61,7 +61,7 @@ const Form = ({user, id, setCurrentForm}) => {
                         </p>
                     </div>
                     <div/>
-                </div>
+                </div>}
             </div>
         </>
     )

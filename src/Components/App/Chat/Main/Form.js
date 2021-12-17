@@ -8,8 +8,7 @@ import TextareaAutosize from "react-textarea-autosize"
 const db = firebase.firestore()
 
 const Form = () => {
-    const { selfUser, setSelfUserFriends } = useUser()
-    const date = new Date()
+    const { selfUser } = useUser()
     const {currentDirectConversationId} = useParams()
 
     const onlySpaces = (str) => {
@@ -38,11 +37,12 @@ const Form = () => {
         if (!allInputIsValid()) return
 
         setmessage({...message, value: "", isValid: false})
-        await db.collection("direct_messages").add(
+        db.collection("direct_messages").add(
             {
                 direct_conversation_id: currentDirectConversationId,
                 message: message.value,
-                date_created: date.getTime()
+                date_created: Math.floor(Date.now() / 1000),
+                user_id: selfUser.id
             }
         )
     }

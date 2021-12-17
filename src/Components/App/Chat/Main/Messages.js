@@ -18,7 +18,7 @@ const Messages = () => {
     return (
         <>
             {currentDirectConversation.messages && currentDirectConversation.messages.map((message) =>
-                <Message message={message.message} key={message.id}/>
+                <Message message={message.message} key={message.id} user={message.user}/>
             )}
         </>
     )

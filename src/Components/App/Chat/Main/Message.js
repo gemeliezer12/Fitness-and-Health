@@ -1,4 +1,24 @@
-const Message = ({message, id}) => {
+import { useEffect } from "react"
+
+const Message = ({message, id, user}) => {
+
+    const dateHandler = () => {
+        const dateCreated = new Date(message.date_created * 1000)
+        const currentTime = Math.floor(Date.now() / 1000)
+        const timeAgo = currentTime - message.date_created
+
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+        var year = dateCreated.getFullYear();
+        var month = months[dateCreated.getMonth()]
+        var date = dateCreated.getDate()
+        var hour = dateCreated.getHours()
+        var min = dateCreated.getMinutes()
+        var sec = dateCreated.getSeconds()
+
+        if (timeAgo > 86400 * 2) return `Yesterday ${dateCreated}`
+        if (timeAgo < 86400) return `Today ${hour > 12 ? hour - 12 : hour}:${min} ${hour > 11 ? "PM" : "AM"}`
+    }
+
     return (
         <div className="row" style={{
             display: "flex",
@@ -16,6 +36,12 @@ const Message = ({message, id}) => {
             }}>
                 <div className="flex space-between">
                     <div className="row gap-6">
+                        <p>
+                            {user.username}
+                        </p>
+                        <p>
+                            {dateHandler()}
+                        </p>
                     </div>
                 </div>
                 <p>

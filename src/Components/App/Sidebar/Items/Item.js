@@ -5,28 +5,28 @@ const Item = ({item}) => {
     const [isHovering, setIsHovering] = useState()
 
     return (
-        <Link to={`${item.link}`} className={`row JSfQXwCUGp${window.location.pathname.split("/")[2] === item.name || isHovering ? " hovering" : ""}`} onMouseOver={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-            <div style={{
-                width: "70px",
-                display: "flex",
-                justifyContent: "center",
-                minWidth: "70px",
+        <div className={`LmpjrdduO8${isHovering ? " hovering" : ""}`} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+            <Link to={item.link} className="img-50 icon cursor-pointer" style={{
+                backgroundColor: "var(--bg-color-3)"
             }}>
-                <div className="img-50 icon" style={{
-                    backgroundColor: "var(--bg-color-3)"
+                <i className={item.icon} style={{
+                    color: "var(--green)"
+                }}></i>
+            </Link>
+            <div className="ab6gXaWuu4 tK2nXrgvko">
+                <div className="triangle" style={{
+                    left: "0",
+                    top: "50%",
+                    transform: "translateX(-50%) translateY(-50%)"
                 }}>
-                    <i className={item.icon} style={{
-                        color: "var(--green)"
-                    }}></i>
+                    <div style={{
+                        backgroundColor: "var(--bg-color-3)"
+                    }}/>
                 </div>
+                <p>{item.label}</p>
             </div>
-            <div className="flex space-between align-center" style={{
-                width: "230px"
-            }}>
-                <p className="ff-title">Chats</p>
-            </div>
-        </Link>
-    )
+        </div>
+)
 }
 
 export default Item

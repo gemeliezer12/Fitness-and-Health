@@ -5,26 +5,32 @@ import { useUser } from "../UserContext"
 const db = firebase.firestore()
 
 const DirectMessages = ({directConversation, id}) => {
-    const { setSelfUserDirectMessages, selfUserDirectConversations, setselfUserDirectConversations, setSelfUserDirectConversationsData, selfUserDirectConversationsData } = useUser()
+    const { selfUserDirectConversations, setSelfUserDirectConversationsData, selfUserDirectConversationsData } = useUser()
     const [directMessages, setDirectMessages] = useState()
     const [users, setUsers] = useState()
 
     const getDirectMessages = async () => {
         
-        db.collection("direct_messages").where("direct_conversation_id", "==", id).onSnapshot( async (res) => {
+        db.collection("direct_messages").where("direct_conversation_id", "==", id).orderBy("date_created", "asc").onSnapshot( async (res) => {
             const directMessages = res.docs
             const results = []
+            const userResults = []
 
             for (let i = 0; i < directMessages.length; i++) {
                 const directMessage = directMessages[i].data()
                 const id = directMessages[i].id
+
+                const user = (await db.collection("users").doc(directMessage.user_id).get()).data()
+
+                userResults.push(directMessage.user_id)
                 results.push({
                     message: directMessage,
-                    id: id
+                    id: id,
+                    user: user
                 })
             }
-
             setDirectMessages(results)
+
         })
     }
 
@@ -62,7 +68,7 @@ const DirectMessages = ({directConversation, id}) => {
                 }
             })
         )
-    }, [directMessages, users, selfUserDirectConversations])
+    }, [directMessages, users])
 
     useEffect(() => {
         return getDirectMessages(), getUsers()
