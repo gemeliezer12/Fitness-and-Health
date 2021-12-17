@@ -2,11 +2,10 @@ import { useEffect, useState } from "react"
 import { firebase } from "../../../../firebase"
 import { useUser } from "../../../Contexts/UserContext"
 
-const auth = firebase.auth()
+const selfUserAuth = firebase.auth().currentUser
 
 const Form = ({user, id, setCurrentForm}) => {
-    const [isEmailHidden, setIsEmailHidden] = useState(true)    
-    const { selfUserAuth } = useUser()
+    const [isEmailHidden, setIsEmailHidden] = useState(true)
 
     const hiddenEmail = (isEmailHidden) => {
         const [name, domain] = selfUserAuth.email.split("@")

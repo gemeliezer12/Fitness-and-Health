@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useUser } from "../../../Contexts/UserContext"
+import Message from "./Message"
 
 const Messages = () => {
     const { selfUserDirectConversationsData } = useUser()
@@ -17,28 +18,7 @@ const Messages = () => {
     return (
         <>
             {currentDirectConversation.messages && currentDirectConversation.messages.map((message) =>
-                <div className="row" style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    gap: "6px"
-                }}>
-                    <div className="img-32 img">
-                        <img src={`../../../../images/profile.png`} alt="" />
-                    </div>
-                    <div style={{
-                        width: "100%",
-                        display: "flex",
-                        flexDirection: "column"
-                    }}>
-                        <div className="flex space-between">
-                            <div className="row gap-6">
-                            </div>
-                        </div>
-                        <p>
-                            {message.message.message}
-                        </p>
-                    </div>
-                </div>
+                <Message message={message.message} key={message.id}/>
             )}
         </>
     )

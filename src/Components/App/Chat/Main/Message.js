@@ -1,9 +1,10 @@
-const Message = () => {
+const Message = ({message, id}) => {
     return (
         <div className="row" style={{
             display: "flex",
             flexDirection: "row",
-            gap: "6px"
+            gap: "6px",
+            overflow: "hidden"
         }}>
             <div className="img-32 img">
                 <img src={`../../../../images/profile.png`} alt="" />
@@ -18,7 +19,7 @@ const Message = () => {
                     </div>
                 </div>
                 <p>
-                    {message.message.message}
+                    {message.message}
                 </p>
             </div>
         </div>

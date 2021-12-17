@@ -23,7 +23,7 @@ const ProfilePicture = () => {
                         borderRadius: "50%"
                     }}>
                         <div className="badge-20">
-                            <i class="fas fa-images" style={{
+                            <i className="fas fa-images" style={{
                                 color: "var(--text-comp-color-1)"
                             }}></i>
                         </div>
