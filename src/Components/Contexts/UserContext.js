@@ -64,7 +64,7 @@ export const UserProvider = ({ children }) => {
             })
         }
 
-        for (let i = 0; i < selfUser.user.friends.length; i++) {
+        if (selfUser.user.friends) for (let i = 0; i < selfUser.user.friends.length; i++) {
             const user = selfUser.user.friends[i]
             const f = await db.collection("users").doc(user).get()
 
@@ -85,7 +85,6 @@ export const UserProvider = ({ children }) => {
         db.collection("direct_conversations").where("users_id", "array-contains", selfUser.id).onSnapshot((res) => {
             res = res.docs
 
-            console.log(res)
             for (let i = 0; i < res.length; i++) {
                 const directConversation = res[i].data()
                 const id = res[i].id
