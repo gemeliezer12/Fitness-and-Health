@@ -39,46 +39,46 @@ const UsernameForm = ({setCurrentForm}) => {
         setUsername({...username, name: "username", value: user.username, isValid: user.username.length > 1})
     }, [selfUser])
     
-    // return (
+    return (
        
-    //     <form onChange={(e) => onChange(e.target)} onSubmit={(e) => {
-    //         e.preventDefault()
-    //         onSubmit()
-    //     }} className="z-1" style={{
-    //         height: "100%",
-    //         width: "100%"
-    //     }}>
-    //         <div className="column padding-all-15 gap-20" style={{
-    //             backgroundColor: "var(--bg-color-2)",
-    //             borderRadius: "10px",
-    //             height: "100%"
-    //         }}>
-    //             <div className="text-center ff-title color-inherit fs-20">
-    //                 <p>Change your Username</p>
-    //             </div>
-    //             <div className="text-center">
-    //                 <p>Enter your new username and your existing password</p>
-    //             </div>
-    //             <Input input={username}/>
-    //             <Input input={password}/>
-    //             <div className="row space-between">
-    //                 <div/>
-    //                 <div className="row gap-6">
-    //                     <div className="solid-btn tiny" style={{
-    //                         color: "var(--red)"
-    //                     }} onClick={() => setCurrentForm(null)}>
-    //                         <p>Cancel</p>
-    //                     </div>
-    //                     <button type="submit" className="solid-btn tiny" style={{
-    //                         backgroundColor: "var(--green)"
-    //                     }}>
-    //                         <p>Save</p>
-    //                     </button>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     </form>
-    // )
+        <form onChange={(e) => onChange(e.target)} onSubmit={(e) => {
+            e.preventDefault()
+            onSubmit()
+        }} className="z-1" style={{
+            height: "100%",
+            width: "100%"
+        }}>
+            <div className="column padding-all-15 gap-20" style={{
+                backgroundColor: "var(--bg-color-2)",
+                borderRadius: "10px",
+                height: "100%"
+            }}>
+                <div className="text-center ff-title color-inherit fs-20">
+                    <p>Change your Username</p>
+                </div>
+                <div className="text-center">
+                    <p>Enter your new username and your existing password</p>
+                </div>
+                <Input input={username}/>
+                <Input input={password}/>
+                <div className="row space-between">
+                    <div/>
+                    <div className="row gap-6">
+                        <div className="solid-btn tiny" style={{
+                            color: "var(--red)"
+                        }} onClick={() => setCurrentForm(null)}>
+                            <p>Cancel</p>
+                        </div>
+                        <button type="submit" className="solid-btn tiny" style={{
+                            backgroundColor: "var(--green)"
+                        }}>
+                            <p>Save</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    )
     return (
        
         <form onChange={(e) => onChange(e.target)} onSubmit={(e) => {

@@ -36,7 +36,6 @@ const Index = () => {
         }
     }
 
-
     useEffect(() => {
         setWindowSize({
             width: window.innerWidth,
@@ -94,19 +93,26 @@ const Index = () => {
             }}>
                 <div className="column" style={{
                     width: "100vw",
-                    minWidth: "100vw"
+                    minWidth: "100vw",
                 }}>
-                    <div className="padding-x-10 padding-top-40 VF7wvnxFpr" style={{
+                    {/* <div className="VF7wvnxFpr" style={{
                         width: "100%",
                         minWidth: "100%",
                         overflowY: "auto",
-                        alignSelf: "end"
-                    }}>
-                        <div className="row space-between">
-                            
+                    }}> */}
+                        <div className="row space-between" style={{
+                            height: "50px",
+                            minHeight: "60px",
+                            background: "var(--bg-color-2)"
+                        }}>
+                            <div className="row gap-15 padding-x-15 align-center">
+                                <p className="ff-title fs-20">
+                                    Settings
+                                </p>
+                            </div>
                         </div>
                         <Options currentSetting={currentSetting} setCurrentSetting={setCurrentSetting}/>
-                    </div>
+                    {/* </div> */}
                 </div>
                 <div className="flex" style={{
                     backgroundColor: "var(--bg-color-3)",
