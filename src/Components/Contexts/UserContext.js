@@ -19,6 +19,7 @@ export const UserProvider = ({ children }) => {
     const [selfUserFriendRequesting, setSelfUserFriendRequesting] = useState()
     const [selfUserDirectConversations, setselfUserDirectConversations] = useState()
     const [selfUserDirectConversationsData, setSelfUserDirectConversationsData] = useState()
+    const [users, setUsers] = useState()
     const navigate = useNavigate()
 
     const getSelfUser = async (userId) => {
@@ -30,6 +31,12 @@ export const UserProvider = ({ children }) => {
     const signOut = () => {
         auth.signOut()
         navigate("/")
+    }
+
+    const getUsers = async () => {
+        setUsers(
+            (await db.collection("users").get()).docs.map((user) => user.data())
+        )
     }
 
     const friendsHandler = async () => {
@@ -106,6 +113,10 @@ export const UserProvider = ({ children }) => {
         }
     }, [selfUser])
 
+    useEffect(()=> {
+        getUsers()
+    }, [])
+
     const value = {
         selfUser,
         signOut,
@@ -118,7 +129,9 @@ export const UserProvider = ({ children }) => {
         selfUserDirectConversations,
         setselfUserDirectConversations,
         selfUserDirectConversationsData,
-        setSelfUserDirectConversationsData
+        setSelfUserDirectConversationsData,
+        users,
+        setUsers
     }
 
     return (

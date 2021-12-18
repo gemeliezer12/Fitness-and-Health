@@ -204,6 +204,7 @@ const Index = ({setCurrentSetting, windowSize}) => {
                     </div>
                 </div>
             </div>
+                {currentForm &&
             <div className={`Y2cec8Lddp`} style={{
                 height: "100vh",
                 width: "100vw",
@@ -212,10 +213,9 @@ const Index = ({setCurrentSetting, windowSize}) => {
                 alignItems: "center",
                 justifyContent: "center"
             }}>
-                {currentForm &&
-                   ( <CurrentForm/>)
-                }
+                    <CurrentForm/>
             </div>
+                }
         </div>
     )
 }
