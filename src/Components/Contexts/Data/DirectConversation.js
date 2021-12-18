@@ -43,6 +43,7 @@ const DirectMessages = ({directConversation, id}) => {
     }
 
     useEffect(() => {
+
         setSelfUserDirectConversationsData(
             selfUserDirectConversations.map((selfUserDirectConversation, index) => {
                 if (selfUserDirectConversation.id === id) return (

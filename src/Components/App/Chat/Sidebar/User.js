@@ -24,6 +24,8 @@ const User = ({user, id}) => {
         }
     }
 
+    console.log(user)
+
     return (
         <div className="row space-between padding-x-6 padding-y-4" onClick={() => onClick()}>
             <div className="row gap-6 align-center">

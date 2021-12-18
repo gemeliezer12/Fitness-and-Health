@@ -23,7 +23,7 @@ const Index = () => {
 
                 { selfUserDirectConversationsData && <Messages/>}
             </div>
-            <Form/>
+            {selfUserDirectConversationsData && <Form/>}
         </>
     )
 }
