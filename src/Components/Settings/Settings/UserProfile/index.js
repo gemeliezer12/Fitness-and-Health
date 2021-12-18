@@ -139,7 +139,8 @@ const Index = ({setCurrentSetting, windowSize}) => {
                 <div className="row space-bewteen color-inherit padding-x-15" style={{
                     height: "60px",
                     minHeight: "60px",
-                    color: "var(--text-color-2)"
+                    color: "var(--text-color-2)",
+                    backgroundColor: "var(--bg-color-2)"
                 }}>
                     <div className="row align-center gap-15">
                         <div className="img-40 icon cursor-pointer" onClick={() => setCurrentSetting()}>
