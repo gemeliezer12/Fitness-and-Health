@@ -7,6 +7,8 @@ const db = firebase.firestore()
 
 const DirectConversation = ({id, directConversation, users, messages}) => {
     const { currentDirectConversationId } = useParams()
+    const { selfUser } = useUser()
+
     return (
         <Link to={`/app/chat/${id}`} className={`lvC9OT67bA ${currentDirectConversationId === id ? " selected" : ""}`}>
             <div className="row gap-6" style={{
@@ -35,7 +37,7 @@ const DirectConversation = ({id, directConversation, users, messages}) => {
                 <div className="column justify-center fs-14">
                     <p style={{
                         color: "var(--text-color-2)",
-                    }}>{users && users[0].user.username}</p>
+                    }}>{users && users.filter((user) => user.id !== selfUser.id)[0].user.username}</p>
                 </div>
             </div>
         </Link>

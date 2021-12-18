@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useSearch } from "../../../Contexts/SearchContext"
 import { useUser } from "../../../Contexts/UserContext"
 import DirectConversation from "./DirectConversation"
+import User from "./User"
 
 const Index = () => {
     const { selfUserDirectConversationsData, users } = useUser()
@@ -12,10 +13,8 @@ const Index = () => {
 
     const handleSearch = (e) => {
         e.value.length == 0 ? setSearchResults() :
-        setSearchResults(users.filter(o => o.username.toLowerCase().includes(e.value.toLowerCase())))
+        setSearchResults(users.filter(o => o.user.username.toLowerCase().includes(e.value.toLowerCase())))
     }
-
-    console.log(searchResults)
 
     return (
         <div style={{
@@ -34,20 +33,27 @@ const Index = () => {
                     backgroundColor: "var(--bg-color-1)",
                 }} onChange={(e) => handleSearch(e.target)}/>
             </div>
-            <div className="column padding-x-10" style={{
+            <div className="column padding-x-10 padding-y-6 gap-2" style={{
                 height: "calc(100% - 100px)",
                 borderTop: "1px solid var(--base-002)",
                 overflowY: "scroll"
             }}>
-                <div style={{
+                {searchResults && <div style={{
                     overflow: 'hidden'
                 }}>
-
-                    {JSON.stringify(searchResults, null, 4)}
-                    {selfUserDirectConversationsData && selfUserDirectConversationsData.map((directConversation) => (
-                        <DirectConversation id={directConversation.id} directConversation={directConversation.direct_conversation} key={directConversation.id} users={directConversation.users} messages={directConversation.messages}/>
+                    <div className="row padding-x-6 space-between">
+                        <p className="">
+                            Results
+                        </p>
+                    </div>
+                    {searchResults.map((result) => (
+                        <User user={result.user} id={result.id}/>
                     ))}
-                </div>
+                    sadas
+                </div>}
+                {selfUserDirectConversationsData && selfUserDirectConversationsData.map((directConversation) => (
+                    <DirectConversation id={directConversation.id} directConversation={directConversation.direct_conversation} key={directConversation.id} users={directConversation.users} messages={directConversation.messages}/>
+                ))}
             </div>
             <div style={{
                 height: "50px",

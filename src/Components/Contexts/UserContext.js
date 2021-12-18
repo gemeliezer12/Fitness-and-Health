@@ -35,7 +35,10 @@ export const UserProvider = ({ children }) => {
 
     const getUsers = async () => {
         setUsers(
-            (await db.collection("users").get()).docs.map((user) => user.data())
+            (await db.collection("users").get()).docs.map((user) => ({
+                user: user.data(),
+                id: user.id
+            }))
         )
     }
 

@@ -17,7 +17,7 @@ const Index = () => {
                 minHeight: "50px"
             }}> 
             </div>
-            <div style={{
+            <div className="padding-x-15 padding-y-10" style={{
                 height: "100%"
             }}>
 
