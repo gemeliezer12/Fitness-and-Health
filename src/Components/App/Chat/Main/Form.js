@@ -31,7 +31,7 @@ const Form = () => {
         return message.isValid
     }
 
-    const currentDirectConversation = selfUserDirectConversationsData && selfUserDirectConversationsData.filter((directConversation) => directConversation.id === currentDirectConversationId)[0]
+    const currentDirectConversation = selfUserDirectConversationsData && currentDirectConversationId && selfUserDirectConversationsData.filter((directConversation) => directConversation && directConversation.id === currentDirectConversationId)[0]
 
     const onSubmit = async (e) => {
         e.preventDefault()

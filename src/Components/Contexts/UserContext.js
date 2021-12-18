@@ -20,6 +20,7 @@ export const UserProvider = ({ children }) => {
     const [selfUserDirectConversations, setselfUserDirectConversations] = useState()
     const [selfUserDirectConversationsData, setSelfUserDirectConversationsData] = useState()
     const [users, setUsers] = useState()
+    const [currentDirectConversation, setCurrentDirectConversation] = useState()
     const navigate = useNavigate()
 
     const getSelfUser = async (userId) => {
