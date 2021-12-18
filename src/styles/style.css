@@ -43,20 +43,25 @@
 
 /*  */
 
-.Edv8pGdED0 {
+.Edv8pGdED0-mobile {
   padding: 10px;
   padding-right: 15px;
   padding-left: 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
-.Edv8pGdED0:hover,
-.Edv8pGdED0.selected {
+.Edv8pGdED0-mobile:hover,
+.Edv8pGdED0-mobile.selected,
+.Edv8pGdED0-desktop:hover,
+.Edv8pGdED0-desktop.selected {
+  cursor: pointer;
   background-color: var(--base-004);
+}
+
+.Edv8pGdED0-desktop {
+  padding: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 4px;
 }
 
 /*  */

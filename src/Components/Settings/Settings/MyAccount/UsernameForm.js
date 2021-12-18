@@ -5,7 +5,7 @@ import { firebase } from "../../../../firebase"
 
 const db = firebase.firestore()
 
-const UsernameForm = ({setCurrentForm}) => {
+const UsernameForm = ({setCurrentForm, windowSize}) => {
     
     const { selfUser, selfUserAuth, auth } = useUser()
     const [username, setUsername] = useState({name: "username", value: "", type: "text", label: "Username", isValid: undefined, isRequired: true})
@@ -39,19 +39,14 @@ const UsernameForm = ({setCurrentForm}) => {
         setUsername({...username, name: "username", value: user.username, isValid: user.username.length > 1})
     }, [selfUser])
     
-    return (
-       
+    if(windowSize.width >= 600) return (
         <form onChange={(e) => onChange(e.target)} onSubmit={(e) => {
             e.preventDefault()
             onSubmit()
-        }} className="z-1" style={{
-            height: "100%",
-            width: "100%"
-        }}>
+        }} className="z-1">
             <div className="column padding-all-15 gap-20" style={{
                 backgroundColor: "var(--bg-color-2)",
-                borderRadius: "10px",
-                height: "100%"
+                borderRadius: "10px"
             }}>
                 <div className="text-center ff-title color-inherit fs-20">
                     <p>Change your Username</p>
@@ -79,15 +74,18 @@ const UsernameForm = ({setCurrentForm}) => {
             </div>
         </form>
     )
-    return (
-       
+    else return (
         <form onChange={(e) => onChange(e.target)} onSubmit={(e) => {
             e.preventDefault()
             onSubmit()
-        }} className="z-1">
+        }} className="z-1" style={{
+            height: "100%",
+            width: "100%"
+        }}>
             <div className="column padding-all-15 gap-20" style={{
                 backgroundColor: "var(--bg-color-2)",
-                borderRadius: "10px"
+                borderRadius: "10px",
+                height: "100%"
             }}>
                 <div className="text-center ff-title color-inherit fs-20">
                     <p>Change your Username</p>

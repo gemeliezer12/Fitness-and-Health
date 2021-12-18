@@ -19,17 +19,17 @@ const Index = () => {
         switch (currentSetting) {
             case "my-account":
                 return (
-                    <MyAccount setCurrentSetting={setCurrentSetting}/>
+                    <MyAccount setCurrentSetting={setCurrentSetting} windowSize={windowSize}/>
                 )
                 break
             case "user-profile":
                 return( 
-                    <UserProfile setCurrentSetting={setCurrentSetting}/>
+                    <UserProfile setCurrentSetting={setCurrentSetting} windowSize={windowSize}/>
                 )
                 break
             case "appearance":
                 return (
-                    <Appearance setCurrentSetting={setCurrentSetting}/>
+                    <Appearance setCurrentSetting={setCurrentSetting} windowSize={windowSize}/>
                 )
             default:
                 return ""
@@ -67,7 +67,7 @@ const Index = () => {
                         overflowY: "auto",
                         alignSelf: "end"
                     }}>
-                        <Options currentSetting={currentSetting} setCurrentSetting={setCurrentSetting}/>
+                        <Options windowSize={windowSize} currentSetting={currentSetting} setCurrentSetting={setCurrentSetting}/>
                     </div>
                 </div>
                 <div className="padding-top-40 padding-x-32" style={{
@@ -95,24 +95,18 @@ const Index = () => {
                     width: "100vw",
                     minWidth: "100vw",
                 }}>
-                    {/* <div className="VF7wvnxFpr" style={{
-                        width: "100%",
-                        minWidth: "100%",
-                        overflowY: "auto",
-                    }}> */}
-                        <div className="row space-between" style={{
-                            height: "50px",
-                            minHeight: "60px",
-                            background: "var(--bg-color-2)"
-                        }}>
-                            <div className="row gap-15 padding-x-15 align-center">
-                                <p className="ff-title fs-20">
-                                    Settings
-                                </p>
-                            </div>
+                    <div className="row space-between" style={{
+                        height: "50px",
+                        minHeight: "60px",
+                        background: "var(--bg-color-2)"
+                    }}>
+                        <div className="row gap-15 padding-x-15 align-center">
+                            <p className="ff-title fs-20">
+                                Settings
+                            </p>
                         </div>
-                        <Options currentSetting={currentSetting} setCurrentSetting={setCurrentSetting}/>
-                    {/* </div> */}
+                    </div>
+                    <Options windowSize={windowSize} currentSetting={currentSetting} setCurrentSetting={setCurrentSetting}/>
                 </div>
                 <div className="flex" style={{
                     backgroundColor: "var(--bg-color-3)",
@@ -126,40 +120,6 @@ const Index = () => {
             </div>
         </div>
     )
-
-    // return (
-    //     <div style={{
-    //         overflow: "hidden",
-    //         width: "100vw",
-    //         height: "100vh"
-    //     }}>
-    //         <div style={{
-    //             display: "flex",
-    //             height: "100%"
-    //         }}>
-    //             <div className="column" style={{
-    //                 width: "300px",
-    //                 minWidth: "300px",
-    //             }}>
-    //                 <div className="padding-x-10 padding-top-40 VF7wvnxFpr" style={{
-    //                     width: "285px",
-    //                     minWidth: "285px",
-    //                     overflowY: "auto",
-    //                     alignSelf: "end"
-    //                 }}>
-    //                     <Options currentSetting={currentSetting} setCurrentSetting={setCurrentSetting}/>
-    //                 </div>
-    //             </div>
-    //             <div className="padding-top-40 padding-x-32" style={{
-    //                 backgroundColor: "var(--bg-color-3)",
-    //                 overflowY: "auto",
-    //                 width: "100%"
-    //             }}>
-    //                 {currentSetting ? <CurrentSetting/> : <SettingHeader settingTitle="Settings"/>}
-    //             </div> 
-    //         </div>
-    //     </div>
-    // )
 }
 
 export default Index
