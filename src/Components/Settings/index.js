@@ -101,6 +101,11 @@ const Index = () => {
                         background: "var(--bg-color-2)"
                     }}>
                         <div className="row gap-15 padding-x-15 align-center">
+                            <div className="img-32 icon cursor-pointer" onClick={() => navigate(-1)}>
+                                <i className="fas fa-arrow-left" style={{
+                                    color: "var(--text-color-2)"
+                                }}></i>
+                            </div>
                             <p className="ff-title fs-20">
                                 Settings
                             </p>
