@@ -9,7 +9,7 @@ const User = ({user, id}) => {
     const navigate = useNavigate()
 
     const onClick = async () => {
-        const directConversationCheck = (await db.collection("direct_conversations").where("users_id", "array-contains", selfUser.id && id).get()).docs[0]
+        const directConversationCheck = await db.collection("direct_conversations").where("users_id", "array-contains", selfUser.id && id).get()
         
         if (directConversationCheck.empty === true) {
             const createdDirectConversation = await db.collection("direct_conversations").add({
@@ -20,11 +20,9 @@ const User = ({user, id}) => {
             console.log(createdDirectConversation)
         }
         else {
-            navigate(`/app/chat/${directConversationCheck.id}`)
+            navigate(`/app/chat/${directConversationCheck.docs[0].id}`)
         }
     }
-
-    console.log(user)
 
     return (
         <div className="row space-between padding-x-6 padding-y-4" onClick={() => onClick()}>
