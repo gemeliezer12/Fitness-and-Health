@@ -15,6 +15,8 @@ const Index = () => {
         setSearchResults(users.filter(o => o.id !== selfUser.id && o.user.username.toLowerCase().includes(e.value.toLowerCase())))
     }
 
+    console.log(selfUserDirectConversationsData)
+
     return (
         <div style={{
             width: "215px",
