@@ -82,20 +82,35 @@ export const UserProvider = ({ children }) => {
     const getSelfUserDirectConverasations = async () => {
         const results = []
 
-        const res = (await db.collection("direct_conversation").where("users_id", "array-contains", selfUser.id).get()).docs
+        db.collection("direct_conversations").where("users_id", "array-contains", selfUser.id).onSnapshot((res) => {
+            res = res.docs
+            for (let i = 0; i < res.length; i++) {
+                const directConversation = res[i].data()
+                const id = res[i].id
+    
+               
+                results.push({
+                    direct_conversation: directConversation,
+                    id: id
+                })
+            }
+    
+            setselfUserDirectConversations(results)
+        })
+        // const res = (await db.collection("direct_conversations").where("users_id", "array-contains", selfUser.id).get()).docs
 
-        for (let i = 0; i < res.length; i++) {
-            const directConversation = res[i].data()
-            const id = res[i].id
+        // for (let i = 0; i < res.length; i++) {
+        //     const directConversation = res[i].data()
+        //     const id = res[i].id
 
            
-            results.push({
-                direct_conversation: directConversation,
-                id: id
-            })
-        }
+        //     results.push({
+        //         direct_conversation: directConversation,
+        //         id: id
+        //     })
+        // }
 
-        setselfUserDirectConversations(results)
+        // setselfUserDirectConversations(results)
     }
 
     useEffect(() => {
@@ -139,7 +154,7 @@ export const UserProvider = ({ children }) => {
 
     return (
         <UserContext.Provider value={value}>
-            {selfUserDirectConversations && selfUserDirectConversations.map((directConversation, index) =>
+            {selfUserDirectConversations && users && selfUserDirectConversations.map((directConversation, index) =>
                 <DirectConversation directConversation={directConversation.direct_conversation} id={directConversation.id} key={directConversation.id}/>
             )}
             {children}

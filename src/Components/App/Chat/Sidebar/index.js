@@ -47,7 +47,7 @@ const Index = () => {
                         </p>
                     </div>
                     {searchResults.map((result) => (
-                        <User user={result.user} id={result.id}/>
+                        <User user={result.user} id={result.id} key={result.id}/>
                     ))}
                     sadas
                 </div>}
