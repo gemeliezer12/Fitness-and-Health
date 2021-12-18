@@ -94,23 +94,9 @@ export const UserProvider = ({ children }) => {
                     id: id
                 })
             }
-    
-            setselfUserDirectConversations(results)
+            
         })
-        // const res = (await db.collection("direct_conversations").where("users_id", "array-contains", selfUser.id).get()).docs
-
-        // for (let i = 0; i < res.length; i++) {
-        //     const directConversation = res[i].data()
-        //     const id = res[i].id
-
-           
-        //     results.push({
-        //         direct_conversation: directConversation,
-        //         id: id
-        //     })
-        // }
-
-        // setselfUserDirectConversations(results)
+        setselfUserDirectConversations(results)
     }
 
     useEffect(() => {

@@ -5,15 +5,14 @@ import DirectConversation from "./DirectConversation"
 import User from "./User"
 
 const Index = () => {
-    const { selfUserDirectConversationsData, users } = useUser()
-    const { setSearch } = useSearch()
+    const { selfUserDirectConversationsData, users, selfUser } = useUser()
     const [searchResults, setSearchResults] = useState()
 
     if(!users) return ""
 
     const handleSearch = (e) => {
         e.value.length == 0 ? setSearchResults() :
-        setSearchResults(users.filter(o => o.user.username.toLowerCase().includes(e.value.toLowerCase())))
+        setSearchResults(users.filter(o => o.id !== selfUser.id && o.user.username.toLowerCase().includes(e.value.toLowerCase())))
     }
 
     return (
@@ -38,19 +37,24 @@ const Index = () => {
                 borderTop: "1px solid var(--base-002)",
                 overflowY: "scroll"
             }}>
-                {searchResults && <div style={{
-                    overflow: 'hidden'
-                }}>
-                    <div className="row padding-x-6 space-between">
-                        <p className="">
-                            Results
-                        </p>
-                    </div>
-                    {searchResults.map((result) => (
-                        <User user={result.user} id={result.id} key={result.id}/>
-                    ))}
-                    sadas
-                </div>}
+                {searchResults &&
+                    <>
+                        <div className="row space-between">
+                            <p className="">
+                                Results
+                            </p>
+                        </div>
+                        {searchResults.map((result) => (
+                            <User user={result.user} id={result.id} key={result.id}/>
+                        ))}
+                    </>
+                }
+                <div className="row space-between padding-x-6 padding-y-4">
+                    <p className="ff-title" style={{
+                        fontSize: "10px",
+                        color: "var(--text-color-1)"
+                    }}>Direct Messages</p>
+                </div>
                 {selfUserDirectConversationsData && selfUserDirectConversationsData.map((directConversation) => (
                     <DirectConversation id={directConversation.id} directConversation={directConversation.direct_conversation} key={directConversation.id} users={directConversation.users} messages={directConversation.messages}/>
                 ))}
