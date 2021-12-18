@@ -80,15 +80,32 @@ export const UserProvider = ({ children }) => {
     }
 
     const getSelfUserDirectConverasations = async () => {
-        const results = []
+        
 
+        // db.collection("direct_conversations").where("users_id", "array-contains", selfUser.id).onSnapshot((res) => {
+        //     res = res.docs
+
+        //     console.log(res)
+        //     for (let i = 0; i < res.length; i++) {
+        //         const directConversation = res[i].data()
+        //         const id = res[i].id
+    
+               
+        //         results.push({
+        //             direct_conversation: directConversation,
+        //             id: id
+        //         })
+        //     }
+            
+        // })
+        // setselfUserDirectConversations(results)
         db.collection("direct_conversations").where("users_id", "array-contains", selfUser.id).onSnapshot((res) => {
             res = res.docs
+            const results = []
 
             for (let i = 0; i < res.length; i++) {
                 const directConversation = res[i].data()
                 const id = res[i].id
-    
                
                 results.push({
                     direct_conversation: directConversation,
@@ -96,8 +113,8 @@ export const UserProvider = ({ children }) => {
                 })
             }
             
+            setselfUserDirectConversations(results)
         })
-        setselfUserDirectConversations(results)
     }
 
     useEffect(() => {

@@ -16,8 +16,6 @@ const User = ({user, id}) => {
                 users_id: [selfUser.id, id]
             })
             navigate(`/app/chat/${createdDirectConversation.id}`)
-
-            console.log(createdDirectConversation)
         }
         else {
             navigate(`/app/chat/${directConversationCheck.docs[0].id}`)

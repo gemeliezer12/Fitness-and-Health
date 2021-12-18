@@ -43,27 +43,32 @@ const DirectMessages = ({directConversation, id}) => {
     }
 
     useEffect(() => {
-
-        setSelfUserDirectConversationsData(
+        directMessages && directConversationUsers && setSelfUserDirectConversationsData(
             selfUserDirectConversations.map((selfUserDirectConversation, index) => {
-                if (selfUserDirectConversation.id === id) return (
-                    {
-                        ...selfUserDirectConversation,
-                        users: directConversationUsers,
-                        messages: directMessages
-                    }
-                )
+                console.log(selfUserDirectConversation.id, id);
+                if (selfUserDirectConversation.id === id){
+                    return (
+                        {
+                            ...selfUserDirectConversation,
+                            users: directConversationUsers,
+                            messages: directMessages
+                        }
+                    )
+                }
                 else {
-                    if(selfUserDirectConversationsData) return selfUserDirectConversationsData[index]
+                    console.log(selfUserDirectConversationsData)
+                    if (selfUserDirectConversationsData) return selfUserDirectConversationsData[index]
                     else return selfUserDirectConversation
                 }
             })
         )
-    }, [directMessages, users])
+    }, [directMessages, directConversationUsers])
 
     useEffect(() => {
         return getDirectMessages(), getDirectConversationUsers()
     }, [])
+
+    console.log(selfUserDirectConversationsData);
 
     return (
         ""

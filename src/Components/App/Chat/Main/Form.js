@@ -67,10 +67,10 @@ const Form = () => {
                 <div className="icon-40-absolute y">
                     <i className="fas fa-plus-circle"></i>
                 </div>
-                <TextareaAutosize name={message.name} maxRows={20} style={{
+                {/* <TextareaAutosize name={message.name} maxRows={20} style={{
                     width: "100%",
                     alignSelf: "center"
-                }} placeholder={`Send a message to @${currentDirectConversation.users && currentDirectConversation.users.filter((user) => user.id !== selfUser.id)[0].user.username}`} onKeyDown={(e) => onKeyDown(e)} value={message.value}/>
+                }} placeholder={`Send a message to @${currentDirectConversation.users && currentDirectConversation.users.filter((user) => user.id !== selfUser.id)[0].user.username}`} onKeyDown={(e) => onKeyDown(e)} value={message.value}/> */}
                 <div className="icon-40-absolute y">
                     <i className="fas fa-paper-plane"></i>
                 </div>
