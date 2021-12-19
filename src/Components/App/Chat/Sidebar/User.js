@@ -17,8 +17,8 @@ const User = ({user, id}) => {
             const directConversation = directConversations[i].data()
             const directConversationId = directConversations[i].id
             for (let i = 0; i < directConversation.users_id.length; i++) {
-                console.log(directConversation.users_id[i], id)
                 if (directConversation.users_id[i] === id) directConversationExist = directConversationId
+                if (directConversation.users_id[i] === id) console.log(directConversationId)
             }
         }
 
@@ -29,10 +29,8 @@ const User = ({user, id}) => {
             navigate(`/app/chat/${createdDirectConversation.id}`)
         }
         else {
-            navigate(`/app/chat/${directConversationExist.id}`)
+            navigate(`/app/chat/${directConversationExist}`)
         }
-
-        console.log(directConversationExist)
     }
 
     return (
