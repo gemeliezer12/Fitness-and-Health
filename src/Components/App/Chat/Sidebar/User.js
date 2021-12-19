@@ -18,13 +18,22 @@ const User = ({user, id}) => {
             const directConversationId = directConversations[i].id
             for (let i = 0; i < directConversation.users_id.length; i++) {
                 if (directConversation.users_id[i] === id) directConversationExist = directConversationId
-                if (directConversation.users_id[i] === id) console.log(directConversationId)
             }
         }
 
         if (!directConversationExist) {
             const createdDirectConversation = await db.collection("direct_conversations").add({
                 users_id: [selfUser.id, id]
+            })
+            const newDirectConversations = () => {
+                console.log(selfUser.user.conversations_id)
+                if (selfUser.user.conversations_id) return [...selfUser.user.direct_conversations_id, createdDirectConversation.id]
+                else return [createdDirectConversation.id]
+            }
+
+            db.collection("users").doc(selfUser.id).set({
+                ...selfUser.user,
+                direct_conversations_id: newDirectConversations()
             })
             navigate(`/app/chat/${createdDirectConversation.id}`)
         }

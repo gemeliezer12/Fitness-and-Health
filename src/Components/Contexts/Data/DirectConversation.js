@@ -5,7 +5,7 @@ import { useUser } from "../UserContext"
 const db = firebase.firestore()
 
 const DirectMessages = ({directConversation, id}) => {
-    const { selfUserDirectConversations, setSelfUserDirectConversationsData, selfUserDirectConversationsData, users } = useUser()
+    const { selfUserDirectConversations, setSelfUserDirectConversationsData, selfUserDirectConversationsData, users, selfUser } = useUser()
     const [directMessages, setDirectMessages] = useState()
     const [directConversationUsers, setDirectConversationUsers] = useState()
 
@@ -43,22 +43,29 @@ const DirectMessages = ({directConversation, id}) => {
     }
 
     useEffect(() => {
+        // console.log(selfUser.user.direct_conversations_id.ma)
         directMessages && directConversationUsers && setSelfUserDirectConversationsData(
             selfUserDirectConversations.map((selfUserDirectConversation, index) => {
-                console.log(selfUserDirectConversation.id, id)
                 if (selfUserDirectConversation.id === id){
-                    console.log(
+                    return (
                         {
-                            ...selfUserDirectConversation,
+                            // ...selfUserDirectConversation,
+                            directConversation: directConversation,
+                            id: id,
                             users: directConversationUsers,
                             messages: directMessages
                         }
                     )
                 }
                 else {
-                    if (selfUserDirectConversationsData && selfUserDirectConversationsData[index]) console.log(selfUserDirectConversationsData[index])
-                    else console.log(selfUserDirectConversation)
+                    if (selfUserDirectConversationsData && selfUserDirectConversationsData[index]) return selfUserDirectConversationsData[index]
+                    else return selfUserDirectConversation
                 }
+            }),
+            "ADS"
+        )
+        console.log(
+            selfUserDirectConversations.map((selfUserDirectConversation, index) => {
                 if (selfUserDirectConversation.id === id){
                     return (
                         {
@@ -69,15 +76,23 @@ const DirectMessages = ({directConversation, id}) => {
                     )
                 }
                 else {
-                    if (selfUserDirectConversationsData && selfUserDirectConversationsData[index]) return selfUserDirectConversationsData[index]
-                    else return selfUserDirectConversation
+                    if (selfUserDirectConversationsData && selfUserDirectConversationsData[index]) {
+                        return (selfUserDirectConversationsData[index])
+                    }
+                    else {
+                        return (selfUserDirectConversation)
+                    }
                 }
             })
         )
     }, [directMessages, directConversationUsers, selfUserDirectConversations.length])
 
     useEffect(() => {
-        return getDirectMessages(), getDirectConversationUsers()
+        return getDirectMessages()
+    }, [])
+
+    useEffect(() => {
+        return getDirectConversationUsers()
     }, [])
 
     return (

@@ -1,5 +1,3 @@
-import { useEffect } from "react"
-
 const Message = ({message, id, user}) => {
 
     const dateHandler = () => {
@@ -7,16 +5,15 @@ const Message = ({message, id, user}) => {
         const currentTime = Math.floor(Date.now() / 1000)
         const timeAgo = currentTime - message.date_created
 
-        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-        var year = dateCreated.getFullYear();
-        var month = months[dateCreated.getMonth()]
+        var year = dateCreated.getFullYear()
+        var month = dateCreated.getMonth()
         var date = dateCreated.getDate()
         var hour = dateCreated.getHours()
         var min = dateCreated.getMinutes()
-        var sec = dateCreated.getSeconds()
 
-        if (timeAgo > 86400 * 2) return `Yesterday ${dateCreated}`
         if (timeAgo < 86400) return `Today ${hour > 12 ? hour - 12 : hour}:${min} ${hour > 11 ? "PM" : "AM"}`
+        if (timeAgo > 86400) return `Yesterday ${hour > 12 ? hour - 12 : hour}:${min} ${hour > 11 ? "PM" : "AM"}`
+        if (timeAgo > 86400 * 2) return `${month}/${date}/${year}`
     }
 
     return (

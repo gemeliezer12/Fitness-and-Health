@@ -35,7 +35,7 @@ const Index = () => {
             <div className="column padding-x-10 padding-y-6 gap-2" style={{
                 height: "calc(100% - 100px)",
                 borderTop: "1px solid var(--base-002)",
-                overflowY: "scroll"
+                overflowY: "auto",
             }}>
                 {searchResults &&
                     <>
@@ -48,8 +48,8 @@ const Index = () => {
                         color: "var(--text-color-1)"
                     }}>Direct Messages</p>
                 </div>
-                {selfUserDirectConversationsData && selfUserDirectConversationsData.map((directConversation) => (
-                    <DirectConversation id={directConversation.id} directConversation={directConversation.direct_conversation} key={directConversation.id} users={directConversation.users} messages={directConversation.messages}/>
+                {selfUserDirectConversationsData && selfUserDirectConversationsData.map((directConversation, index) => (
+                    <DirectConversation id={directConversation.id} directConversation={directConversation.direct_conversation} key={index} users={directConversation.users} messages={directConversation.messages}/>
                 ))}
             </div>
             <div style={{

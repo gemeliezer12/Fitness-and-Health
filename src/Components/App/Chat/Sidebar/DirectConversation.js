@@ -9,6 +9,20 @@ const DirectConversation = ({id, directConversation, users, messages}) => {
     const { currentDirectConversationId } = useParams()
     const { selfUser } = useUser()
 
+    const removeConversation = () => {
+        const newDirectConversationsId = []
+
+        for (let i = 0; i < selfUser.user.direct_conversations_id.length; i++) {
+            const direct_conversations_id = selfUser.user.direct_conversations_id[i]
+            direct_conversations_id !== id && newDirectConversationsId.push(direct_conversations_id)
+        }
+
+        db.collection("users").doc(selfUser.id).set({
+            ...selfUser.user,
+            direct_conversations_id: newDirectConversationsId
+        })
+    }
+
     return (
         <Link to={`/app/chat/${id}`} className={`lvC9OT67bA ${currentDirectConversationId === id ? " selected" : ""}`}>
             <div className="row gap-6" style={{
@@ -38,6 +52,11 @@ const DirectConversation = ({id, directConversation, users, messages}) => {
                     <p style={{
                         color: "var(--text-color-2)",
                     }}>{users && users.filter((user) => user.id !== selfUser.id)[0].user.username}</p>
+                </div>
+            </div>
+            <div className="align-center row gap-6" onClick={() => removeConversation()}>
+                <div className="img-26 icon cursor-pointer">
+                    <i className="fa fa-times"></i>
                 </div>
             </div>
         </Link>

@@ -14,12 +14,12 @@ export const useUser = () => useContext(UserContext)
 export const UserProvider = ({ children }) => {
     
     const [selfUser, setSelfUser] = useState()
-    const [selfUserFriends, setSelfUserFriends] = useState()
-    const [selfUserFriendRequests, setSelfUserFriendRequests] = useState()
-    const [selfUserFriendRequesting, setSelfUserFriendRequesting] = useState()
-    const [selfUserDirectConversations, setselfUserDirectConversations] = useState()
-    const [selfUserDirectConversationsData, setSelfUserDirectConversationsData] = useState()
-    const [users, setUsers] = useState()
+    const [selfUserFriends, setSelfUserFriends] = useState([])
+    const [selfUserFriendRequests, setSelfUserFriendRequests] = useState([])
+    const [selfUserFriendRequesting, setSelfUserFriendRequesting] = useState([])
+    const [selfUserDirectConversations, setselfUserDirectConversations] = useState([])
+    const [selfUserDirectConversationsData, setSelfUserDirectConversationsData] = useState([])
+    const [users, setUsers] = useState([])
     const [currentDirectConversation, setCurrentDirectConversation] = useState()
 
     const navigate = useNavigate()
@@ -121,6 +121,10 @@ export const UserProvider = ({ children }) => {
     useEffect(()=> {
         getUsers()
     }, [])
+
+    useEffect(() => {
+        selfUserDirectConversations.length === 0 && setSelfUserDirectConversationsData([])
+    }, [selfUserDirectConversations.length])
 
     const value = {
         selfUser,
