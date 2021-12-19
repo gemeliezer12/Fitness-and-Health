@@ -43,13 +43,11 @@ const DirectMessages = ({directConversation, id}) => {
     }
 
     useEffect(() => {
-        // console.log(selfUser.user.direct_conversations_id.ma)
         directMessages && directConversationUsers && setSelfUserDirectConversationsData(
-            selfUserDirectConversations.map((selfUserDirectConversation, index) => {
-                if (selfUserDirectConversation.id === id){
+            selfUser.user.direct_conversations_id.map((e, index) => {
+                if (e === id){
                     return (
                         {
-                            // ...selfUserDirectConversation,
                             directConversation: directConversation,
                             id: id,
                             users: directConversationUsers,
@@ -59,33 +57,30 @@ const DirectMessages = ({directConversation, id}) => {
                 }
                 else {
                     if (selfUserDirectConversationsData && selfUserDirectConversationsData[index]) return selfUserDirectConversationsData[index]
-                    else return selfUserDirectConversation
-                }
-            }),
-            "ADS"
-        )
-        console.log(
-            selfUserDirectConversations.map((selfUserDirectConversation, index) => {
-                if (selfUserDirectConversation.id === id){
-                    return (
-                        {
-                            ...selfUserDirectConversation,
-                            users: directConversationUsers,
-                            messages: directMessages
-                        }
-                    )
-                }
-                else {
-                    if (selfUserDirectConversationsData && selfUserDirectConversationsData[index]) {
-                        return (selfUserDirectConversationsData[index])
-                    }
-                    else {
-                        return (selfUserDirectConversation)
-                    }
+                    else return selfUserDirectConversations.filter((f) => f.id === e)[0]
                 }
             })
         )
-    }, [directMessages, directConversationUsers, selfUserDirectConversations.length])
+        // directMessages && directConversationUsers && setSelfUserDirectConversationsData(
+        //     selfUserDirectConversations.map((selfUserDirectConversation, index) => {
+        //         if (selfUserDirectConversation.id === id){
+        //             return (
+        //                 {
+        //                     // ...selfUserDirectConversation,
+        //                     directConversation: directConversation,
+        //                     id: id,
+        //                     users: directConversationUsers,
+        //                     messages: directMessages
+        //                 }
+        //             )
+        //         }
+        //         else {
+        //             if (selfUserDirectConversationsData && selfUserDirectConversationsData[index]) return selfUserDirectConversationsData[index]
+        //             else return selfUserDirectConversation
+        //         }
+        //     })
+        // )
+    }, [directMessages, directConversationUsers, selfUserDirectConversations.length, selfUser.user.direct_conversations_id])
 
     useEffect(() => {
         return getDirectMessages()

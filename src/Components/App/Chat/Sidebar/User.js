@@ -26,8 +26,7 @@ const User = ({user, id}) => {
                 users_id: [selfUser.id, id]
             })
             const newDirectConversations = () => {
-                console.log(selfUser.user.conversations_id)
-                if (selfUser.user.conversations_id) return [...selfUser.user.direct_conversations_id, createdDirectConversation.id]
+                if (selfUser.user.direct_conversations_id) return [...selfUser.user.direct_conversations_id, createdDirectConversation.id]
                 else return [createdDirectConversation.id]
             }
 
