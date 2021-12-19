@@ -45,6 +45,21 @@ const DirectMessages = ({directConversation, id}) => {
     useEffect(() => {
         directMessages && directConversationUsers && setSelfUserDirectConversationsData(
             selfUserDirectConversations.map((selfUserDirectConversation, index) => {
+                console.log(selfUserDirectConversation.id, id)
+                if (selfUserDirectConversation.id === id){
+                    console.log(
+                        {
+                            ...selfUserDirectConversation,
+                            users: directConversationUsers,
+                            messages: directMessages
+                        }
+                    )
+                }
+                else {
+                    console.log(selfUserDirectConversationsData)
+                    if (selfUserDirectConversationsData && selfUserDirectConversationsData[index]) console.log(selfUserDirectConversationsData[index])
+                    else console.log(selfUserDirectConversation)
+                }
                 if (selfUserDirectConversation.id === id){
                     return (
                         {

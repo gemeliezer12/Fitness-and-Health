@@ -33,8 +33,6 @@ const Form = () => {
 
     const currentDirectConversation = selfUserDirectConversationsData && currentDirectConversationId && selfUserDirectConversationsData.filter((directConversation) => directConversation && directConversation.id === currentDirectConversationId)[0]
 
-    console.log(currentDirectConversation)
-
     const onSubmit = async (e) => {
         e.preventDefault()
 
