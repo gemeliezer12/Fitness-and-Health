@@ -21,6 +21,7 @@ export const UserProvider = ({ children }) => {
     const [selfUserDirectConversationsData, setSelfUserDirectConversationsData] = useState()
     const [users, setUsers] = useState()
     const [currentDirectConversation, setCurrentDirectConversation] = useState()
+
     const navigate = useNavigate()
 
     const getSelfUser = async (userId) => {
@@ -154,7 +155,9 @@ export const UserProvider = ({ children }) => {
         selfUserDirectConversationsData,
         setSelfUserDirectConversationsData,
         users,
-        setUsers
+        setUsers,
+        currentDirectConversation,
+        setCurrentDirectConversation
     }
 
     return (

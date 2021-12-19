@@ -1,5 +1,5 @@
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useUser } from "../../../Contexts/UserContext"
 import { firebase } from "../../../../firebase"
@@ -8,9 +8,9 @@ import TextareaAutosize from "react-textarea-autosize"
 const db = firebase.firestore()
 
 const Form = () => {
-    const { selfUser, selfUserDirectConversationsData } = useUser()
+    const { selfUser, selfUserDirectConversationsData, currentDirectConversation, setCurrentDirectConversation } = useUser()
     const {currentDirectConversationId} = useParams()
-
+    
     const onlySpaces = (str) => {
         return str.trim().length === 0;
     }
@@ -30,8 +30,6 @@ const Form = () => {
     const allInputIsValid = () => {
         return message.isValid
     }
-
-    const currentDirectConversation = selfUserDirectConversationsData && currentDirectConversationId && selfUserDirectConversationsData.filter((directConversation) => directConversation && directConversation.id === currentDirectConversationId)[0]
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -54,6 +52,21 @@ const Form = () => {
             onSubmit(e)
         }
     }
+
+    const getCurrentConversation = () => {
+        for (let i = 0; i < selfUserDirectConversationsData.length; i++) {
+            if (selfUserDirectConversationsData[i].id === currentDirectConversationId) {
+                setCurrentDirectConversation(
+                    selfUserDirectConversationsData[i]
+                )
+                break
+            }
+        }
+    }
+
+    useEffect(() => {
+        getCurrentConversation()
+    }, [currentDirectConversationId])
 
     return (
         <div className="column padding-x-15">
