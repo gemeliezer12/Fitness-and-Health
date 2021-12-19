@@ -56,7 +56,6 @@ const DirectMessages = ({directConversation, id}) => {
                     )
                 }
                 else {
-                    console.log(selfUserDirectConversationsData)
                     if (selfUserDirectConversationsData && selfUserDirectConversationsData[index]) console.log(selfUserDirectConversationsData[index])
                     else console.log(selfUserDirectConversation)
                 }
@@ -70,7 +69,7 @@ const DirectMessages = ({directConversation, id}) => {
                     )
                 }
                 else {
-                    if (selfUserDirectConversationsData) return selfUserDirectConversationsData[index]
+                    if (selfUserDirectConversationsData && selfUserDirectConversationsData[index]) return selfUserDirectConversationsData[index]
                     else return selfUserDirectConversation
                 }
             })
