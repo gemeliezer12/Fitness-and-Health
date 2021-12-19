@@ -74,7 +74,7 @@ const DirectMessages = ({directConversation, id}) => {
                 }
             })
         )
-    }, [directMessages, directConversationUsers])
+    }, [directMessages, directConversationUsers, selfUserDirectConversations.length])
 
     useEffect(() => {
         return getDirectMessages(), getDirectConversationUsers()

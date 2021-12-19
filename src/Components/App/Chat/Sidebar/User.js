@@ -9,17 +9,30 @@ const User = ({user, id}) => {
     const navigate = useNavigate()
 
     const onClick = async () => {
-        const directConversationCheck = await db.collection("direct_conversations").where("users_id", "array-contains", selfUser.id && id).get()
+        const directConversations = (await db.collection("direct_conversations").where("users_id", "array-contains", selfUser.id).get()).docs
+
+        let directConversationExist = false
         
-        if (directConversationCheck.empty === true) {
+        for (let i = 0; i < directConversations.length; i++) {
+            const directConversation = directConversations[i].data()
+            const directConversationId = directConversations[i].id
+            for (let i = 0; i < directConversation.users_id.length; i++) {
+                console.log(directConversation.users_id[i], id)
+                if (directConversation.users_id[i] === id) directConversationExist = directConversationId
+            }
+        }
+
+        if (!directConversationExist) {
             const createdDirectConversation = await db.collection("direct_conversations").add({
                 users_id: [selfUser.id, id]
             })
             navigate(`/app/chat/${createdDirectConversation.id}`)
         }
         else {
-            navigate(`/app/chat/${directConversationCheck.docs[0].id}`)
+            navigate(`/app/chat/${directConversationExist.id}`)
         }
+
+        console.log(directConversationExist)
     }
 
     return (
