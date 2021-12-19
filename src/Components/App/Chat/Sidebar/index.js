@@ -2,6 +2,8 @@ import { useState } from "react"
 import { useSearch } from "../../../Contexts/SearchContext"
 import { useUser } from "../../../Contexts/UserContext"
 import DirectConversation from "./DirectConversation"
+import SearchBar from "./SearchBar"
+import SearchResults from "./SearchResults"
 import User from "./User"
 
 const Index = () => {
@@ -14,8 +16,6 @@ const Index = () => {
         e.value.length == 0 ? setSearchResults() :
         setSearchResults(users.filter(o => o.id !== selfUser.id && o.user.username.toLowerCase().includes(e.value.toLowerCase())))
     }
-
-    console.log(selfUserDirectConversationsData)
 
     return (
         <div style={{
@@ -30,9 +30,7 @@ const Index = () => {
                 minHeight: "50px",
                 padding: "10px"
             }}>
-                <input className="height-100pc width-100pc padding-x-6 padding-y-4 border-radius-4 fs-14" type="text" placeholder="Search for a Trainer" style={{
-                    backgroundColor: "var(--bg-color-1)",
-                }} onChange={(e) => handleSearch(e.target)}/>
+                <SearchBar handleSearch={handleSearch}/>
             </div>
             <div className="column padding-x-10 padding-y-6 gap-2" style={{
                 height: "calc(100% - 100px)",
@@ -41,14 +39,7 @@ const Index = () => {
             }}>
                 {searchResults &&
                     <>
-                        <div className="row space-between">
-                            <p className="">
-                                Results
-                            </p>
-                        </div>
-                        {searchResults.map((result) => (
-                            <User user={result.user} id={result.id} key={result.id}/>
-                        ))}
+                        <SearchResults searchResults={searchResults}/>
                     </>
                 }
                 <div className="row space-between padding-x-6 padding-y-4">
