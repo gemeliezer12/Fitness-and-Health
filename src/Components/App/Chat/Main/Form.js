@@ -11,6 +11,7 @@ const Form = ({ currentDirectConversation }) => {
 
     const { selfUser } = useUser()
     const { currentDirectConversationId } = useParams()
+    const [isTyping, setIsTyping] = useState()
 
     const onlySpaces = (str) => {
         return str.trim().length === 0;
@@ -55,17 +56,33 @@ const Form = ({ currentDirectConversation }) => {
     }
 
     useEffect(() => {
-        message.value ?
-        db.collection("direct_conversations").doc(currentDirectConversation.id).set({
-            ...currentDirectConversation.direct_conversation,
-            typing: selfUser.user
-        })
-        :
-        db.collection("direct_conversations").doc(currentDirectConversation.id).set({
-            ...currentDirectConversation.direct_conversation,
-            typing: null
-        })
+        message.value ? setIsTyping(true) : setIsTyping(false)
     }, [message])
+
+    useEffect(async () => {
+        const newTyping = () => {
+            if (isTyping) {
+                return [...currentDirectConversation.direct_conversation.typing.filter((user) => user.id !== selfUser.id), {user: selfUser.user, id: selfUser.id}]
+            }
+            else {
+                // If not typing but someone else is
+                if (currentDirectConversation.direct_conversation.typing){
+                    return currentDirectConversation.direct_conversation.typing.filter((user) => user.id !== selfUser.id)
+                }
+                // If no one is typing
+                else {
+                    return null
+                }
+            }
+        }
+
+        console.log(newTyping())
+
+        db.collection("direct_conversations").doc(currentDirectConversation.id).set({
+            ...currentDirectConversation.direct_conversation,
+            typing: newTyping()
+        })
+    }, [isTyping])
 
     return (
         <div className="column padding-x-15">
@@ -91,7 +108,7 @@ const Form = ({ currentDirectConversation }) => {
                 minHeight: "20px",
                 height: "20px"
             }}>
-                {currentDirectConversation.direct_conversation.typing && `${currentDirectConversation.direct_conversation.typing.username} is typing...`}
+                {/* {currentDirectConversation.direct_conversation.typing && `${currentDirectConversation.direct_conversation.typing.username} is typing...`} */}
             </div>
         </div>
     )
