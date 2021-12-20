@@ -7,10 +7,71 @@ import TextareaAutosize from "react-textarea-autosize"
 
 const db = firebase.firestore()
 
-const Form = () => {
-    const { selfUser, selfUserDirectConversationsData, currentDirectConversation, setCurrentDirectConversation } = useUser()
-    const {currentDirectConversationId} = useParams()
+const Form = ({ currentDirectConversation }) => {
+
+    const { selfUser } = useUser()
+    const { currentDirectConversationId } = useParams()
+
+    // const { selfUser, selfUserDirectConversationsData, currentDirectConversation, setCurrentDirectConversation } = useUser()
+    // const {currentDirectConversationId} = useParams()
     
+    // const onlySpaces = (str) => {
+    //     return str.trim().length === 0;
+    // }
+    
+    // const [message, setmessage] = useState({name: "message", value: "", isValid: false, label: "#Message", isRequired: true})
+
+    // const onChange = (e) => {
+    //     switch (e.name) {
+    //         case "message":
+    //             setmessage({...message, value: e.value, isValid: e.value !== "" && !onlySpaces(e.value)})
+    //             break
+    //         default:
+    //             break
+    //     }
+    // }
+
+    // const allInputIsValid = () => {
+    //     return message.isValid
+    // }
+
+    // const onSubmit = async (e) => {
+    //     e.preventDefault()
+
+    //     if (!allInputIsValid()) return
+
+    //     setmessage({...message, value: "", isValid: false})
+    //     db.collection("direct_messages").add(
+    //         {
+    //             direct_conversation_id: currentDirectConversationId,
+    //             message: message.value,
+    //             date_created: Math.floor(Date.now() / 1000),
+    //             user_id: selfUser.id
+    //         }
+    //     )
+    // }
+
+    // const onKeyDown = (e) => {
+    //     if(e.keyCode === 13 && e.shiftKey === false) {
+    //         onSubmit(e)
+    //     }
+    // }
+
+    // const getCurrentConversation = () => {
+    //     for (let i = 0; i < selfUserDirectConversationsData.length; i++) {
+    //         if (selfUserDirectConversationsData[i].id === currentDirectConversationId) {
+    //             setCurrentDirectConversation(
+    //                 selfUserDirectConversationsData[i]
+    //             )
+    //             break
+    //         }
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     getCurrentConversation()
+    // }, [currentDirectConversationId])
+
     const onlySpaces = (str) => {
         return str.trim().length === 0;
     }
@@ -52,21 +113,6 @@ const Form = () => {
             onSubmit(e)
         }
     }
-
-    const getCurrentConversation = () => {
-        for (let i = 0; i < selfUserDirectConversationsData.length; i++) {
-            if (selfUserDirectConversationsData[i].id === currentDirectConversationId) {
-                setCurrentDirectConversation(
-                    selfUserDirectConversationsData[i]
-                )
-                break
-            }
-        }
-    }
-
-    useEffect(() => {
-        getCurrentConversation()
-    }, [currentDirectConversationId])
 
     return (
         <div className="column padding-x-15">

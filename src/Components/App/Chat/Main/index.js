@@ -8,8 +8,13 @@ import Messages from "./Messages"
 const db = firebase.firestore()
 
 const Index = () => {
-    const { selfUserDirectConversationsData } = useUser()
+    const { selfUser, selfUserDirectConversationsData, currentDirectConversation, setCurrentDirectConversationId } = useUser()
+    const {currentDirectConversationId} = useParams()
 
+    useEffect(() => {
+        setCurrentDirectConversationId(currentDirectConversationId)
+    }, [currentDirectConversationId])
+    
     return (
         <>
             <div style={{
@@ -21,9 +26,9 @@ const Index = () => {
                 height: "100%"
             }}>
 
-                { selfUserDirectConversationsData && <Messages/>}
+                { currentDirectConversation && <Messages messages={currentDirectConversation.direct_messages}/>}
             </div>
-            {selfUserDirectConversationsData && <Form/>}
+            {currentDirectConversation && <Form currentDirectConversation={currentDirectConversation}/>}
         </>
     )
 }

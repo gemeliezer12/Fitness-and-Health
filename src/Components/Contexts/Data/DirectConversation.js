@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 
 import { firebase } from "../../../firebase"
 import { useUser } from "../UserContext"
 const db = firebase.firestore()
 
 const Conversation = ({id}) => {
-    const { users, setSelfUserDirectConversationsData, selfUser, selfUserDirectConversationsData } = useUser()
+    const { users, setSelfUserDirectConversationsData, selfUser, selfUserDirectConversationsData, setCurrentDirectConversation, currentDirectConversationId } = useUser()
 
     const [directConversation, setDirectConversation] = useState()
     const [directConversationUsers, setDirectConversationUsers] = useState()
@@ -40,7 +41,8 @@ const Conversation = ({id}) => {
             for (let i = 0; i < directMessages.length; i++) {
                 results.push({
                     direct_message: directMessages[i].data(),
-                    id: directMessages[i].id
+                    id: directMessages[i].id,
+                    user: users.filter((user) => user.id === directMessages[i].data().user_id)[0]
                 })
             }
 
@@ -67,11 +69,6 @@ const Conversation = ({id}) => {
             direct_messages: directMessages,
             users: directConversationUsers
         })
-        directConversation && directMessages && directConversationUsers && console.log({
-            ...directConversation,
-            direct_messages: directMessages,
-            users: directConversationUsers
-        })
     }, [directConversation, directMessages, directConversationUsers])
 
     useEffect(() => {
@@ -83,6 +80,10 @@ const Conversation = ({id}) => {
             )
         )
     }, [directConversationData, selfUser.user.direct_conversations_id])
+
+    useEffect(() => {
+        currentDirectConversationId === id && setCurrentDirectConversation(directConversationData)
+    }, [directConversationData, currentDirectConversationId])
 
     return ""
 }

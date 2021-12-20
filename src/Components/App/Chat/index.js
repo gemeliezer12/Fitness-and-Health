@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom"
 const db = firebase.firestore()
 
 const Index = () => {
-    const { selfUser } = useUser()
+    const { selfUser, selfUserDirectConversations } = useUser()
     const { currentDirectConversationId } = useParams()
     
     if (!selfUser) return ""
@@ -23,7 +23,7 @@ const Index = () => {
                 flexDirection: "column",
                 overflowY: "hidden"
             }}>
-                {currentDirectConversationId && <Main/>}
+                { currentDirectConversationId && <Main/>}
             </div>
         </>
     )

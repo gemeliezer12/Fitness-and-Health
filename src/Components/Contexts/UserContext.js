@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext, useContext } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 import { firebase } from "../../firebase"
 // import Conversation from "./Data/Conversation"
@@ -22,8 +22,7 @@ export const UserProvider = ({ children }) => {
     const [selfUserDirectConversationsData, setSelfUserDirectConversationsData] = useState([])
     const [users, setUsers] = useState([])
     const [currentDirectConversation, setCurrentDirectConversation] = useState()
-    const [e, setE] = useState()
-
+    const [currentDirectConversationId, setCurrentDirectConversationId] = useState()
     const navigate = useNavigate()
 
     const getSelfUser = async (userId) => {
@@ -144,7 +143,9 @@ export const UserProvider = ({ children }) => {
         users,
         setUsers,
         currentDirectConversation,
-        setCurrentDirectConversation
+        setCurrentDirectConversation,
+        currentDirectConversationId,
+        setCurrentDirectConversationId
     }
 
     return (
