@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { firebase } from "../../../../firebase"
 import { useUser } from "../../../Contexts/UserContext"
 
 const db = firebase.firestore()
 
 const DirectConversation = ({id, directConversation, users, messages}) => {
+    const navigate = useNavigate()
     const { currentDirectConversationId } = useParams()
     const { selfUser } = useUser()
 
@@ -20,7 +21,7 @@ const DirectConversation = ({id, directConversation, users, messages}) => {
         db.collection("users").doc(selfUser.id).set({
             ...selfUser.user,
             direct_conversations_id: newDirectConversationsId
-        })
+        }).then(() => navigate("/app/chat"))
     }
 
     return (

@@ -11,7 +11,6 @@ const Form = ({ currentDirectConversation }) => {
 
     const { selfUser } = useUser()
     const { currentDirectConversationId } = useParams()
-    const [selfUserIsTyping, setSelfUserIsTyping] = useState()
 
     const onlySpaces = (str) => {
         return str.trim().length === 0;
@@ -20,8 +19,6 @@ const Form = ({ currentDirectConversation }) => {
     const [message, setmessage] = useState({name: "message", value: "", isValid: false, label: "#Message", isRequired: true})
 
     const onChange = (e) => {
-        e.value ? setSelfUserIsTyping(true) : setSelfUserIsTyping(false)
-        
         switch (e.name) {
             case "message":
                 setmessage({...message, value: e.value, isValid: e.value !== "" && !onlySpaces(e.value)})
@@ -58,9 +55,7 @@ const Form = ({ currentDirectConversation }) => {
     }
 
     useEffect(() => {
-        
-        console.log(selfUserIsTyping)
-        selfUserIsTyping ?
+        message.value ?
         db.collection("direct_conversations").doc(currentDirectConversation.id).set({
             ...currentDirectConversation.direct_conversation,
             typing: selfUser.user
@@ -70,7 +65,7 @@ const Form = ({ currentDirectConversation }) => {
             ...currentDirectConversation.direct_conversation,
             typing: null
         })
-    }, [selfUserIsTyping])
+    }, [message])
 
     return (
         <div className="column padding-x-15">

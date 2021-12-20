@@ -112,6 +112,12 @@ export const UserProvider = ({ children }) => {
         })
     }, [])
 
+    window.addEventListener("beforeunload", () => {
+        db.collection("users").add({
+            ASD: "ADS"
+        })
+    });
+
     useEffect(() => {
         if (selfUser) {
             friendsHandler()
