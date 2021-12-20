@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useUser } from "../../../Contexts/UserContext"
 import { firebase } from "../../../../firebase"
 import TextareaAutosize from "react-textarea-autosize"
@@ -12,17 +12,18 @@ const Form = ({ currentDirectConversation }) => {
     const { selfUser } = useUser()
     const { currentDirectConversationId } = useParams()
     const [isTyping, setIsTyping] = useState()
+    const navigate = useNavigate()
 
     const onlySpaces = (str) => {
         return str.trim().length === 0;
     }
     
-    const [message, setmessage] = useState({name: "message", value: "", isValid: false, label: "#Message", isRequired: true})
+    const [message, setMessage] = useState({name: "message", value: "", isValid: false, label: "#Message", isRequired: true})
 
     const onChange = (e) => {
         switch (e.name) {
             case "message":
-                setmessage({...message, value: e.value, isValid: e.value !== "" && !onlySpaces(e.value)})
+                setMessage({...message, value: e.value, isValid: e.value !== "" && !onlySpaces(e.value)})
                 break
             default:
                 break
@@ -38,7 +39,7 @@ const Form = ({ currentDirectConversation }) => {
 
         if (!allInputIsValid()) return
 
-        setmessage({...message, value: "", isValid: false})
+        setMessage({...message, value: "", isValid: false})
         db.collection("direct_messages").add(
             {
                 direct_conversation_id: currentDirectConversationId,
@@ -65,24 +66,42 @@ const Form = ({ currentDirectConversation }) => {
                 return [...currentDirectConversation.direct_conversation.typing.filter((user) => user.id !== selfUser.id), {user: selfUser.user, id: selfUser.id}]
             }
             else {
-                // If not typing but someone else is
                 if (currentDirectConversation.direct_conversation.typing){
                     return currentDirectConversation.direct_conversation.typing.filter((user) => user.id !== selfUser.id)
                 }
-                // If no one is typing
                 else {
                     return null
                 }
             }
         }
 
-        console.log(newTyping())
 
         db.collection("direct_conversations").doc(currentDirectConversation.id).set({
             ...currentDirectConversation.direct_conversation,
             typing: newTyping()
         })
     }, [isTyping])
+
+    useEffect(() => {
+        setMessage({...message, value: "", isValid: false})
+    }, [navigate])
+
+    const typingUsers = () => {
+        const users = currentDirectConversation.direct_conversation.typing.filter((user) => user.id !== selfUser.id)
+
+        switch (users.length) {
+            case 0:
+                return
+            case 1:
+                return `${users[0].user.username} is typing`
+            case 2:
+                return `${users[0].user.username} and ${users[1].user.username} is typing`
+            case 3:
+                return `${users[0].user.username}, ${users[1].user.username} and ${users[2].user.username} is typing`
+            default:
+                return `Several users are typing`
+        }
+    }
 
     return (
         <div className="column padding-x-15">
@@ -108,7 +127,7 @@ const Form = ({ currentDirectConversation }) => {
                 minHeight: "20px",
                 height: "20px"
             }}>
-                {/* {currentDirectConversation.direct_conversation.typing && `${currentDirectConversation.direct_conversation.typing.username} is typing...`} */}
+                {typingUsers()}
             </div>
         </div>
     )

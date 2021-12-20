@@ -42,9 +42,11 @@ const Conversation = ({id}) => {
                 results.push({
                     direct_message: directMessages[i].data(),
                     id: directMessages[i].id,
-                    user: users.filter((user) => user.id === directMessages[i].data().user_id)[0]
+                    user: users.filter((user) => user.id === directMessages[i].data().user_id)[0].user
                 })
             }
+
+            console.log(results)
 
             setDirectMessages(results)
         })
