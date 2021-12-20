@@ -1,4 +1,3 @@
-import TextareaAutosizeProps from "react-textarea-autosize"
 import Input from "../../../Assets/Input"
 
 const AboutMe = ({aboutMe}) => {

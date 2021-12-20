@@ -1,8 +1,7 @@
 import { useState, useEffect, createContext, useContext } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 import { firebase } from "../../firebase"
-// import Conversation from "./Data/Conversation"
 import DirectConversation from "./Data/DirectConversation"
 
 const db = firebase.firestore()

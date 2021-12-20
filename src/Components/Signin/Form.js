@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { firebase } from "../../firebase"
 
 import Input from "../Assets/Input"
-
-const db = firebase.firestore()
 
 const Form = () => {
     const [email, setEmail] = useState({name: "email", label: "Email", type: "email", value: "", isValid: false, isRequired: true})
@@ -14,7 +12,7 @@ const Form = () => {
         if(!allInputIsValid()) return
         
         try {
-            const auth = new firebase.auth().signInWithEmailAndPassword(email.value, password.value)
+            new firebase.auth().signInWithEmailAndPassword(email.value, password.value)
         }
         catch (err) {
             console.log(err)
@@ -28,6 +26,8 @@ const Form = () => {
                 break
             case "password":
                 setPassword({...password, value: e.value, isValid: e.value.length >= 8})
+                break
+            default:
                 break
         }
     }

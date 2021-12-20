@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { firebase } from "../../firebase"
 
 import Input from "../Assets/Input"
 
-const date = new Date()
 const db = firebase.firestore()
 
 const toUserNumber = (number) => {
@@ -16,6 +15,8 @@ const toUserNumber = (number) => {
             return `0`+ number
         case 4:
             return number
+        default:
+            break
     }
 }
 
@@ -79,6 +80,8 @@ const Form = () => {
                 break
             case "username":
                 setUsername({...username, value: e.value, isValid: e.value.length >= 1})
+                break
+            default:
                 break
         }
     }

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
 
 import { firebase } from "../../../firebase"
 import { useUser } from "../UserContext"
@@ -45,8 +44,6 @@ const Conversation = ({id}) => {
                     user: users.filter((user) => user.id === directMessages[i].data().user_id)[0].user
                 })
             }
-
-            console.log(results)
 
             setDirectMessages(results)
         })

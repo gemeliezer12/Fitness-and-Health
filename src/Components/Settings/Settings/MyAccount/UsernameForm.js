@@ -7,7 +7,7 @@ const db = firebase.firestore()
 
 const UsernameForm = ({setCurrentForm, windowSize}) => {
     
-    const { selfUser, selfUserAuth, auth } = useUser()
+    const { selfUser } = useUser()
     const [username, setUsername] = useState({name: "username", value: "", type: "text", label: "Username", isValid: undefined, isRequired: true})
     const [password, setPassword] = useState({name: "password", value: "", type: "password", label: "Password", isValid: undefined, isRequired: true})
 

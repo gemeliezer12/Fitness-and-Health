@@ -21,12 +21,10 @@ const Index = () => {
                 return (
                     <MyAccount setCurrentSetting={setCurrentSetting} windowSize={windowSize}/>
                 )
-                break
             case "user-profile":
                 return( 
                     <UserProfile setCurrentSetting={setCurrentSetting} windowSize={windowSize}/>
                 )
-                break
             case "appearance":
                 return (
                     <Appearance setCurrentSetting={setCurrentSetting} windowSize={windowSize}/>

@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { useUser } from "../../../Contexts/UserContext"
 import Form from "./Form"
@@ -8,7 +7,6 @@ import SettingHeader from "../../SettingHeader"
 const Index = ({setCurrentSetting, windowSize}) => {
 
     const { selfUser } = useUser()
-    const navigate = useNavigate()
     
     const [currentForm, setCurrentForm] = useState()
 

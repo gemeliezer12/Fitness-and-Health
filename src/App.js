@@ -14,51 +14,48 @@ import { ThemeProvider } from "./Components/Contexts/ThemeContext"
 import "./styles/utility.css"
 import "./styles/lib.css"
 import "./styles/style.css"
-import { SearchProvider } from "./Components/Contexts/SearchContext"
 
 const Main = () => {
     
     return (
         <UserProvider>
             <ThemeProvider>
-                <SearchProvider>
-                    <Routes>
-                        <Route path="/" element={
-                            <>
-                                <Nav/>
-                                <Landing/>
-                                <Footer/>
-                            </>
-                        }/>
-                        <Route path="/account" element={
-                            <>
-                                <Nav/>
-                                <Landing/>
-                                <Footer/>
-                            </>
-                        }/>
-                        <Route path="/signin" element={
-                            <>
-                                <Nav/>
-                                <Signin/>
-                                <Footer/>
-                            </>
-                        }/>
-                        <Route path="/signup" element={
-                            <>
-                                <Nav/>
-                                <Signup/>
-                                <Footer/>
-                            </>
-                        }/>
-                        <Route path="/settings" element={
-                            <>
-                                <Settings/>
-                            </>
-                        }/>
-                    </Routes>
-                    <App/>
-                </SearchProvider>
+                <Routes>
+                    <Route path="/" element={
+                        <>
+                            <Nav/>
+                            <Landing/>
+                            <Footer/>
+                        </>
+                    }/>
+                    <Route path="/account" element={
+                        <>
+                            <Nav/>
+                            <Landing/>
+                            <Footer/>
+                        </>
+                    }/>
+                    <Route path="/signin" element={
+                        <>
+                            <Nav/>
+                            <Signin/>
+                            <Footer/>
+                        </>
+                    }/>
+                    <Route path="/signup" element={
+                        <>
+                            <Nav/>
+                            <Signup/>
+                            <Footer/>
+                        </>
+                    }/>
+                    <Route path="/settings" element={
+                        <>
+                            <Settings/>
+                        </>
+                    }/>
+                </Routes>
+                <App/>
             </ThemeProvider>
         </UserProvider>
     )

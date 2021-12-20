@@ -60,7 +60,7 @@ const Form = ({ currentDirectConversation }) => {
         message.value ? setIsTyping(true) : setIsTyping(false)
     }, [message])
 
-    useEffect(async () => {
+    useEffect(() => {
         const newTyping = () => {
             if (isTyping) {
                 return [...currentDirectConversation.direct_conversation.typing.filter((user) => user.id !== selfUser.id), {user: selfUser.user, id: selfUser.id}]
@@ -93,13 +93,13 @@ const Form = ({ currentDirectConversation }) => {
             case 0:
                 return
             case 1:
-                return `${users[0].user.username} is typing`
+                return `${users[0].user.username} is typing...`
             case 2:
-                return `${users[0].user.username} and ${users[1].user.username} is typing`
+                return `${users[0].user.username} and ${users[1].user.username} is typing...`
             case 3:
-                return `${users[0].user.username}, ${users[1].user.username} and ${users[2].user.username} is typing`
+                return `${users[0].user.username}, ${users[1].user.username} and ${users[2].user.username} is typing...`
             default:
-                return `Several users are typing`
+                return `Several users are typing...`
         }
     }
 
@@ -123,11 +123,19 @@ const Form = ({ currentDirectConversation }) => {
                     <i className="fas fa-paper-plane"></i>
                 </div>
             </form>
-            <div style={{
+            <div className="row space-between" style={{
                 minHeight: "20px",
                 height: "20px"
             }}>
-                {typingUsers()}
+                {currentDirectConversation.direct_conversation.typing && typingUsers() &&
+                    <>
+                        <div className="row gap-6 align-center">
+                            <p className="fs-14">
+                                {typingUsers()}
+                            </p>
+                        </div>
+                    </>
+                }
             </div>
         </div>
     )

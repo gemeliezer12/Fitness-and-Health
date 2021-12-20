@@ -1,14 +1,10 @@
-import { useEffect, useState } from "react"
-
-import { firebase } from "../../../firebase"
 import { useUser } from "../../Contexts/UserContext"
 import Sidebar from "./Sidebar/"
 import Main from "./Main/"
 import { useParams } from "react-router-dom"
-const db = firebase.firestore()
 
 const Index = () => {
-    const { selfUser, selfUserDirectConversations } = useUser()
+    const { selfUser } = useUser()
     const { currentDirectConversationId } = useParams()
     
     if (!selfUser) return ""

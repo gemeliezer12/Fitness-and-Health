@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { firebase } from "../../../../firebase"
-import { useUser } from "../../../Contexts/UserContext"
 
 const selfUserAuth = firebase.auth().currentUser
 
@@ -14,7 +13,6 @@ const Form = ({user, id, setCurrentForm}) => {
         else return selfUserAuth.email
     }
 
-    // if (!selfUserAuth) return ""
 
     return (
         <>

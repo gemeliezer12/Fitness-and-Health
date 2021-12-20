@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useUser } from "../../../Contexts/UserContext"
-import { firebase } from "../../../../firebase"
 
 import Form from "./Form"
 import Messages from "./Messages"
-const db = firebase.firestore()
 
 const Index = () => {
-    const { selfUser, selfUserDirectConversationsData, currentDirectConversation, setCurrentDirectConversationId } = useUser()
+    const { currentDirectConversation, setCurrentDirectConversationId } = useUser()
     const {currentDirectConversationId} = useParams()
 
     useEffect(() => {

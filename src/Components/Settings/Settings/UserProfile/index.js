@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 
-import { useNavigate } from "react-router-dom"
 import { useUser } from "../../../Contexts/UserContext"
 import AboutMe from "./AboutMe"
 import { firebase } from "../../../../firebase"
@@ -10,13 +9,8 @@ import SettingHeader from "../../SettingHeader"
 
 const db = firebase.firestore()
 
-const onlySpaces = (str) => {
-    return str.trim().length === 0;
-}
-
 const Index = ({setCurrentSetting, windowSize}) => {
     const { selfUser } = useUser()
-    const navigate = useNavigate()
     const user = selfUser.user
     const id = selfUser.id
 
@@ -33,6 +27,8 @@ const Index = ({setCurrentSetting, windowSize}) => {
             case "fitnessLevel":
                 setSelectedFitnessLevel(e.value)
                 break
+            default:
+                break
         }
     }
 
@@ -43,7 +39,6 @@ const Index = ({setCurrentSetting, windowSize}) => {
             about_me: aboutMe.value,
             fitness_level: !selectedFitnessLevel ? "" : selectedFitnessLevel
         }
-        console.log(result);
         await db.collection("users").doc(id).set({
             ...result
         })

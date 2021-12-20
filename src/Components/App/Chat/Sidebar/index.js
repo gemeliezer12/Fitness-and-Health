@@ -1,10 +1,8 @@
 import { useState } from "react"
-import { useSearch } from "../../../Contexts/SearchContext"
 import { useUser } from "../../../Contexts/UserContext"
 import DirectConversation from "./DirectConversation"
 import SearchBar from "./SearchBar"
 import SearchResults from "./SearchResults"
-import User from "./User"
 
 const Index = () => {
     const { selfUserDirectConversationsData, users, selfUser } = useUser()
@@ -13,7 +11,7 @@ const Index = () => {
     if(!users) return ""
 
     const handleSearch = (e) => {
-        e.value.length == 0 ? setSearchResults() :
+        e.value.length === 0 ? setSearchResults() :
         setSearchResults(users.filter(o => o.id !== selfUser.id && o.user.username.toLowerCase().includes(e.value.toLowerCase())))
     }
 
