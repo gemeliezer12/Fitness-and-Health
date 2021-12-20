@@ -2,6 +2,7 @@ import { useState, useEffect, createContext, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 
 import { firebase } from "../../firebase"
+// import Conversation from "./Data/Conversation"
 import DirectConversation from "./Data/DirectConversation"
 
 const db = firebase.firestore()
@@ -21,6 +22,7 @@ export const UserProvider = ({ children }) => {
     const [selfUserDirectConversationsData, setSelfUserDirectConversationsData] = useState([])
     const [users, setUsers] = useState([])
     const [currentDirectConversation, setCurrentDirectConversation] = useState()
+    const [e, setE] = useState()
 
     const navigate = useNavigate()
 
@@ -123,8 +125,8 @@ export const UserProvider = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        selfUserDirectConversations.length === 0 && setSelfUserDirectConversationsData([])
-    }, [selfUserDirectConversations.length])
+        selfUser && selfUser.user.direct_conversations_id.length === 0 && setSelfUserDirectConversationsData([])
+    }, [selfUser])
 
     const value = {
         selfUser,
@@ -147,9 +149,7 @@ export const UserProvider = ({ children }) => {
 
     return (
         <UserContext.Provider value={value}>
-            {selfUserDirectConversations && users && selfUserDirectConversations.map((directConversation, index) =>
-                <DirectConversation directConversation={directConversation.direct_conversation} id={directConversation.id} key={directConversation.id}/>
-            )}
+            {selfUser && users && selfUser.user.direct_conversations_id.map((id) => <DirectConversation key={id} id={id}/>)}
             {children}
         </UserContext.Provider>
     )

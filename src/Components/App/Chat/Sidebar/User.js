@@ -25,18 +25,34 @@ const User = ({user, id}) => {
             const createdDirectConversation = await db.collection("direct_conversations").add({
                 users_id: [selfUser.id, id]
             })
-            const newDirectConversations = () => {
-                if (selfUser.user.direct_conversations_id) return [...selfUser.user.direct_conversations_id, createdDirectConversation.id]
+            const newDirectConversations = (user) => {
+                if (user.direct_conversations_id) return [...user.direct_conversations_id, createdDirectConversation.id]
                 else return [createdDirectConversation.id]
             }
 
+            db.collection("users").doc(id).set({
+                ...user,
+                direct_conversations_id: newDirectConversations(user)
+            })
+
             db.collection("users").doc(selfUser.id).set({
                 ...selfUser.user,
-                direct_conversations_id: newDirectConversations()
+                direct_conversations_id: newDirectConversations(selfUser.user)
             })
             navigate(`/app/chat/${createdDirectConversation.id}`)
         }
         else {
+            if (!selfUser.user.direct_conversations_id.includes(directConversationExist)){
+                const newDirectConversations = () => {
+                    if (selfUser.user.direct_conversations_id) return [...selfUser.user.direct_conversations_id, directConversationExist]
+                    else return [directConversationExist]
+                }
+
+                await db.collection("users").doc(selfUser.id).set({
+                    ...selfUser.user,
+                    direct_conversations_id: newDirectConversations()
+                })
+            }
             navigate(`/app/chat/${directConversationExist}`)
         }
     }

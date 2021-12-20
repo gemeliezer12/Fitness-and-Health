@@ -48,7 +48,7 @@ const Index = () => {
                         color: "var(--text-color-1)"
                     }}>Direct Messages</p>
                 </div>
-                {selfUserDirectConversationsData && selfUserDirectConversationsData.map((directConversation, index) => (
+                {selfUserDirectConversationsData && selfUserDirectConversationsData.map((directConversation, index) => directConversation && (
                     <DirectConversation id={directConversation.id} directConversation={directConversation.direct_conversation} key={index} users={directConversation.users} messages={directConversation.messages}/>
                 ))}
             </div>

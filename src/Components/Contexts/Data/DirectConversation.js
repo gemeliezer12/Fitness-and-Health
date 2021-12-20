@@ -4,95 +4,87 @@ import { firebase } from "../../../firebase"
 import { useUser } from "../UserContext"
 const db = firebase.firestore()
 
-const DirectMessages = ({directConversation, id}) => {
-    const { selfUserDirectConversations, setSelfUserDirectConversationsData, selfUserDirectConversationsData, users, selfUser } = useUser()
-    const [directMessages, setDirectMessages] = useState()
+const Conversation = ({id}) => {
+    const { users, setSelfUserDirectConversationsData, selfUser, selfUserDirectConversationsData } = useUser()
+
+    const [directConversation, setDirectConversation] = useState()
     const [directConversationUsers, setDirectConversationUsers] = useState()
+    const [directMessages, setDirectMessages] = useState()
+    const [directConversationData, setDirectConversationData] = useState()
 
-    const getDirectMessages = async () => {
-        
-        db.collection("direct_messages").where("direct_conversation_id", "==", id).orderBy("date_created", "asc").onSnapshot( async (res) => {
-            const directMessages = res.docs
-            const results = []
-
-
-            for (let i = 0; i < directMessages.length; i++) {
-                const directMessage = directMessages[i].data()
-                const id = directMessages[i].id
-                
-                const user = users.filter((user) => user.id === directMessage.user_id)[0].user
-
-                results.push({
-                    message: directMessage,
-                    id: id,
-                    user: user
-                })
-            }
-            setDirectMessages(results)
+    const getDirectConversation = () => {
+        db.collection("direct_conversations").doc(id).onSnapshot((res) => {
+            setDirectConversation({
+                direct_conversation: res.data(),
+                id: res.id
+            })
         })
+
     }
 
     const getDirectConversationUsers = () => {
         const results = []
 
-        for (let i = 0; i < directConversation.users_id.length; i++) {
-            results.push(users.filter((e) => e.id === directConversation.users_id[i])[0])
+        for (let i = 0; i < users.length; i++) {
+            users[i].user.direct_conversations_id.includes(id) && results.push(users[i])
         }
 
         setDirectConversationUsers(results)
     }
 
+    const getDirectConversationMessages = async () => {
+        db.collection("direct_messages").where("direct_conversation_id", "==", id).onSnapshot((res) => {
+            const directMessages = res.docs
+            const results = []
+
+            for (let i = 0; i < directMessages.length; i++) {
+                results.push({
+                    direct_message: directMessages[i].data(),
+                    id: directMessages[i].id
+                })
+            }
+
+            setDirectMessages(results)
+        })
+    }
+
     useEffect(() => {
-        directMessages && directConversationUsers && setSelfUserDirectConversationsData(
+        getDirectConversation()
+    }, [])
+
+
+    useEffect(() => {
+        getDirectConversationUsers()
+    }, [])
+    
+    useEffect(() => {
+        getDirectConversationMessages()
+    }, [])
+    
+    useEffect(() => {
+        directConversation && directMessages && directConversationUsers && setDirectConversationData({
+            ...directConversation,
+            direct_messages: directMessages,
+            users: directConversationUsers
+        })
+        directConversation && directMessages && directConversationUsers && console.log({
+            ...directConversation,
+            direct_messages: directMessages,
+            users: directConversationUsers
+        })
+    }, [directConversation, directMessages, directConversationUsers])
+
+    useEffect(() => {
+        directConversationData && setSelfUserDirectConversationsData(
             selfUser.user.direct_conversations_id.map((e, index) => {
-                if (e === id){
-                    return (
-                        {
-                            directConversation: directConversation,
-                            id: id,
-                            users: directConversationUsers,
-                            messages: directMessages
-                        }
-                    )
-                }
-                else {
+                    if (e === id) return directConversationData
                     if (selfUserDirectConversationsData && selfUserDirectConversationsData[index]) return selfUserDirectConversationsData[index]
-                    else return selfUserDirectConversations.filter((f) => f.id === e)[0]
                 }
-            })
+            )
         )
-        // directMessages && directConversationUsers && setSelfUserDirectConversationsData(
-        //     selfUserDirectConversations.map((selfUserDirectConversation, index) => {
-        //         if (selfUserDirectConversation.id === id){
-        //             return (
-        //                 {
-        //                     // ...selfUserDirectConversation,
-        //                     directConversation: directConversation,
-        //                     id: id,
-        //                     users: directConversationUsers,
-        //                     messages: directMessages
-        //                 }
-        //             )
-        //         }
-        //         else {
-        //             if (selfUserDirectConversationsData && selfUserDirectConversationsData[index]) return selfUserDirectConversationsData[index]
-        //             else return selfUserDirectConversation
-        //         }
-        //     })
-        // )
-    }, [directMessages, directConversationUsers, selfUserDirectConversations.length, selfUser.user.direct_conversations_id])
+    }, [directConversationData, selfUser.user.direct_conversations_id])
 
-    useEffect(() => {
-        return getDirectMessages()
-    }, [])
-
-    useEffect(() => {
-        return getDirectConversationUsers()
-    }, [])
-
-    return (
-        ""
-    )
+    return ""
 }
 
-export default DirectMessages
+export default Conversation
