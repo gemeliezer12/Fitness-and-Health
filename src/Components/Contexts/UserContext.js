@@ -36,12 +36,17 @@ export const UserProvider = ({ children }) => {
     }
 
     const getUsers = async () => {
-        setUsers(
-            (await db.collection("users").get()).docs.map((user) => ({
-                user: user.data(),
-                id: user.id
-            }))
-        )
+        db.collection("users").onSnapshot((res) => {
+            const users = res.docs
+            const results = []
+            for (let i = 0; i < users.length; i++) {
+                results.push({
+                    user: users[i].data(),
+                    id: users[i].id
+                })
+            }
+            setUsers(results)
+        })
     }
 
     const friendsHandler = async () => {

@@ -23,6 +23,7 @@ const DirectConversation = ({id, directConversation, users, messages}) => {
         }).then(() => navigate("/app/chat"))
     }
 
+
     return (
         <Link to={`/app/chat/${id}`} className={`lvC9OT67bA ${currentDirectConversationId === id ? " selected" : ""}`}>
             <div className="row gap-6" style={{
