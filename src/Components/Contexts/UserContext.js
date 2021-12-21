@@ -19,9 +19,10 @@ export const UserProvider = ({ children }) => {
     const [selfUserFriendRequests, setSelfUserFriendRequests] = useState([])
     const [selfUserFriendRequesting, setSelfUserFriendRequesting] = useState([])
     const [selfUserDirectConversationsData, setSelfUserDirectConversationsData] = useState([])
-    const [users, setUsers] = useState([])
+    const [users, setUsers] = useState()
     const [currentDirectConversation, setCurrentDirectConversation] = useState()
     const [currentDirectConversationId, setCurrentDirectConversationId] = useState()
+    const [directMessages, setDirectMessages] = useState()
     const navigate = useNavigate()
 
     const signOut = () => {
@@ -115,7 +116,7 @@ export const UserProvider = ({ children }) => {
 
     return (
         <UserContext.Provider value={value}>
-            {selfUser && selfUser.direct_conversations_id && users && selfUser.user.direct_conversations_id.map((id) => <DirectConversation key={id} id={id}/>)}
+            {selfUser && selfUser.user.direct_conversations_id && users && selfUser.user.direct_conversations_id.map((id) => <DirectConversation key={id} id={id}/>)}
             {children}
         </UserContext.Provider>
     )

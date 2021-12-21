@@ -61,6 +61,7 @@ const Form = ({ currentDirectConversation }) => {
         }
     }
 
+    // Detects if the user is typing if the input is empty or not
     useEffect(() => {
         message.value ? setIsTyping(true) : setIsTyping(false)
     }, [message])
@@ -91,6 +92,7 @@ const Form = ({ currentDirectConversation }) => {
         setMessage({...message, value: "", isValid: false})
     }, [navigate])
 
+    // Generate a typing indicator based on how many and who is typing
     const typingUsers = () => {
         const users = currentDirectConversation.direct_conversation.typing.filter((user) => user.id !== selfUser.id)
 

@@ -19,7 +19,6 @@ const Conversation = ({id}) => {
                 id: res.id
             })
         })
-
     }
 
     const getDirectConversationUsers = () => {
@@ -45,7 +44,6 @@ const Conversation = ({id}) => {
                 })
             }
 
-            console.log(results)
             setDirectMessages(results)
         })
     }
@@ -85,7 +83,7 @@ const Conversation = ({id}) => {
         currentDirectConversationId === id && setCurrentDirectConversation(directConversationData)
     }, [directConversationData, currentDirectConversationId])
 
-    return ""
+    return null
 }
 
 export default Conversation

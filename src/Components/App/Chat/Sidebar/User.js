@@ -22,8 +22,10 @@ const User = ({user, id}) => {
         }
 
         if (!directConversationExist) {
+            const dateUpdated = Math.floor(Date.now() / 1000)
             const createdDirectConversation = await db.collection("direct_conversations").add({
-                users_id: [selfUser.id, id]
+                users_id: [selfUser.id, id],
+                date_updated: dateUpdated
             })
             const newDirectConversations = (user) => {
                 if (user.direct_conversations_id) return [...user.direct_conversations_id, createdDirectConversation.id]
