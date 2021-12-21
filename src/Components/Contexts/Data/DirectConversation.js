@@ -27,9 +27,6 @@ const Conversation = ({id}) => {
 
         for (let i = 0; i < users.length; i++) {
             users[i].user.direct_conversations_id.includes(id) && results.push(users[i])
-
-            console.log(users[i].user.direct_conversations_id)
-            console.log(users[i].user.direct_conversations_id.includes(id), users[i].user.direct_conversations_id)
         }
 
         setDirectConversationUsers(results)
@@ -48,6 +45,7 @@ const Conversation = ({id}) => {
                 })
             }
 
+            console.log(results)
             setDirectMessages(results)
         })
     }
@@ -67,11 +65,6 @@ const Conversation = ({id}) => {
     
     useEffect(() => {
         directConversation && directMessages && directConversationUsers && setDirectConversationData({
-            ...directConversation,
-            direct_messages: directMessages,
-            users: directConversationUsers
-        })
-        directConversation && directMessages && directConversationUsers && console.log({
             ...directConversation,
             direct_messages: directMessages,
             users: directConversationUsers

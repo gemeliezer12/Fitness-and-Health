@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { firebase } from "../../firebase"
 
 import Input from "../Assets/Input"
@@ -25,6 +26,7 @@ const Form = () => {
     const [username, setUsername] = useState({name: "username", label: "Username", type: "text", value: "", isValid: false, isRequired: true})
     const [password, setPassword] = useState({name: "password", label: "Password", type: "password", value: "", isValid: false, isRequired: true})
     const [passwordRepeat, setPasswordRepeat] = useState({name: "passwordRepeat", label: "Repeat Password", type: "password", value: "", isValid: false, isRequired: true})
+    const navigate = useNavigate()
 
     const signInWithEmailPassword = async (e) => {
         e.preventDefault()
@@ -39,10 +41,12 @@ const Form = () => {
                 const userNumber = toUserNumber(number)
 
                 try {
-                    db.collection("users").doc(res.user.uid).set({
+                    await db.collection("users").doc(res.user.uid).set({
                         username: username.value,
-                        user_number: userNumber
-                    })
+                        user_number: userNumber,
+                        direct_conversations_id: [],
+                        friends: []
+                    }).then(() => navigate("/app"))
                 }
                 catch (err) {
                     console.log(err)
@@ -50,10 +54,12 @@ const Form = () => {
             }
             catch (err) {
                 try {
-                    db.collection("users").doc(res.user.uid).set({
+                    await db.collection("users").doc(res.user.uid).set({
                         username: username.value,
-                        user_number: "0001"
-                    })
+                        user_number: "0001",
+                        direct_conversations_id: [],
+                        friends: []
+                    }).then(() => navigate("/app"))
                 }
                 catch (err) {
                     console.log(err)

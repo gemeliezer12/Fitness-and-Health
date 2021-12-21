@@ -8,6 +8,7 @@ import Footer from "./Components/Footer"
 import Settings from "./Components/Settings"
 import App from "./Components/App"
 
+import { AuthProvider } from "./Components/Contexts/AuthContext"
 import { UserProvider } from "./Components/Contexts/UserContext"
 import { ThemeProvider } from "./Components/Contexts/ThemeContext"
 
@@ -18,46 +19,48 @@ import "./styles/style.css"
 const Main = () => {
     
     return (
-        <UserProvider>
-            <ThemeProvider>
-                <Routes>
-                    <Route path="/" element={
-                        <>
-                            <Nav/>
-                            <Landing/>
-                            <Footer/>
-                        </>
-                    }/>
-                    <Route path="/account" element={
-                        <>
-                            <Nav/>
-                            <Landing/>
-                            <Footer/>
-                        </>
-                    }/>
-                    <Route path="/signin" element={
-                        <>
-                            <Nav/>
-                            <Signin/>
-                            <Footer/>
-                        </>
-                    }/>
-                    <Route path="/signup" element={
-                        <>
-                            <Nav/>
-                            <Signup/>
-                            <Footer/>
-                        </>
-                    }/>
-                    <Route path="/settings" element={
-                        <>
-                            <Settings/>
-                        </>
-                    }/>
-                </Routes>
-                <App/>
-            </ThemeProvider>
-        </UserProvider>
+        <AuthProvider>
+            <UserProvider>
+                <ThemeProvider>
+                    <Routes>
+                        <Route path="/" element={
+                            <>
+                                <Nav/>
+                                <Landing/>
+                                <Footer/>
+                            </>
+                        }/>
+                        <Route path="/account" element={
+                            <>
+                                <Nav/>
+                                <Landing/>
+                                <Footer/>
+                            </>
+                        }/>
+                        <Route path="/signin" element={
+                            <>
+                                <Nav/>
+                                <Signin/>
+                                <Footer/>
+                            </>
+                        }/>
+                        <Route path="/signup" element={
+                            <>
+                                <Nav/>
+                                <Signup/>
+                                <Footer/>
+                            </>
+                        }/>
+                        <Route path="/settings" element={
+                            <>
+                                <Settings/>
+                            </>
+                        }/>
+                    </Routes>
+                    <App/>
+                </ThemeProvider>
+            </UserProvider>
+        </AuthProvider>
     )
 }
 

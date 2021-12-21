@@ -40,14 +40,19 @@ const Form = ({ currentDirectConversation }) => {
         if (!allInputIsValid()) return
 
         setMessage({...message, value: "", isValid: false})
+        const dateCreated = Math.floor(Date.now() / 1000)
         db.collection("direct_messages").add(
             {
                 direct_conversation_id: currentDirectConversationId,
                 message: message.value,
-                date_created: Math.floor(Date.now() / 1000),
+                date_created: dateCreated,
                 user_id: selfUser.id
             }
         )
+        db.collection("direct_conversations").doc(currentDirectConversationId).set({
+            ...currentDirectConversation,
+            date_updated: dateCreated  
+        })
     }
 
     const onKeyDown = (e) => {
@@ -70,7 +75,7 @@ const Form = ({ currentDirectConversation }) => {
                     return currentDirectConversation.direct_conversation.typing.filter((user) => user.id !== selfUser.id)
                 }
                 else {
-                    return null
+                    return []
                 }
             }
         }

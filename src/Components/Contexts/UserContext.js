@@ -1,9 +1,10 @@
 import { useState, useEffect, createContext, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 
-import { firebase } from "../../firebase"
 import DirectConversation from "./Data/DirectConversation"
 
+import { firebase } from "../../firebase"
+import { useAuth } from "./AuthContext"
 const db = firebase.firestore()
 const auth = firebase.auth()
 
@@ -12,23 +13,16 @@ const UserContext = createContext()
 export const useUser = () => useContext(UserContext)
 
 export const UserProvider = ({ children }) => {
-    
-    const [selfUser, setSelfUser] = useState()
+    const { selfUser } = useAuth()
+
     const [selfUserFriends, setSelfUserFriends] = useState([])
     const [selfUserFriendRequests, setSelfUserFriendRequests] = useState([])
     const [selfUserFriendRequesting, setSelfUserFriendRequesting] = useState([])
-    const [selfUserDirectConversations, setselfUserDirectConversations] = useState([])
     const [selfUserDirectConversationsData, setSelfUserDirectConversationsData] = useState([])
     const [users, setUsers] = useState([])
     const [currentDirectConversation, setCurrentDirectConversation] = useState()
     const [currentDirectConversationId, setCurrentDirectConversationId] = useState()
     const navigate = useNavigate()
-
-    const getSelfUser = async (userId) => {
-        db.collection("users").doc(userId).onSnapshot((user) => {
-            setSelfUser({ user: user.data(), id: user.id})
-        })
-    }
 
     const signOut = () => {
         auth.signOut()
@@ -86,40 +80,9 @@ export const UserProvider = ({ children }) => {
         setSelfUserFriends(friends)
     }
 
-    const getSelfUserDirectConverasations = async () => {
-        db.collection("direct_conversations").where("users_id", "array-contains", selfUser.id).onSnapshot((res) => {
-            res = res.docs
-            const results = []
-
-            for (let i = 0; i < res.length; i++) {
-                const directConversation = res[i].data()
-                const id = res[i].id
-               
-                results.push({
-                    direct_conversation: directConversation,
-                    id: id
-                })
-            }
-            
-            setselfUserDirectConversations(results)
-        })
-    }
-
-    useEffect(() => {
-        auth.onAuthStateChanged( async (user) => {
-            if (user) {
-                getSelfUser(user.uid)
-            }
-            else {
-                setSelfUser(null)
-            }
-        })
-    }, [])
-
     useEffect(() => {
         if (selfUser) {
             friendsHandler()
-            getSelfUserDirectConverasations()
         }
     }, [selfUser])
 
@@ -140,8 +103,6 @@ export const UserProvider = ({ children }) => {
         setSelfUserFriendRequests,
         selfUserFriendRequesting,
         setSelfUserFriendRequesting,
-        selfUserDirectConversations,
-        setselfUserDirectConversations,
         selfUserDirectConversationsData,
         setSelfUserDirectConversationsData,
         users,
@@ -154,7 +115,7 @@ export const UserProvider = ({ children }) => {
 
     return (
         <UserContext.Provider value={value}>
-            {selfUser && users && selfUser.user.direct_conversations_id.map((id) => <DirectConversation key={id} id={id}/>)}
+            {selfUser && selfUser.direct_conversations_id && users && selfUser.user.direct_conversations_id.map((id) => <DirectConversation key={id} id={id}/>)}
             {children}
         </UserContext.Provider>
     )
