@@ -1,13 +1,12 @@
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { firebase } from "../../../../firebase"
-import { useUser } from "../../../Contexts/UserContext"
-
+import { useAuth } from "../../../Contexts/AuthContext"
 const db = firebase.firestore()
 
 const DirectConversation = ({id, directConversation, users, messages}) => {
     const navigate = useNavigate()
     const { currentDirectConversationId } = useParams()
-    const { selfUser } = useUser()
+    const { selfUser } = useAuth()
 
     const removeConversation = () => {
         const newDirectConversationsId = []

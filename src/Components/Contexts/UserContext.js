@@ -95,7 +95,6 @@ export const UserProvider = ({ children }) => {
     }, [selfUser])
 
     const value = {
-        selfUser,
         signOut,
         selfUserFriends,
         setSelfUserFriends,

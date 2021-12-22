@@ -4,12 +4,13 @@ import { useNavigate, useParams } from "react-router-dom"
 import { useUser } from "../../../Contexts/UserContext"
 import { firebase } from "../../../../firebase"
 import TextareaAutosize from "react-textarea-autosize"
+import { useAuth } from "../../../Contexts/AuthContext"
 
 const db = firebase.firestore()
 
 const Form = ({ currentDirectConversation }) => {
 
-    const { selfUser } = useUser()
+    const { selfUser } = useAuth()
     const { currentDirectConversationId } = useParams()
     const [isTyping, setIsTyping] = useState()
     const navigate = useNavigate()

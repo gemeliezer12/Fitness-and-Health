@@ -1,12 +1,12 @@
 import { useState } from "react"
-import { useUser } from "../../../Contexts/UserContext"
 import Form from "./Form"
 import UsernameForm from "./UsernameForm"
 import SettingHeader from "../../SettingHeader"
+import { useAuth } from "../../../Contexts/AuthContext"
 
 const Index = ({setCurrentSetting, windowSize}) => {
 
-    const { selfUser } = useUser()
+    const { selfUser } = useAuth()
     
     const [currentForm, setCurrentForm] = useState()
 

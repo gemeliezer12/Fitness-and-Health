@@ -1,11 +1,13 @@
 import { useState } from "react"
+import { useAuth } from "../../../Contexts/AuthContext"
 import { useUser } from "../../../Contexts/UserContext"
 import DirectConversation from "./DirectConversation"
 import SearchBar from "./SearchBar"
 import SearchResults from "./SearchResults"
 
 const Index = () => {
-    const { selfUserDirectConversationsData, users, selfUser } = useUser()
+    const { selfUser } = useAuth()
+    const { selfUserDirectConversationsData, users } = useUser()
     const [searchResults, setSearchResults] = useState()
 
     if(!users) return ""

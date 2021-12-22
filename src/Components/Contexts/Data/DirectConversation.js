@@ -2,11 +2,13 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import { firebase } from "../../../firebase"
+import { useAuth } from "../AuthContext"
 import { useUser } from "../UserContext"
 const db = firebase.firestore()
 
 const Conversation = ({id}) => {
-    const { users, setSelfUserDirectConversationsData, selfUser, selfUserDirectConversationsData, setCurrentDirectConversation, currentDirectConversationId } = useUser()
+    const { users, setSelfUserDirectConversationsData, selfUserDirectConversationsData, setCurrentDirectConversation, currentDirectConversationId } = useUser()
+    const { selfUser } = useAuth()
 
     const [directConversation, setDirectConversation] = useState()
     const [directConversationUsers, setDirectConversationUsers] = useState()

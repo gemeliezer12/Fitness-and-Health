@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react"
 
-import { useUser } from "../../../Contexts/UserContext"
 import AboutMe from "./AboutMe"
 import { firebase } from "../../../../firebase"
 import Banner from "./Banner"
 import ProfilePicture from "./ProfilePicture"
 import SettingHeader from "../../SettingHeader"
+import { useAuth } from "../../../Contexts/AuthContext"
 
 const db = firebase.firestore()
 
 const Index = ({setCurrentSetting, windowSize}) => {
-    const { selfUser } = useUser()
+    const { selfUser } = useAuth()
     const user = selfUser.user
     const id = selfUser.id
 
