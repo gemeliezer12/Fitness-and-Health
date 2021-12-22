@@ -1,6 +1,16 @@
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { useAuth } from "../Contexts/AuthContext"
 import Form from "./Form"
 
-const index = () => {
+const Index = () => {
+    const { isLoggedIn } = useAuth()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        isLoggedIn && navigate("/app")
+    }, [isLoggedIn])
+
     return (
         <div className="padding-top-80" style={{
             width: "100%",
@@ -38,4 +48,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index

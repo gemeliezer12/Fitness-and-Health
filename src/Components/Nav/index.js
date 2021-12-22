@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom"
-import { useUser } from "../Contexts/UserContext";
+import { useAuth } from "../Contexts/AuthContext";
 
 const Index = () => {
-
-    const { selfUser } = useUser()
-
+    const { isLoggedIn } = useAuth()
 
     return (
         <>
@@ -33,7 +31,7 @@ const Index = () => {
                         </Link>
                     </div>
                     <div className="row uppercase fs-16 gap-10 xEbmIF5vqf">
-                        {selfUser ?
+                        {isLoggedIn ?
                         <Link to="/app" className="solid-btn small" style={{
                             borderRadius: "200px",
                             backgroundColor: "var(--bg-comp-color-2)",

@@ -1,6 +1,15 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../Contexts/AuthContext";
 import Item from "./Items/Item";
 
 const Index = () => {
+    const { isLoggedIn } = useAuth()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        !isLoggedIn && navigate("/")
+    }, [isLoggedIn])
 
     return (
         <div className={`kt3ZmTsWK1 column color-inherit`} style={{

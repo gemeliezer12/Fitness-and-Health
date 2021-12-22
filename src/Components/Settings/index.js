@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { useUser } from "../Contexts/UserContext"
 import SettingHeader from "./SettingHeader"
 
 import Options from "./Options"
@@ -8,10 +7,11 @@ import Options from "./Options"
 import MyAccount from "./Settings/MyAccount/"
 import UserProfile from "./Settings/UserProfile/"
 import Appearance from "./Settings/Appearance"
+import { useAuth } from "../Contexts/AuthContext"
 
 const Index = () => {
     const [currentSetting, setCurrentSetting] = useState("")
-    const { selfUser } = useUser()
+    const { isLoggedIn } = useAuth()
     const navigate = useNavigate()
     const [windowSize, setWindowSize] = useState()
 
@@ -41,7 +41,9 @@ const Index = () => {
         })
     }, [])
 
-    selfUser === null && navigate("/")
+    useEffect(() => {
+        !isLoggedIn && navigate("/")
+    }, [isLoggedIn])
 
     if (!windowSize) return ""
 

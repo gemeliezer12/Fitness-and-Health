@@ -22,7 +22,6 @@ export const UserProvider = ({ children }) => {
     const [users, setUsers] = useState()
     const [currentDirectConversation, setCurrentDirectConversation] = useState()
     const [currentDirectConversationId, setCurrentDirectConversationId] = useState()
-    const [directMessages, setDirectMessages] = useState()
     const navigate = useNavigate()
 
     const signOut = () => {
@@ -88,7 +87,7 @@ export const UserProvider = ({ children }) => {
     }, [selfUser])
 
     useEffect(()=> {
-        getUsers()
+        return getUsers()
     }, [])
 
     useEffect(() => {

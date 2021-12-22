@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 import { firebase } from "../../../firebase"
 import { useUser } from "../UserContext"
@@ -11,6 +12,8 @@ const Conversation = ({id}) => {
     const [directConversationUsers, setDirectConversationUsers] = useState()
     const [directMessages, setDirectMessages] = useState()
     const [directConversationData, setDirectConversationData] = useState()
+    const [directConversationUser, setDirectConversationUser] = useState()
+    const [directConversationIsLoading, setDirectConversationIsLoading] = useState(true)
 
     const getDirectConversation = () => {
         db.collection("direct_conversations").doc(id).onSnapshot((res) => {
@@ -18,6 +21,7 @@ const Conversation = ({id}) => {
                 direct_conversation: res.data(),
                 id: res.id
             })
+            setDirectConversationIsLoading(false)
         })
     }
 
@@ -27,7 +31,7 @@ const Conversation = ({id}) => {
         for (let i = 0; i < users.length; i++) {
             users[i].user.direct_conversations_id.includes(id) && results.push(users[i])
         }
-
+    
         setDirectConversationUsers(results)
     }
 
@@ -49,18 +53,19 @@ const Conversation = ({id}) => {
     }
 
     useEffect(() => {
-        getDirectConversation()
+        return getDirectConversation()
     }, [])
 
 
     useEffect(() => {
-        getDirectConversationUsers()
-    }, [])
+        if (!directConversationIsLoading) return getDirectConversationUsers()
+    }, [directConversationIsLoading])
     
     useEffect(() => {
-        getDirectConversationMessages()
+        return getDirectConversationMessages()
     }, [])
     
+    // Direct Conversation Data
     useEffect(() => {
         directConversation && directMessages && directConversationUsers && setDirectConversationData({
             ...directConversation,
@@ -69,6 +74,7 @@ const Conversation = ({id}) => {
         })
     }, [directConversation, directMessages, directConversationUsers])
 
+    // Direct Conversations Data
     useEffect(() => {
         directConversationData && setSelfUserDirectConversationsData(
             selfUser.user.direct_conversations_id.map((e, index) => {
@@ -79,6 +85,7 @@ const Conversation = ({id}) => {
         )
     }, [directConversationData, selfUser.user.direct_conversations_id])
 
+    // Direct Conversations Data
     useEffect(() => {
         currentDirectConversationId === id && setCurrentDirectConversation(directConversationData)
     }, [directConversationData, currentDirectConversationId])

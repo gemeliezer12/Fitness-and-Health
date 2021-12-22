@@ -11,33 +11,43 @@ export const useAuth = () => useContext(AuthContext)
 
 export const AuthProvider = ({children}) => {
     const [selfUser, setSelfUser] = useState()
+    const [isLoggedIn, setIsLoggedIn] = useState()
+    const [selfUserIsSet, setSelfUserIsSet] = useState()
 
     const getSelfUser = async (userId) => {
         db.collection("users").doc(userId).onSnapshot((user) => {
-           user.data() && setSelfUser({ user: user.data(), id: user.id})
+            console.log({ user: user.data(), id: user.id});
+            user.data() && setSelfUser({ user: user.data(), id: user.id})
         })
-        
     }
 
+    useEffect(() => {
+        selfUser && setSelfUserIsSet(true)
+        !selfUser && setSelfUserIsSet(false)
+    }, [selfUser])
     
     useEffect(() => {
         auth.onAuthStateChanged( async (user) => {
             if (user) {
                 getSelfUser(user.uid)
+                setIsLoggedIn(true)
             }
             else {
-                setSelfUser(null)
+                setIsLoggedIn(false)
             }
         })
     }, [])
     
     const value = {
-        selfUser
+        selfUser,
+        isLoggedIn,
+        selfUserIsSet
     }
 
     return (
         <AuthContext.Provider value={value}>
-            {children}
+            {isLoggedIn && selfUser && children}
+            {!isLoggedIn && children}
         </AuthContext.Provider>
     )
 }
