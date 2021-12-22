@@ -8,7 +8,7 @@ const Index = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        isLoggedIn && navigate("/app")
+        isLoggedIn === true && navigate("/app")
     }, [isLoggedIn])
 
     return (

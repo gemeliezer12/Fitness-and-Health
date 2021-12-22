@@ -2,13 +2,19 @@ import { useUser } from "../../Contexts/UserContext"
 import Sidebar from "./Sidebar/"
 import Main from "./Main/"
 import { useParams } from "react-router-dom"
+import { useEffect } from "react"
+import { useAuth } from "../../Contexts/AuthContext"
 
 const Index = () => {
+    const { isLoggedIn } = useAuth()
     const { selfUser } = useUser()
     const { currentDirectConversationId } = useParams()
     
-    if (!selfUser) return ""
+    // if (!selfUser) return ""
 
+    useEffect(() => {
+        console.log(isLoggedIn);
+    }, [isLoggedIn])
     return (
         <>
             <Sidebar/>

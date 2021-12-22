@@ -42,7 +42,7 @@ const Index = () => {
     }, [])
 
     useEffect(() => {
-        !isLoggedIn && navigate("/")
+        isLoggedIn === false && navigate("/")
     }, [isLoggedIn])
 
     if (!windowSize) return ""
