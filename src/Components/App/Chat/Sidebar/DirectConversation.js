@@ -24,7 +24,7 @@ const DirectConversation = ({id, directConversation, users, messages}) => {
 
 
     return (
-        <Link to={`/app/chat/${id}`} className={`lvC9OT67bA ${currentDirectConversationId === id ? " selected" : ""}`}>
+        <Link to={`/app/chat/${id}`} className={`lvC9OT67bA ${currentDirectConversationId === id ? " selected" : ""}`} onClick={(e) => console.log(e)}>
             <div className="row gap-6" style={{
                 whiteSpace: "nowrap",
                 overflow: "hidden"

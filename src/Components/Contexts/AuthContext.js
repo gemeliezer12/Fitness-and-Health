@@ -16,7 +16,6 @@ export const AuthProvider = ({children}) => {
 
     const getSelfUser = async (userId) => {
         db.collection("users").doc(userId).onSnapshot((user) => {
-            console.log({ user: user.data(), id: user.id});
             user.data() && setSelfUser({ user: user.data(), id: user.id})
         })
     }

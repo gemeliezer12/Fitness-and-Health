@@ -8,10 +8,8 @@ const Index = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        // isLoggedIn === false && navigate("/")
+        isLoggedIn === false && navigate("/")
     }, [isLoggedIn])
-
-    console.log("ASD");
 
     return (
         <div className={`kt3ZmTsWK1 column color-inherit`} style={{

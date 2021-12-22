@@ -27,7 +27,7 @@ const Index = ({setCurrentSetting, windowSize}) => {
 
 
     
-    if (windowSize.width >=600) return (
+    if (windowSize.width >= 600) return (
         <>
         <div className="column">
             <SettingHeader settingTitle="My Account" setCurrentSetting={setCurrentSetting}/>
