@@ -2,12 +2,13 @@ import { useEffect, useState } from "react"
 import Input from "../../../Assets/Input"
 import { useUser } from "../../../Contexts/UserContext"
 import { firebase } from "../../../../firebase"
+import { useAuth } from "../../../Contexts/AuthContext"
 
 const db = firebase.firestore()
 
 const UsernameForm = ({setCurrentForm, windowSize}) => {
     
-    const { selfUser } = useUser()
+    const { selfUser } = useAuth()
     const [username, setUsername] = useState({name: "username", value: "", type: "text", label: "Username", isValid: undefined, isRequired: true})
     const [password, setPassword] = useState({name: "password", value: "", type: "password", label: "Password", isValid: undefined, isRequired: true})
 

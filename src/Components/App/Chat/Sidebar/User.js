@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom"
 import { firebase } from "../../../../firebase"
-import { useUser } from "../../../Contexts/UserContext"
+import { useAuth } from "../../../Contexts/AuthContext"
 
 const db = firebase.firestore()
 
 const User = ({user, id}) => {
-    const { selfUser } = useUser()
+    const { selfUser } = useAuth()
     const navigate = useNavigate()
 
     const onClick = async () => {
