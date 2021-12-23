@@ -4,7 +4,7 @@ import { firebase } from "../../../../firebase"
 import { useAuth } from "../../../Contexts/AuthContext"
 import { useContextMenu, ContextMenuProvider } from "../../../Contexts/ContextMenuContext"
 import { usePopUp } from "../../../Contexts/PopUpContext"
-import UserMenu from "./UserMenu"
+import DirectConversationMenu from "./DirectConversationMenu"
 const db = firebase.firestore()
 
 const DirectConversation = ({id, directConversation, users, messages, user}) => {
@@ -35,7 +35,7 @@ const DirectConversation = ({id, directConversation, users, messages, user}) => 
             <Link to={`/app/chat/${id}`} className={`lvC9OT67bA ${currentDirectConversationId === id ? " selected" : ""}`} onContextMenu={(e) => {
                 setContextMenuContent(
                     {
-                        component: <UserMenu setPopUpContent={setPopUpContent} setContextMenuContent={setContextMenuContent} user={user}/>,
+                        component: <DirectConversationMenu setPopUpContent={setPopUpContent} setContextMenuContent={setContextMenuContent} id={user.id}/>,
                         e
                     }
                 )
