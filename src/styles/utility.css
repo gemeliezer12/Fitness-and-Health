@@ -213,6 +213,10 @@
   text-transform: inherit;
 }
 
+.border-none {
+  border: none;
+}
+
 .ws-pre-wrap {
   white-space: pre-wrap;
 }
