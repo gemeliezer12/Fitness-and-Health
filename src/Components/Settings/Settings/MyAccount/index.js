@@ -99,9 +99,8 @@ const Index = ({setCurrentSetting, windowSize}) => {
                                         </p>
                                     </div>
                                     <div>
-                                        <div className="solid-btn tiny" style={{
+                                        <div className="solid-btn small" style={{
                                             background: "var(--indigo)",
-                                            border: "none",
                                         }} onClick={() => setCurrentSetting("user-profile")}>
                                             <p>Edit Profile</p>
                                         </div>
@@ -224,9 +223,8 @@ const Index = ({setCurrentSetting, windowSize}) => {
                                         </p>
                                     </div>
                                     <div>
-                                        <div className="solid-btn tiny" style={{
-                                            background: "var(--indigo)",
-                                            border: "none",
+                                        <div className="solid-btn small" style={{
+                                            background: "var(--indigo)"
                                         }} onClick={() => setCurrentSetting("user-profile")}>
                                             <p>Edit Profile</p>
                                         </div>

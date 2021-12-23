@@ -51,10 +51,10 @@ const UserPopUp = ({user}) => {
                             </div>
                         </div>
                     </div>
-                    <div className="row space-between padding-top-10 width-100pc">
+                    <div className="row space-between padding-top-10 width-100pc align-start">
                         <div/>
                         <div className="row gap-6 align-center">
-                            <div className="solid-btn tiny fs-14" style={{
+                            <div className="solid-btn tiny fs-16" style={{
                                 backgroundColor: "var(--green)",
                             }}>
                                 <p className="tt-initial">Send Friend Request</p>

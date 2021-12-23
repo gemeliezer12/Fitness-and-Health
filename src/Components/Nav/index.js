@@ -19,20 +19,20 @@ const Index = () => {
                     }}>
                         <img className="icon" src="../../../images/logo.png" alt=""/>
                     </Link>
-                    <div className="TrKa6wFHDh">
-                        <Link to="" className="solid-btn small sPF9B2SD15 first">
+                    <div className="row">
+                        <Link to="" className="solid-btn medium sPF9B2SD15 first">
                             <p>Home</p>
                         </Link>
-                        <Link to="" className="solid-btn small sPF9B2SD15">
+                        <Link to="" className="solid-btn medium sPF9B2SD15">
                             <p>About</p>
                         </Link>
-                        <Link to="" className="solid-btn small sPF9B2SD15">
+                        <Link to="" className="solid-btn medium sPF9B2SD15">
                             <p>Pricing</p>
                         </Link>
                     </div>
                     <div className="row uppercase fs-16 gap-10 xEbmIF5vqf">
                         {isLoggedIn ?
-                        <Link to="/app" className="solid-btn small" style={{
+                        <Link to="/app" className="solid-btn medium" style={{
                             borderRadius: "200px",
                             backgroundColor: "var(--bg-comp-color-2)",
                             color: "var(--text-comp-color-2)"
@@ -40,7 +40,7 @@ const Index = () => {
                             <p>Open Astra</p>
                         </Link>
                         :
-                        <Link to="/signin" className="solid-btn small" style={{
+                        <Link to="/signin" className="solid-btn medium" style={{
                             borderRadius: "200px",
                             backgroundColor: "var(--bg-comp-color-2)",
                             color: "var(--text-comp-color-2)"

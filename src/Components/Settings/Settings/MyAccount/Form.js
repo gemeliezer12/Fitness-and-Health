@@ -33,7 +33,7 @@ const Form = ({user, id, setCurrentForm}) => {
                             <span>#{user.user_number}</span>
                         </p>
                     </div>
-                    <div className="solid-btn tiny" style={{
+                    <div className="solid-btn small" style={{
                         backgroundColor: "var(--indigo)"
                     }} onClick={() => setCurrentForm("usernameForm")}>
                         <p>
