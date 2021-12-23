@@ -71,13 +71,13 @@ const Index = ({setCurrentSetting, windowSize}) => {
         }}>
             <Banner/>
             <div className="padding-x-15 padding-bottom-15">
-                <div className="row margin-top-10 gap-10" style={{
-                    height: "40px",
+                <div className="row gap-10" style={{
+                    height: "60px",
                 }}>
                     <ProfilePicture/>
                     <div className="space-between row width-100pc align-start">
                         <div/>
-                        <div className="row gap-6">
+                        <div className="row gap-6 padding-top-10">
                             <button className="solid-btn tiny" style={{
                                 color: "var(--red)"
                             }} onClick={() => reset()}>
@@ -161,11 +161,11 @@ const Index = ({setCurrentSetting, windowSize}) => {
                 }}>
                     <Banner/>
                     <div className="padding-x-15 padding-bottom-15">
-                        <div className="row margin-top-10 gap-10" style={{
-                            height: "40px",
+                        <div className="row gap-10" style={{
+                            height: "60px",
                         }}>
                             <ProfilePicture/>
-                            <div className="space-between row width-100pc align-start">
+                            <div className="space-between row width-100pc align-start padding-top-10">
                                 <div/>
                                 <div className="row gap-6">
                                     <button className="solid-btn tiny" style={{

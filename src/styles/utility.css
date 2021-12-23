@@ -1324,6 +1324,10 @@ body {
   position: relative;
 }
 
+.pos-static {
+  position: static;
+}
+
 /* Z Index */
 
 .z-0 {
@@ -1362,6 +1366,10 @@ body {
   text-transform: capitalize;
 }
 
+.tt-initial {
+  text-transform: initial;
+}
+
 .text-dec-underline {
   text-decoration: underline;
 }
@@ -1372,17 +1380,19 @@ body {
 
 *::-webkit-scrollbar {
   width: 4px;
+  height: 4px;
   background-color: rgba(55, 55, 55, 0.05);
 }
 
 textarea::-webkit-scrollbar {
   width: 2px;
-  background-color: rgba(55, 55, 55, 0.05);
+  height: 2px;
+  background-color: var(--bg-color-2);
 }
 
 *::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: rgb(55, 55, 55);
+  background-color: var(--bg-comp-color-2);
 }
 
 /* Border Radius */

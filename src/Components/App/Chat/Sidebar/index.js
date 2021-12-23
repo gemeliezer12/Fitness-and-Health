@@ -49,7 +49,7 @@ const Index = () => {
                     }}>Direct Messages</p>
                 </div>
                 {selfUserDirectConversationsData && selfUserDirectConversationsData.map((directConversation, index) => directConversation && (
-                    <DirectConversation id={directConversation.id} directConversation={directConversation.direct_conversation} key={index} users={directConversation.users} messages={directConversation.messages}/>
+                    <DirectConversation id={directConversation.id} directConversation={directConversation.direct_conversation} key={index} users={directConversation.users} messages={directConversation.messages} user={directConversation.user}/>
                 ))}
             </div>
             <div style={{

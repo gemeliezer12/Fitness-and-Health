@@ -36,31 +36,56 @@ const Index = ({setCurrentSetting, windowSize}) => {
                     overflowX: "hidden"
                 }}>
                     <div style={{
-                        aspectRatio: "32/9",
-                        backgroundColor: "rgb(80,20,71)",
+                        width: "100%",
+                        paddingTop: "25%",
                         borderTopLeftRadius: "10px",
                         borderTopRightRadius: "10px",
-                    }}></div>
+                        position: "relative"
+                    }}>
+                        <div style={{
+                            width: "100%",
+                            height: "100%",
+                            position: "absolute",
+                            top: "0",
+                            left: "0",
+                            overflow: "hidden",
+                            backgroundColor: "rgb(80,20,71)"
+                        }}>
+                        </div>
+                    </div>
                     <div className="padding-x-15 padding-bottom-15">
                         <div>
-                            <div className="row margin-top-10 gap-10" style={{
-                                height: "40px",
+                            <div className="row gap-10" style={{
+                                height: "60px",
                             }}>
-                                <div style={{
-                                    alignSelf: "end",
-                                }}>
-                                    <div className="align-center flex justify-center" style={{
-                                        width: "80px",
-                                        height: "80px",
+                                <div className="align-self-end">
+                                    <div className="pos-relative" style={{
+                                        padding: "6px",
                                         backgroundColor: "var(--bg-color-1)",
                                         borderRadius: "50%",
                                     }}>
-                                        <div className="img-72 img">
-                                            <img src="../../images/profile.png" alt="" />
+                                        <div className="pos-relative">
+                                            <div className="img-80 img">
+                                                <img src="../../images/profile.png" alt="" />
+                                            </div>
+                                            <div className="dark" style={{
+                                                backgroundColor: "var(--text-color-2)",
+                                                padding: "2px",
+                                                position: "absolute",
+                                                right: "0",
+                                                top: "0",
+                                                borderRadius: "50%"
+                                            }}>
+                                                <div className="badge-20">
+                                                    <i className="fas fa-images" style={{
+                                                        color: "var(--text-comp-color-1)"
+                                                    }}></i>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="space-between row width-100pc gap-6" style={{
+                                <div className="space-between row width-100pc gap-6 padding-top-10" style={{
                                     overflowX: "hidden"
                                 }}>
                                     <div className="fs-20" style={{
@@ -150,31 +175,42 @@ const Index = ({setCurrentSetting, windowSize}) => {
                     minWidth: "100%"
                 }}>
                     <div style={{
-                        aspectRatio: "32/9",
-                        backgroundColor: "rgb(80,20,71)",
+                        width: "100%",
+                        paddingTop: "25%",
                         borderTopLeftRadius: "10px",
                         borderTopRightRadius: "10px",
-                    }}></div>
+                        position: "relative"
+                    }}>
+                        <div style={{
+                            width: "100%",
+                            height: "100%",
+                            position: "absolute",
+                            top: "0",
+                            left: "0",
+                            overflow: "hidden",
+                            backgroundColor: "rgb(80,20,71)"
+                        }}>
+                        </div>
+                    </div>
                     <div className="padding-x-15 padding-bottom-15">
                         <div>
-                            <div className="row margin-top-10 gap-10" style={{
-                                height: "40px",
+                            <div className="row gap-10" style={{
+                                height: "60px",
                             }}>
                                 <div style={{
                                     alignSelf: "end",
                                 }}>
                                     <div className="align-center flex justify-center" style={{
-                                        width: "80px",
-                                        height: "80px",
+                                        padding: "6px",
                                         backgroundColor: "var(--bg-color-1)",
                                         borderRadius: "50%",
                                     }}>
-                                        <div className="img-72 img">
+                                        <div className="img-80 img">
                                             <img src="../../images/profile.png" alt="" />
                                         </div>
                                     </div>
                                 </div>
-                                <div className="space-between row width-100pc gap-6" style={{
+                                <div className="space-between row width-100pc gap-6 padding-top-10" style={{
                                     overflowX: "hidden"
                                 }}>
                                     <div className="fs-20" style={{

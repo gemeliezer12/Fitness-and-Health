@@ -26,7 +26,10 @@ export const PopUpProvider = ({children}) => {
                     display: 'flex',
                     flexDirection: "column",
                     alignItems: "center",
-                    justifyContent: "center"
+                    justifyContent: "center",
+                    backgroundColor: "var(--base-light-02)",
+                    overflow: "hidden",
+                    padding: "40px"
                 }}>
                     <div style={{
                         width: "100%",
@@ -35,7 +38,8 @@ export const PopUpProvider = ({children}) => {
                     }} onClick={() => setPopUpContent()}>
 
                     </div>
-                {popUpContent} 
+
+                    {popUpContent}
                 </div>
             }
         </PopUpContext.Provider>

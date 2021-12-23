@@ -3,15 +3,13 @@ const ProfilePicture = () => {
         <div style={{
             alignSelf: "end",
         }}>
-            <div className="align-center justify-center flex pos-relative" style={{
-                width: "80px",
-                height: "80px",
-                
+            <div className="flex pos-relative" style={{
+                padding: "6px",
                 backgroundColor: "var(--bg-color-1)",
                 borderRadius: "50%",
             }}>
                 <div className="pos-relative">
-                    <div className="img-72 img">
+                    <div className="img-80 img">
                         <img src="../../images/profile.png" alt="" />
                     </div>
                     <div className="dark" style={{

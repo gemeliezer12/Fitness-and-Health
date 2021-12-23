@@ -1,13 +1,9 @@
 import Sidebar from "./Sidebar/"
 import Chat from "./Chat/"
 import { Route, Routes } from "react-router-dom"
-import { useAuth } from "../Contexts/AuthContext"
-import { useEffect } from "react/cjs/react.development"
 
 
 const Index = () => {
-    const { isLoggedIn } = useAuth()
-
     return (
         <>
             <Routes>
@@ -44,7 +40,6 @@ const Index = () => {
                     </div>
                 }/>
             </Routes>
-            
         </>
     )
 }

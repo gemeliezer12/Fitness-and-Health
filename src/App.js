@@ -16,7 +16,7 @@ import { ContextMenuProvider } from "./Components/Contexts/ContextMenuContext"
 import "./styles/utility.css"
 import "./styles/lib.css"
 import "./styles/style.css"
-import { PopUpProvider } from "./Components/Contexts/PopUp"
+import { PopUpProvider } from "./Components/Contexts/PopUpContext"
 
 const Main = () => {
     

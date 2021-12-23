@@ -2,12 +2,12 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { firebase } from "../../../../firebase"
 import { useAuth } from "../../../Contexts/AuthContext"
-import { useContextMenu } from "../../../Contexts/ContextMenuContext"
-import { usePopUp } from "../../../Contexts/PopUp"
+import { useContextMenu, ContextMenuProvider } from "../../../Contexts/ContextMenuContext"
+import { usePopUp } from "../../../Contexts/PopUpContext"
 import UserMenu from "./UserMenu"
 const db = firebase.firestore()
 
-const DirectConversation = ({id, directConversation, users, messages}) => {
+const DirectConversation = ({id, directConversation, users, messages, user}) => {
     const navigate = useNavigate()
     const { currentDirectConversationId } = useParams()
     const { selfUser } = useAuth()
@@ -29,12 +29,13 @@ const DirectConversation = ({id, directConversation, users, messages}) => {
         }).then(() => navigate("/app/chat"))
     }
 
+
     return (
         <>
             <Link to={`/app/chat/${id}`} className={`lvC9OT67bA ${currentDirectConversationId === id ? " selected" : ""}`} onContextMenu={(e) => {
                 setContextMenuContent(
                     {
-                        component: <UserMenu setPopUpContent={setPopUpContent} setContextMenuContent={setContextMenuContent}/>,
+                        component: <UserMenu setPopUpContent={setPopUpContent} setContextMenuContent={setContextMenuContent} user={user}/>,
                         e
                     }
                 )
@@ -66,7 +67,7 @@ const DirectConversation = ({id, directConversation, users, messages}) => {
                     <div className="column justify-center fs-14">
                         <p style={{
                             color: "var(--text-color-2)",
-                        }}>{users && users.filter((user) => user.id !== selfUser.id)[0].user.username}</p>
+                        }}>{user.user.username}</p>
                     </div>
                 </div>
                 <div className="align-center row gap-6" onClick={() => removeConversation()}>

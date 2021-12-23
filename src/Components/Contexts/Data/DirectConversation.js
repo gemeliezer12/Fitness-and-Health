@@ -28,13 +28,9 @@ const Conversation = ({id}) => {
     }
 
     const getDirectConversationUsers = () => {
-        const results = []
-
-        for (let i = 0; i < users.length; i++) {
-            users[i].user.direct_conversations_id.includes(id) && results.push(users[i])
-        }
-    
-        setDirectConversationUsers(results)
+        const directConversationUsers = users.filter((user) => directConversation.direct_conversation.users_id.includes(user.id))
+        setDirectConversationUsers(directConversationUsers)
+        setDirectConversationUser(directConversationUsers.filter((user) => user.id !== selfUser.id)[0])
     }
 
     const getDirectConversationMessages = async () => {
@@ -61,7 +57,7 @@ const Conversation = ({id}) => {
 
     useEffect(() => {
         if (!directConversationIsLoading) return getDirectConversationUsers()
-    }, [directConversationIsLoading])
+    }, [directConversationIsLoading, users])
     
     useEffect(() => {
         return getDirectConversationMessages()
@@ -72,7 +68,8 @@ const Conversation = ({id}) => {
         directConversation && directMessages && directConversationUsers && setDirectConversationData({
             ...directConversation,
             direct_messages: directMessages,
-            users: directConversationUsers
+            users: directConversationUsers,
+            user: directConversationUser
         })
     }, [directConversation, directMessages, directConversationUsers])
 

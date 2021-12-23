@@ -10,10 +10,6 @@ export const ContextMenuProvider = ({children}) => {
 
     const contextMenuPosition = () => {
         const e = contextMenuContent.e
-        console.log(
-            window.innerHeight,
-            window.innerWidth
-        )
         return (
             <div id="context-menu" style={{
                 top: e.clientY + "px",
@@ -26,12 +22,10 @@ export const ContextMenuProvider = ({children}) => {
         )
     }
 
-    useEffect(() => {
-        contextMenuContent && contextMenuPosition()
-    }, [contextMenuContent])
 
     const value = {
-        setContextMenuContent
+        setContextMenuContent,
+        contextMenuContent
     }
 
     return (

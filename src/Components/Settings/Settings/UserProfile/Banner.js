@@ -1,26 +1,21 @@
 const Banner = () => {
     return (
-        <div className="pos-relative" style={{
-            aspectRatio: "32/9",
-            backgroundColor: "rgb(80,20,71)",
+        <div style={{
+            width: "100%",
+            paddingTop: "25%",
             borderTopLeftRadius: "10px",
             borderTopRightRadius: "10px",
+            position: "relative"
         }}>
-            <div className="dark" style={{
-                backgroundColor: "var(--text-color-2)",
-                padding: "2px",
+            <div style={{
+                width: "100%",
+                height: "100%",
                 position: "absolute",
-                right: "0",
                 top: "0",
-                borderRadius: "50%",
-                marginRight: "10px",
-                marginTop: "10px"
+                left: "0",
+                overflow: "hidden",
+                backgroundColor: "rgb(80,20,71)"
             }}>
-                <div className="badge-20">
-                    <i class="fas fa-images" style={{
-                        color: "var(--text-comp-color-1)"
-                    }}></i>
-                </div>
             </div>
         </div>
     )

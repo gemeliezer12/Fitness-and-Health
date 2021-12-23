@@ -12,7 +12,7 @@ const Index = () => {
     }, [isLoggedIn])
 
     return (
-        <div className={`kt3ZmTsWK1 column color-inherit`} style={{
+        <div className={`column color-inherit`} style={{
             backgroundColor: "var(--bg-color-1)",
             color: 'white'
         }}>
