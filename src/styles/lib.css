@@ -214,7 +214,7 @@
   font-family: var(--ui-font);
 }
 
-.solid-btn.fs-14 {
+.solid-btn.fs-14 * {
   font-size: 14px;
 }
 
@@ -256,15 +256,6 @@
 
 .solid-btn img {
   height: 14px;
-}
-.solid-btn.tiny.fs-14 img,
-.solid-btn.small.fs-14 img {
-  height: 14px;
-}
-
-.solid-btn.small img,
-.solid-btn.tiny img {
-  height: 10px;
 }
 
 /*  */

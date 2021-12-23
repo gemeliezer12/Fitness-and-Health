@@ -40,7 +40,7 @@ const Index = ({setCurrentSetting, windowSize}) => {
                         paddingTop: "25%",
                         borderTopLeftRadius: "10px",
                         borderTopRightRadius: "10px",
-                        position: "relative"
+                        position: "relative",
                     }}>
                         <div style={{
                             width: "100%",
@@ -59,10 +59,11 @@ const Index = ({setCurrentSetting, windowSize}) => {
                                 height: "60px",
                             }}>
                                 <div className="align-self-end">
-                                    <div className="pos-relative" style={{
+                                    <div style={{
                                         padding: "6px",
                                         backgroundColor: "var(--bg-color-1)",
                                         borderRadius: "50%",
+                                        position: "relative"
                                     }}>
                                         <div className="pos-relative">
                                             <div className="img-80 img">
@@ -196,9 +197,7 @@ const Index = ({setCurrentSetting, windowSize}) => {
                             <div className="row gap-10" style={{
                                 height: "60px",
                             }}>
-                                <div style={{
-                                    alignSelf: "end",
-                                }}>
+                                <div className="align-self-end pos-relative">
                                     <div className="align-center flex justify-center" style={{
                                         padding: "6px",
                                         backgroundColor: "var(--bg-color-1)",

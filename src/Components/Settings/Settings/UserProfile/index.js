@@ -56,8 +56,6 @@ const Index = ({setCurrentSetting, windowSize}) => {
         setSelectedFitnessLevel(user.fitness_level)
     }, [selfUser])
 
-    console.log(windowSize.width)
-
     if (windowSize.width >= 600) return (
         
         <>
@@ -78,12 +76,12 @@ const Index = ({setCurrentSetting, windowSize}) => {
                     <div className="space-between row width-100pc align-start">
                         <div/>
                         <div className="row gap-6 padding-top-10">
-                            <button className="solid-btn tiny" style={{
+                            <button className="solid-btn small " style={{
                                 color: "var(--red)"
                             }} onClick={() => reset()}>
                                 <p>Reset</p>
                             </button>
-                            <button type="submit" className="solid-btn tiny" style={{
+                            <button type="submit" className="solid-btn small" style={{
                                 backgroundColor: "var(--green)"
                             }}>
                                 <p>Save</p>
@@ -168,12 +166,12 @@ const Index = ({setCurrentSetting, windowSize}) => {
                             <div className="space-between row width-100pc align-start padding-top-10">
                                 <div/>
                                 <div className="row gap-6">
-                                    <button className="solid-btn tiny" style={{
+                                    <button className="solid-btn small" style={{
                                         color: "var(--red)"
                                     }} onClick={() => reset()}>
                                         <p>Reset</p>
                                     </button>
-                                    <button type="submit" className="solid-btn tiny" style={{
+                                    <button type="submit" className="solid-btn small" style={{
                                         backgroundColor: "var(--green)"
                                     }}>
                                         <p>Save</p>
