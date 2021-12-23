@@ -77,20 +77,29 @@ const UserPopUp = ({user}) => {
                         </span>
                     </p>
                 </div>
-                <div className="row">
-                    <div>
+                <div className="row" style={{
+                    borderBottom: "1px solid var(--base-01)"
+                }}>
+                    <div className="padding-y-15">
                         About Me
                     </div>
                 </div>
-                <div className="">
-                    {user.user.about_me}
-                </div>
-                <div className="row gap-6 flex-wrap">
-                    <p className="kvcdz3lpy3 fs-14" style={{
-                        backgroundColor: "var(--indigo)",
-                    }}>
-                        Begginer
-                    </p>
+                <div className="margin-top-10">
+                    <div className="">
+                        {user.user.about_me}
+                    </div>
+                    <div className="row gap-6 flex-wrap margin-top-15 padding-bottom-40">
+                        <p className="kvcdz3lpy3 fs-14" style={{
+                            backgroundColor: "var(--indigo)",
+                        }}>
+                            Begginer
+                        </p>
+                        <p className="kvcdz3lpy3 fs-14" style={{
+                            backgroundColor: "var(--indigo)",
+                        }}>
+                            Begginer
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

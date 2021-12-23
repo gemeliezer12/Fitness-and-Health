@@ -184,9 +184,9 @@
 /*  */
 
 .solid-btn.big {
-  padding: 25px;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
   font-size: 16px;
   gap: 10px;
 }

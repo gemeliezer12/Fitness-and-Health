@@ -13,7 +13,7 @@ const Index = ({ setCurrentSetting, windowSize }) => {
                     <p className="ff-title">Theme</p>
                 </div>
                 <div className="column gap-4">
-                    <div className="row gap-6 solid-btn justify-start" style={{
+                    <div className="row gap-6 solid-btn medium fs-16 justify-start" style={{
                         backgroundColor: "var(--bg-color-1)"
                     }} onClick={() => setTheme("dark")}>
                         <div style={{
@@ -42,7 +42,7 @@ const Index = ({ setCurrentSetting, windowSize }) => {
                             Dark
                         </p>
                     </div>
-                    <div className="row gap-6 solid-btn justify-start" style={{
+                    <div className="row gap-6 solid-btn medium justify-start" style={{
                         backgroundColor: "var(--bg-color-1)"
                     }} onClick={() => setTheme("light")}>
                         <div style={{
@@ -109,7 +109,7 @@ const Index = ({ setCurrentSetting, windowSize }) => {
                             <p className="ff-title">Theme</p>
                         </div>
                         <div className="column gap-4">
-                            <div className="row gap-6 solid-btn justify-start" style={{
+                            <div className="row gap-6 solid-btn medium fs-16 justify-start" style={{
                                 backgroundColor: "var(--bg-color-1)"
                             }} onClick={() => setTheme("dark")}>
                                 <div style={{
@@ -138,7 +138,7 @@ const Index = ({ setCurrentSetting, windowSize }) => {
                                     Dark
                                 </p>
                             </div>
-                            <div className="row gap-6 solid-btn justify-start" style={{
+                            <div className="row gap-6 solid-btn medium justify-start fs-16" style={{
                                 backgroundColor: "var(--bg-color-1)"
                             }} onClick={() => setTheme("light")}>
                                 <div style={{
