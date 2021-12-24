@@ -73,17 +73,16 @@ const DirectConversation = ({id}) => {
     useEffect(() => {
         directConversationData && setSelfUserDirectConversationsData(
             selfUser.user.direct_conversations_id.map((e, index) => {
-                    if (e === id) {
-                        return directConversationData
-                    }
-                    // else if (selfUserDirectConversationsData && selfUserDirectConversationsData[index]) {
-                    //     return selfUserDirectConversationsData[index]
-                    // }
-                    else {
-                        return selfUserDirectConversationsData.filter(g => g && e === g.id)[0]
-                    }
+                if (e === id) {
+                    return directConversationData
                 }
-            )
+                // else if (selfUserDirectConversationsData && selfUserDirectConversationsData[index]) {
+                //     return selfUserDirectConversationsData[index]
+                // }
+                else {
+                    return selfUserDirectConversationsData.filter(g => g && e === g.id)[0]
+                }
+            })
         )
     }, [directConversationData, selfUser.user.direct_conversations_id])
 

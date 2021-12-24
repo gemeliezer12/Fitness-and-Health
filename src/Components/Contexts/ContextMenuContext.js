@@ -4,16 +4,10 @@ const ContextMenuContext  = createContext()
 
 export const useContextMenu = () => useContext(ContextMenuContext)
 
-function useOutsideAlerter(ref) {
-
-    
-  }
-
 export const ContextMenuProvider = ({children}) => {
     const [contextMenuIsActive, setContextMenuIsActive] = useState()
     const [contextMenuContent, setContextMenuContent] = useState()
     const wrapperRef = useRef(null);
-    useOutsideAlerter(wrapperRef)
 
     // Appies Position to the context menu
     const contextMenuPosition = () => {
@@ -31,10 +25,8 @@ export const ContextMenuProvider = ({children}) => {
     }
 
     const handleClickOutside = (event) => {
-        console.log(wrapperRef.current, event.target);
         if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
             setContextMenuContent()
-            console.log(wrapperRef)
         }
     }
 

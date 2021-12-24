@@ -22,7 +22,6 @@ export const UserProvider = ({ children }) => {
     const [users, setUsers] = useState()
     const [currentDirectConversation, setCurrentDirectConversation] = useState()
     const [currentDirectConversationId, setCurrentDirectConversationId] = useState()
-    const [orderedSelfUserDirectConversationsData, setOrderedSelfUserDirectConversationsData] = useState()
     const navigate = useNavigate()
 
     const signOut = () => {
