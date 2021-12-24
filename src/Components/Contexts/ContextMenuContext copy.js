@@ -14,8 +14,6 @@ export const ContextMenuProvider = ({children}) => {
     const [contextMenuContent, setContextMenuContent] = useState()
     const wrapperRef = useRef(null);
     useOutsideAlerter(wrapperRef)
-
-    // Appies Position to the context menu
     const contextMenuPosition = () => {
         const e = contextMenuContent.e
         return (
@@ -30,23 +28,20 @@ export const ContextMenuProvider = ({children}) => {
         )
     }
 
-    const handleClickOutside = (event) => {
-        console.log(wrapperRef.current, event.target);
-        if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-            setContextMenuContent()
-            console.log(wrapperRef)
-        }
-    }
-
     useEffect(() => {
-        if (contextMenuContent) {
-            document.addEventListener("mousedown", handleClickOutside);
-            return () => {
-                // Unbind the event listener on clean up
-                document.removeEventListener("mousedown", handleClickOutside);
-            };
+      function handleClickOutside(event) {
+        if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+          setContextMenuContent()
+          console.log(wrapperRef)
         }
-    }, [contextMenuContent]);
+      }
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [wrapperRef]);
 
 
     const value = {
@@ -57,12 +52,9 @@ export const ContextMenuProvider = ({children}) => {
     return (
         <ContextMenuContext.Provider value={value}>
             {children}
-            {
-                contextMenuContent &&
-                <div ref={wrapperRef}>
-                    {contextMenuPosition()}
-                </div>
-            }
+            {contextMenuContent && <div ref={wrapperRef}>
+            {contextMenuPosition()}
+            </div>}
         </ContextMenuContext.Provider>
     )
 }

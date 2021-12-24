@@ -85,8 +85,6 @@ const DirectConversationMenu = ({setContextMenuContent, setPopUpContent, id}) =>
             navigate(`/app/chat/${directConversationExist}`)
         }
     }
-    
-    console.log(currentUser)
 
     if (!currentUser) return null
     
