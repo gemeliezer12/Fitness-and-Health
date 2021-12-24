@@ -21,7 +21,8 @@ const Index = () => {
             }}> 
             </div>
             <div className="padding-x-15 padding-y-10" style={{
-                height: "100%"
+                height: "100%",
+                overflow: "auto"
             }}>
 
                 { currentDirectConversation && <Messages messages={currentDirectConversation.direct_messages}/>}

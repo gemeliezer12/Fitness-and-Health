@@ -29,7 +29,7 @@ const Message = ({message, id, user}) => {
             <div style={{
                 width: "100%",
                 display: "flex",
-                flexDirection: "column"
+                flexDirection: "column",
             }}>
                 <div className="flex space-between">
                     <div className="row gap-6">

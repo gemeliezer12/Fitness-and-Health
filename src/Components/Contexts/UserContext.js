@@ -22,6 +22,7 @@ export const UserProvider = ({ children }) => {
     const [users, setUsers] = useState()
     const [currentDirectConversation, setCurrentDirectConversation] = useState()
     const [currentDirectConversationId, setCurrentDirectConversationId] = useState()
+    const [orderedSelfUserDirectConversationsData, setOrderedSelfUserDirectConversationsData] = useState()
     const navigate = useNavigate()
 
     const signOut = () => {
@@ -80,6 +81,50 @@ export const UserProvider = ({ children }) => {
         setSelfUserFriends(friends)
     }
 
+    // const sorter = () => {
+    //     const results = []
+    //     for (let i = 0; i < selfUserDirectConversationsData.length; i++) {
+    //         const directConversation = selfUserDirectConversationsData[i]
+
+    //         if (selfUserDirectConversationsData[i]) {
+    //             if (!results[0]) {
+    //                 results[0] = directConversation
+    //             }
+    //             for (let i = 0; i < results.length; i++) {
+    //                 const currentResult = results[i]
+    //                 const nextResult = results[i + 1]
+
+    //                 // If is bigger than current result
+    //                 if (currentResult && currentResult.direct_conversation.date_updated < directConversation.direct_conversation.date_updated) {
+    //                     if (!nextResult) {
+    //                         results.splice(i + 1, 0, directConversation)
+    //                         break
+    //                     }
+    //                     if(nextResult && nextResult.direct_conversation.date_updated < directConversation.direct_conversation.date_updated) {
+    //                         // If is smaller than next result
+    //                     }
+    //                     else if (nextResult && nextResult.direct_conversation.date_updated >= directConversation.direct_conversation.date_updated) {
+    //                         // If is bigger than current result
+    //                         results.splice(i + 1, 0, directConversation)
+    //                         break
+    //                     }
+    //                 }
+    //                 else if (currentResult && currentResult.direct_conversation.date_updated > directConversation.direct_conversation.date_updated) {
+    //                     results.splice(0, 0, directConversation)
+    //                         break
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     return results
+    // }
+
+    // useEffect(() => {
+    //     setOrderedSelfUserDirectConversationsData(
+    //         sorter()
+    //     )
+    // }, [selfUserDirectConversationsData])
+    
     useEffect(() => {
         if (selfUser) {
             friendsHandler()
@@ -87,7 +132,7 @@ export const UserProvider = ({ children }) => {
     }, [selfUser])
 
     useEffect(()=> {
-        return getUsers()
+        return getUsers(selfUser)
     }, [])
 
     useEffect(() => {
