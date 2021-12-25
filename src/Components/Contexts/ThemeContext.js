@@ -9,7 +9,7 @@ export const ThemeProvider = ({children}) => {
 
     // Get the theme setted from local storage once page is loaded and setThemeState to that theme
     useEffect(() => {
-        setTheme(localStorage.getItem("theme"))
+        !localStorage.getItem("theme") && setTheme(localStorage.getItem("theme"))
     }, [])
 
     // Updates theme when themeState changes
