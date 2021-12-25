@@ -26,43 +26,49 @@ const Main = () => {
                 <ThemeProvider>
                     <ContextMenuProvider>
                         <PopUpProvider>
+                            <div style={{
+                                width: "100vw",
+                                height: "100vh",
+                                overflowY: "auto"
+                            }}>
 
-                            <Routes>
-                                <Route path="/" element={
-                                    <>
-                                        <Nav/>
-                                        <Landing/>
-                                        <Footer/>
-                                    </>
-                                }/>
-                                <Route path="/account" element={
-                                    <>
-                                        <Nav/>
-                                        <Landing/>
-                                        <Footer/>
-                                    </>
-                                }/>
-                                <Route path="/signin" element={
-                                    <>
-                                        <Nav/>
-                                        <Signin/>
-                                        <Footer/>
-                                    </>
-                                }/>
-                                <Route path="/signup" element={
-                                    <>
-                                        <Nav/>
-                                        <Signup/>
-                                        <Footer/>
-                                    </>
-                                }/>
-                                <Route path="/settings" element={
-                                    <>
-                                        <Settings/>
-                                    </>
-                                }/>
-                            </Routes>
-                            <App/>
+                                <Routes>
+                                    <Route path="/" element={
+                                        <>
+                                            <Nav/>
+                                            <Landing/>
+                                            <Footer/>
+                                        </>
+                                    }/>
+                                    <Route path="/account" element={
+                                        <>
+                                            <Nav/>
+                                            <Landing/>
+                                            <Footer/>
+                                        </>
+                                    }/>
+                                    <Route path="/signin" element={
+                                        <>
+                                            <Nav/>
+                                            <Signin/>
+                                            <Footer/>
+                                        </>
+                                    }/>
+                                    <Route path="/signup" element={
+                                        <>
+                                            <Nav/>
+                                            <Signup/>
+                                            <Footer/>
+                                        </>
+                                    }/>
+                                    <Route path="/settings" element={
+                                        <>
+                                            <Settings/>
+                                        </>
+                                    }/>
+                                </Routes>
+                                <App/>
+                            </div>
                         </PopUpProvider>
                     </ContextMenuProvider>
                 </ThemeProvider>

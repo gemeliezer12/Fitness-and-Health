@@ -1,4 +1,8 @@
+import { usePopUp } from "../Contexts/PopUpContext"
+
 const Plan = ({plan, id}) => {
+    const { setPopUpContent } = usePopUp()
+
     return (
         <div className="XmX5263cNA padding-all-32 column gap-32" style={{
             backgroundColor: "var(--bg-color-4)",
@@ -25,7 +29,15 @@ const Plan = ({plan, id}) => {
             }}>
                 <p style={{
                     color: "var(--text-dark-2)"
-                }}>
+                }} onClick={() => setPopUpContent(
+                    <div style={{
+                        width: "400px",
+                        height: "400px",
+                        backgroundColor: "red"
+                    }}>
+                        ASDSDSA
+                    </div>
+                )}>
                     Get Started
                 </p>
             </div>

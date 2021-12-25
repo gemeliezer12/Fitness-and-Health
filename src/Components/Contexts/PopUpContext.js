@@ -18,23 +18,25 @@ export const PopUpProvider = ({children}) => {
             {
                 popUpContent &&
                 <div style={{
-                    position: 'absolute',
+                    position: 'fixed',
                     top: "0",
                     left: "0",
-                    height: "100vh",
-                    width: "100vw",
+                    height: "100%",
+                    width: "100%",
                     display: 'flex',
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
                     backgroundColor: "var(--base-light-02)",
                     overflow: "hidden",
-                    padding: "40px"
+                    padding: "40px",
+                    zIndex: "1"
                 }}>
                     <div style={{
                         width: "100%",
                         height: "100%",
-                        position: "absolute"
+                        position: "absolute",
+                        zIndex: -1
                     }} onClick={() => setPopUpContent()}>
 
                     </div>
