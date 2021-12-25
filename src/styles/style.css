@@ -263,3 +263,19 @@
   flex-direction: column;
   padding: 10px;
 }
+
+.teoYPhEGXH {
+  width: 100%;
+}
+
+.teoYPhEGXH {
+  padding: 40px;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 599px) {
+  .teoYPhEGXH {
+    padding: 0;
+    justify-content: end;
+  }
+}

@@ -17,20 +17,17 @@ export const PopUpProvider = ({children}) => {
             {children}
             {
                 popUpContent &&
-                <div style={{
+                <div className="teoYPhEGXH" style={{
                     position: 'fixed',
                     top: "0",
                     left: "0",
-                    height: "100%",
-                    width: "100%",
+                    height: "100vh",
+                    width: "100vw",
                     display: 'flex',
                     flexDirection: "column",
                     alignItems: "center",
-                    justifyContent: "center",
                     backgroundColor: "var(--base-light-04)",
                     backdropFilter: "blur(2px)",
-                    overflow: "hidden",
-                    padding: "40px",
                     zIndex: "1"
                 }}>
                     <div style={{
@@ -41,8 +38,7 @@ export const PopUpProvider = ({children}) => {
                     }} onClick={() => setPopUpContent()}>
 
                     </div>
-
-                    {popUpContent}
+                        {popUpContent}
                 </div>
             }
         </PopUpContext.Provider>

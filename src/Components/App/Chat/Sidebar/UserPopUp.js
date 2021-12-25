@@ -91,7 +91,7 @@ const UserPopUp = ({id}) => {
 
     return (
         <>
-            <div className="column" style={{
+            <div className="pos-relative" style={{
                 maxWidth: "600px",
                 width: "100%",
                 borderBottomLeftRadius: "10px",
