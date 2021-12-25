@@ -8,39 +8,38 @@ const PlanPopUp = () => {
     const [expirationDate, setExpirationDate] = useState({name: "expirationDate", label: "MM / YY", type: "text", value: "", isValid: false, isRequired: true})
     const [CVC, setCVC] = useState({name: "CVC", label: "CVC", type: "number", value: "", isValid: false, isRequired: true})
 
+    // const formatNumberToMMYY = (number) => {
+    //     if (number.length > 7) {
+                    
+    //     }
+    //     else {
+    //         if (number.slice(0, 2) > 12) {
+    //             if (number[0] == 1) {
+    //                 return "0" + number.slice(0, 1) + " / " + number.slice(2, 4)
+    //             }
+    //         }
+    //         else {
+    //             if(number.length >= 3) {
+    //                 return number.slice(0, 2) + " / " + number.slice(5, 7)
+                    
+    //             }
+    //             else if (number[0] == 1 || number[0] == 0) {
+    //                 return number
+    //             }
+    //             else if (number[0] >= 2) {
+    //                 return "0" + number
+    //             }
+    //             else if (!number[0]){
+    //                 return number
+    //             }
+    //         }
+    //     }
+    // }
+
     const formHander = (e) => {
         switch (e.name) {
-            case "email":
-                setEmail(e.value)
-            case "cardNumber":
-               
             case "expirationDate":
-                if (e.value.length > 4) {
-                    
-                }
-                else {
-                    if (e.value.slice(0, 2) > 12) {
-                    }
-                    else {
-                        if(e.value.length >= 3) {
-                            setExpirationDate({
-                                ...expirationDate,
-                                value: e.value.slice(0, 2) + " / " + e.value.slice(2, 4)
-                            })
-                        }
-                        if (e.value[0] == 1 || e.value[0] == 0) {
-                            setExpirationDate({...expirationDate, value: e.value})
-                        }
-                        else if (e.value[0] >= 2) {
-                            setExpirationDate({...expirationDate, value: "0" + e.value})
-                        }
-                        else if (!e.value[0]){
-                            setExpirationDate({...expirationDate, value: e.value})
-                        }
-                    }
-                }
-                break
-            default:
+                e.value.length <= 4 && setExpirationDate({...expirationDate, value: e.value})
                 break
         }
     }
@@ -91,9 +90,16 @@ const PlanPopUp = () => {
                         width: "50%",
                         justifySelf: "end"
                     }}>
+                        {/* <input type="date" name="expirationDate" placeholder="MM / YY" style={{
+                            width: "100%",
+                        }} value={
+                            expirationDate.value
+                        }/> */}
                         <input type="email" name="expirationDate" placeholder="MM / YY" style={{
                             width: "100%",
-                        }} value={expirationDate.value}/>
+                        }} value={
+                            expirationDate.value
+                        }/>
                         <input placeholder="CVC" style={{
                             width: "100%",
                         }}/>
