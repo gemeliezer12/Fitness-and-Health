@@ -177,19 +177,6 @@
   --base-001: var(--base-light-001);
 }
 
-.dark {
-  background-color: var(--bg-color-2);
-  color: var(--text-color-1);
-}
-
-.light {
-  background-color: var(--bg-color-2);
-}
-
-.opposite {
-  background-color: var(--bg-color-2);
-}
-
 ::selection {
   color: white;
   -webkit-text-fill-color: white;
