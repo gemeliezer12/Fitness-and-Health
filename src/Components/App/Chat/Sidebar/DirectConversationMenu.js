@@ -97,12 +97,6 @@ const DirectConversationMenu = ({setContextMenuContent, setPopUpContent, id}) =>
             position: "fixed"
         }}>
             <div className="column gap-2 fw-700">
-                <div className="nkDuujtBoP desktop">
-                    <p>Mark As Read</p>
-                </div>
-                <div className="margin-y-2" style={{
-                    borderBottom: "1px solid var(--bg-color-4)"
-                }}/>
                 <div className="nkDuujtBoP desktop" onClick={() => {
                     setPopUpContent(
                         <UserPopUp id={id}/>

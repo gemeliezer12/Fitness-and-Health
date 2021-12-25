@@ -43,7 +43,7 @@ const Form = () => {
         <form onSubmit={(e) => signInWithEmailPassword(e)} onChange={(e) => onChange(e.target)} className="column padding-top-20 gap-20">
             <Input input={email}/>
             <Input input={password}/>
-            <button className="solid-btn" style={{
+            <button className="solid-btn big" style={{
                 backgroundColor: "var(--indigo)",
                 borderRadius: "200px"
             }}>

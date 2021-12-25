@@ -102,7 +102,7 @@ const Form = () => {
             <Input input={username}/>
             <Input input={password}/>
             <Input input={passwordRepeat}/>
-            <button className="solid-btn" style={{
+            <button className="solid-btn big" style={{
                 backgroundColor: "var(--indigo)",
                 borderRadius: "200px"
             }}>
