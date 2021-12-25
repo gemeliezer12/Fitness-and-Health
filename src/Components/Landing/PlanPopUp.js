@@ -4,11 +4,13 @@ import Input from "../Assets/Input"
 
 import { firebase } from "../../firebase"
 import { usePopUp } from "../Contexts/PopUpContext"
+import { useAuth } from "../Contexts/AuthContext"
 
 const auth = firebase.auth()
 
 const PlanPopUp = () => {
     const { setPopUpContent } = usePopUp()
+    const { isLoggedIn } = useAuth()
 
     const [email, setEmail] = useState({name: "email", label: "Email", type: "email", value: "", isValid: false, isRequired: true})
     const [cardNumber, setCardNumber] = useState({name: "cardNumber", label: "Card Number", type: "text", value: "", isValid: false, isRequired: true})
@@ -52,8 +54,13 @@ const PlanPopUp = () => {
     }
 
     useEffect(() => {
-        setEmail({...email, value: auth.currentUser.email})
+        console.log(isLoggedIn) && setEmail({...email, value: auth.currentUser.email})
     }, [auth])
+
+    useEffect(() => {
+        console.log(isLoggedIn)
+    }, [isLoggedIn])
+
 
     return (
         <div className="pos-relative dark color-inherit" style={{
