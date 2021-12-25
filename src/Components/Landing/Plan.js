@@ -4,7 +4,7 @@ const Plan = ({plan, id}) => {
             backgroundColor: "var(--bg-color-4)",
         }}>
             <div>
-                <p className="ff-title">{plan.name}</p>
+                <p className="ff-title fs-20">{plan.name}</p>
             </div>
             <div>
                 <span className="fs-32" style={{
@@ -16,11 +16,11 @@ const Plan = ({plan, id}) => {
                 </span>
             </div>
             <div style={{
-                border: "1px solid var(--bg-color-5)"
+                border: "1px solid var(--base-004)"
             }}/>
             <div dangerouslySetInnerHTML={{__html: plan.description}}>
             </div>
-            <div className="solid-btn iGeeEa3h6v" style={{
+            <div className="solid-btn big iGeeEa3h6v" style={{
                 background: "var(--indigo)"
             }}>
                 <p style={{

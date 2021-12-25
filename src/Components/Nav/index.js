@@ -19,7 +19,7 @@ const Index = () => {
                     }}>
                         <img className="icon" src="../../../images/logo.png" alt=""/>
                     </Link>
-                    <div className="row">
+                    <div className="row TrKa6wFHDh">
                         <Link to="" className="solid-btn medium sPF9B2SD15 first">
                             <p>Home</p>
                         </Link>
