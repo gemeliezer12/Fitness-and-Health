@@ -38,7 +38,7 @@ export const PopUpProvider = ({children}) => {
                     }} onClick={() => setPopUpContent()}>
 
                     </div>
-                        {popUpContent}
+                    {popUpContent}
                 </div>
             }
         </PopUpContext.Provider>

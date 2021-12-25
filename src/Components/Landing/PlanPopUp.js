@@ -54,13 +54,13 @@ const PlanPopUp = () => {
     }
 
     useEffect(() => {
-        console.log(isLoggedIn) && setEmail({...email, value: auth.currentUser.email})
+        isLoggedIn && setEmail({...email, value: auth.currentUser.email})
     }, [auth])
 
     useEffect(() => {
         console.log(isLoggedIn)
     }, [isLoggedIn])
-
+    
 
     return (
         <div className="pos-relative dark color-inherit" style={{
@@ -105,10 +105,20 @@ const PlanPopUp = () => {
                 <form className="column gap-10 margin-top-20" onChange={(e) => {
                     formHander(e.target)
                 }}>
-                    <input className="padding-x-25 padding-y-10 color-inherit fw-900 ff-ui space-between border-radius-200 row" style={{
-                        backgroundColor: "var(--bg-comp-color-2)",
-                        color: "var(--text-comp-color-2)",
-                    }} value={email.value}/>
+                    {
+                        isLoggedIn ?
+                        <div className="padding-x-25 padding-y-10 color-inherit fw-900 ff-ui space-between border-radius-200 row" style={{
+                            backgroundColor: "var(--bg-comp-color-2)",
+                            color: "var(--text-comp-color-2)",
+                        }}>
+                            {email.value}
+                        </div>
+                        :
+                        <input className="padding-x-25 padding-y-10 color-inherit fw-900 ff-ui space-between border-radius-200 row" style={{
+                            backgroundColor: "var(--bg-comp-color-2)",
+                            color: "var(--text-comp-color-2)",
+                        }} value={email.value}/>
+                    }
                     <div className="padding-x-25 padding-y-10 color-inherit fw-900 ff-ui border-radius-200 row" style={{
                         backgroundColor: "var(--bg-comp-color-2)",
                         color: "var(--text-comp-color-2)",
