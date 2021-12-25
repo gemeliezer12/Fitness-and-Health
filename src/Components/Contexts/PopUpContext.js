@@ -27,7 +27,7 @@ export const PopUpProvider = ({children}) => {
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    backgroundColor: "var(--base-light-02)",
+                    backgroundColor: "var(--base-light-04)",
                     overflow: "hidden",
                     padding: "40px",
                     zIndex: "1"

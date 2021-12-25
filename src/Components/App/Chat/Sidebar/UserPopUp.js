@@ -92,7 +92,6 @@ const UserPopUp = ({id}) => {
     return (
         <>
             <div className="column" style={{
-                zIndex: "100%",
                 maxWidth: "600px",
                 width: "100%",
                 borderBottomLeftRadius: "10px",

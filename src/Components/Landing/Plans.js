@@ -116,7 +116,7 @@ const Plans = () => {
                     }}>three flexible plans</span> to choose from. It depends what you demand from your banking experience.
                 </p>
             </div>
-            <div className="MiEWhFVt9T margin-top-40 gap-20">
+            <div className="MiEWhFVt9T margin-top-40 gap-15">
                 {plans.map((plan) => (
                     <Plan plan={plan.plan} id={plan.id} key={plan.id}/>
                 ))}

@@ -1,4 +1,5 @@
 import { usePopUp } from "../Contexts/PopUpContext"
+import PlanPopUp from "./PlanPopUp"
 
 const Plan = ({plan, id}) => {
     const { setPopUpContent } = usePopUp()
@@ -26,18 +27,12 @@ const Plan = ({plan, id}) => {
             </div>
             <div className="solid-btn big iGeeEa3h6v" style={{
                 background: "var(--indigo)"
-            }}>
+            }} onClick={() => setPopUpContent(
+                <PlanPopUp></PlanPopUp>
+            )}>
                 <p style={{
                     color: "var(--text-dark-2)"
-                }} onClick={() => setPopUpContent(
-                    <div style={{
-                        width: "400px",
-                        height: "400px",
-                        backgroundColor: "red"
-                    }}>
-                        ASDSDSA
-                    </div>
-                )}>
+                }}>
                     Get Started
                 </p>
             </div>

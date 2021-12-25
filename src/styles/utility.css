@@ -309,6 +309,14 @@ body {
   font-size: 40px;
 }
 
+.fs-60 {
+  font-size: 60px;
+}
+
+.fs-80 {
+  font-size: 80px;
+}
+
 /* Font Weight */
 
 .fw-100 {
@@ -963,6 +971,11 @@ body {
   padding-left: 20px;
 }
 
+.padding-x-25 {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
 .padding-x-26 {
   padding-right: 26px;
   padding-left: 26px;
@@ -1033,6 +1046,10 @@ body {
   padding-right: 26px;
 }
 
+.padding-right-25 {
+  padding-right: 25px;
+}
+
 .padding-right-32 {
   padding-right: 32px;
 }
@@ -1091,6 +1108,10 @@ body {
   padding-left: 26px;
 }
 
+.padding-left-25 {
+  padding-left: 25px;
+}
+
 .padding-left-32 {
   padding-left: 32px;
 }
@@ -1139,6 +1160,10 @@ body {
 
 .padding-all-26 {
   padding: 26px;
+}
+
+.padding-all-25 {
+  padding: 25px;
 }
 
 .padding-all-32 {
