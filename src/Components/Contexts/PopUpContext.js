@@ -28,6 +28,7 @@ export const PopUpProvider = ({children}) => {
                     alignItems: "center",
                     justifyContent: "center",
                     backgroundColor: "var(--base-light-04)",
+                    backdropFilter: "blur(2px)",
                     overflow: "hidden",
                     padding: "40px",
                     zIndex: "1"
