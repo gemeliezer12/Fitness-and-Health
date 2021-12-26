@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useEffect } from "react"
 import Input from "../Assets/Input"
+import CreditCardInput from 'react-credit-card-input'
 
 import { firebase } from "../../firebase"
 import { usePopUp } from "../Contexts/PopUpContext"
@@ -17,35 +18,8 @@ const PlanPopUp = () => {
     const [expirationDate, setExpirationDate] = useState({name: "expirationDate", label: "MM / YY", type: "text", value: "", isValid: false, isRequired: true})
     const [CVC, setCVC] = useState({name: "CVC", label: "CVC", type: "number", value: "", isValid: false, isRequired: true})
 
-    // const formatNumberToMMYY = (number) => {
-    //     if (number.length > 7) {
-                    
-    //     }
-    //     else {
-    //         if (number.slice(0, 2) > 12) {
-    //             if (number[0] == 1) {
-    //                 return "0" + number.slice(0, 1) + " / " + number.slice(2, 4)
-    //             }
-    //         }
-    //         else {
-    //             if(number.length >= 3) {
-    //                 return number.slice(0, 2) + " / " + number.slice(5, 7)
-                    
-    //             }
-    //             else if (number[0] == 1 || number[0] == 0) {
-    //                 return number
-    //             }
-    //             else if (number[0] >= 2) {
-    //                 return "0" + number
-    //             }
-    //             else if (!number[0]){
-    //                 return number
-    //             }
-    //         }
-    //     }
-    // }
-
     const formHander = (e) => {
+        console.log(e)
         switch (e.name) {
             case "expirationDate":
                 e.value.length <= 4 && setExpirationDate({...expirationDate, value: e.value})
@@ -112,24 +86,35 @@ const PlanPopUp = () => {
                         color: "var(--text-comp-color-2)",
                     }}>
                         <input placeholder="Card Number" style={{
-                            width: "50%",
+                            width: "100%",
                             justifySelf: "start"
                         }}/>
-                        <div className="row gap-6" style={{
-                            whiteSpace: "nowrap",
-                            width: "50%",
-                            justifySelf: "end"
-                        }}>
                             <input type="email" name="expirationDate" placeholder="MM / YY" style={{
-                                width: "100%",
+                                width: "80px",
                             }} value={
                                 expirationDate.value
                             }/>
                             <input placeholder="CVC" style={{
-                                width: "100%",
+                                width: "80px",
                             }}/>
-                        </div>
                     </div>
+                    {/* <div className="padding-x-25 padding-y-10 color-inherit fw-900 ff-ui border-radius-200 row" style={{
+                        backgroundColor: "var(--bg-comp-color-2)",
+                        color: "var(--text-comp-color-2)",
+                    }}>
+                        <input placeholder="Card Number" style={{
+                            minWidth: "100%",
+                            justifySelf: "start"
+                        }}/>
+                            <input type="email" name="expirationDate" placeholder="MM / YY" style={{
+                                width: "80px",
+                            }} value={
+                                expirationDate.value
+                            }/>
+                            <input placeholder="CVC" style={{
+                                width: "80px",
+                            }}/>
+                    </div> */}
                     <div className="padding-x-25 padding-y-10 color-inherit fw-900 ff-ui justify-center border-radius-200 row" style={{
                         backgroundColor: "var(--bg-color-2)",
                         color: "white"
