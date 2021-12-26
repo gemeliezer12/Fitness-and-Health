@@ -60,19 +60,9 @@ const PlanPopUp = () => {
     useEffect(() => {
         console.log(isLoggedIn)
     }, [isLoggedIn])
-    
 
     return (
-        <div className="pos-relative dark color-inherit" style={{
-            maxWidth: "600px",
-            width: "100%",
-            borderBottomLeftRadius: "10px",
-            borderBottomRightRadius: "10px",
-            zIndex: "1",
-            backgroundColor: "var(--indigo)",
-            maxHeight: "100%",
-            borderTopLeftRadius: "10px",
-            borderTopRightRadius: "10px",
+        <div className="Sn0rrL9LV2 pos-relative dark color-inherit" style={{
             color: "white"
         }}>
             <div className="img-32 icon cursor-pointer" style={{
@@ -85,10 +75,8 @@ const PlanPopUp = () => {
             }} onClick={() => setPopUpContent()}>
                 <i className="fas fa-times"></i>
             </div>
-            <div className="column" style={{
-                width: "100%",
-                height: "100%",
-                overflow: "auto",
+            <div className="column full-size overflow-y-auto XMTWpXdomx" style={{
+                backgroundColor: "var(--indigo)",
                 padding: "32px",
             }}>
                 <div className="column align-center">

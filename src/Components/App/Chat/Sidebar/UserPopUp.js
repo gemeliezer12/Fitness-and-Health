@@ -91,131 +91,134 @@ const UserPopUp = ({id}) => {
 
     return (
         <>
-            <div className="pos-relative" style={{
-                maxWidth: "600px",
-                width: "100%",
-                borderBottomLeftRadius: "10px",
-                borderBottomRightRadius: "10px",
-                zIndex: "1",
-                backgroundColor: "var(--bg-color-1)",
-                maxHeight: "100%",
-                overflow: "auto",
-                borderTopLeftRadius: "10px",
-                borderTopRightRadius: "10px",
-            }}>
-                <div style={{
-                    width: "100%",
-                    paddingTop: "25%",
-                    borderTopLeftRadius: "10px",
-                    borderTopRightRadius: "10px",
-                    position: "relative",
-                    zIndex: "-1"
+            <div className="Sn0rrL9LV2 pos-relative">
+                <div className="img-32 icon cursor-pointer" style={{
+                    backgroundColor: "var(--bg-color-2)",
+                    position: "absolute",
+                    top: "0",
+                    right: "0",
+                    marginRight: "8px",
+                    marginTop: "8px",
+                    zIndex: "1"
+                }} onClick={() => setPopUpContent()}>
+                    <i className="fas fa-times" style={{
+                        color: "var(--text-color-2)"
+                    }}></i>
+                </div>
+                <div className="column XMTWpXdomx full-size overflow-y-auto pos-relative" style={{
+                    backgroundColor: "var(--bg-color-1)",
                 }}>
                     <div style={{
                         width: "100%",
-                        height: "100%",
-                        position: "absolute",
-                        top: "0",
-                        left: "0",
-                        overflow: "hidden",
-                        backgroundColor: "rgb(80,20,71)"
+                        paddingTop: "25%",
+                        position: "relative",
                     }}>
+                        <div style={{
+                            width: "100%",
+                            height: "100%",
+                            position: "absolute",
+                            top: "0",
+                            left: "0",
+                            overflow: "hidden",
+                            backgroundColor: "rgb(80,20,71)"
+                        }}>
+                        </div>
                     </div>
-                </div>
-                <div className="column padding-x-15 padding-bottom-15" style={{
-                    borderBottomLeftRadius: "10px",
-                    borderBottomRightRadius: "10px",
-                
-                }}>
-                    <div className="row" style={{
-                        height: "80px",
+                    <div className="column padding-x-15 padding-bottom-15" style={{
+                        borderBottomLeftRadius: "10px",
+                        borderBottomRightRadius: "10px",
+                        zIndex: "1"
                     }}>
-                        <div className="align-self-end">
-                            <div className="" style={{
-                                padding: "6px",
-                                backgroundColor: "var(--bg-color-1)",
-                                borderRadius: "50%",
-                            }}>
-                                <div className="img-120 img">
-                                    <img src="../../images/profile.png" alt="" />
+                        <div className="row" style={{
+                            height: "80px",
+                        }}>
+                            <div className="align-self-end">
+                                <div className="" style={{
+                                    padding: "6px",
+                                    backgroundColor: "var(--bg-color-1)",
+                                    borderRadius: "50%",
+                                }}>
+                                    <div className="img-120 img">
+                                        <img src="../../images/profile.png" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row space-between padding-top-10 width-100pc align-start">
+                                <div/>
+                                <div className="row gap-6 align-center">
+                                    {
+                                        selfUserFriendStatus && currentUserFriendStatus &&
+                                        <Link to="/app/chat" className="solid-btn medium" style={{
+                                            backgroundColor: "var(--green)",
+                                        }} onClick={onClick}>
+                                            <p className="tt-initial">Send Message</p>
+                                        </Link>
+                                    }
+                                    {
+                                        selfUserFriendStatus && !currentUserFriendStatus &&
+                                        <div className="solid-btn medium cursor-not-allowed" style={{
+                                            backgroundColor: "rgba(74, 222, 128, 0.6)"
+                                        }}>
+                                            <p className="tt-initial">Friend Request Sent</p>
+                                        </div>
+                                    }
+                                    {
+                                        !selfUserFriendStatus && currentUserFriendStatus &&
+                                        <div className="solid-btn medium" style={{
+                                            backgroundColor: "var(--green)",
+                                        }} onClick={() => addFriend()}>
+                                            <p className="tt-initial">Accept Friend Request</p>
+                                        </div>
+                                    }
+                                    {
+                                        !selfUserFriendStatus && !currentUserFriendStatus &&
+                                        <div className="solid-btn medium" style={{
+                                            backgroundColor: "var(--green)",
+                                        }} onClick={() => addFriend()}>
+                                            <p className="tt-initial">Send Friend Request</p>
+                                        </div>
+                                    }
+                                    <div className="img-40 icon">
+                                        <i className="fas fa-ellipsis-v"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="row space-between padding-top-10 width-100pc align-start">
-                            <div/>
-                            <div className="row gap-6 align-center">
-                                {
-                                    selfUserFriendStatus && currentUserFriendStatus &&
-                                    <Link to="/app/chat" className="solid-btn medium" style={{
-                                        backgroundColor: "var(--green)",
-                                    }} onClick={onClick}>
-                                        <p className="tt-initial">Send Message</p>
-                                    </Link>
-                                }
-                                {
-                                    selfUserFriendStatus && !currentUserFriendStatus &&
-                                    <div className="solid-btn medium cursor-not-allowed" style={{
-                                        backgroundColor: "rgba(74, 222, 128, 0.6)"
-                                    }}>
-                                        <p className="tt-initial">Friend Request Sent</p>
-                                    </div>
-                                }
-                                {
-                                    !selfUserFriendStatus && currentUserFriendStatus &&
-                                    <div className="solid-btn medium" style={{
-                                        backgroundColor: "var(--green)",
-                                    }} onClick={() => addFriend()}>
-                                        <p className="tt-initial">Accept Friend Request</p>
-                                    </div>
-                                }
-                                {
-                                    !selfUserFriendStatus && !currentUserFriendStatus &&
-                                    <div className="solid-btn medium" style={{
-                                        backgroundColor: "var(--green)",
-                                    }} onClick={() => addFriend()}>
-                                        <p className="tt-initial">Send Friend Request</p>
-                                    </div>
-                                }
-                                <div className="img-40 icon">
-                                    <i className="fas fa-ellipsis-v"></i>
-                                </div>
+                        
+                        <div className="row space-between margin-top-20">
+                            <p className="fs-20">
+                                <span style={{
+                                    color: "white"
+                                }}>
+                                    {currentUser.user.username}
+                                </span>
+                                <span>
+                                    #{currentUser.user.user_number}
+                                </span>
+                            </p>
+                        </div>
+                        <div className="row margin-y-10" style={{
+                            borderBottom: "1px solid var(--base-01)"
+                        }}/>
+                        <div>
+                            About Me
+                        </div>
+                        <div className="margin-top-10">
+                            <div className="">
+                                {currentUser.user.about_me}
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div className="row space-between margin-top-20">
-                        <p className="fs-20">
-                            <span style={{
-                                color: "white"
-                            }}>
-                                {currentUser.user.username}
-                            </span>
-                            <span>
-                                #{currentUser.user.user_number}
-                            </span>
-                        </p>
-                    </div>
-                    <div className="row margin-y-10" style={{
-                        borderBottom: "1px solid var(--base-01)"
-                    }}/>
-                    <div>
-                        About Me
-                    </div>
-                    <div className="margin-top-10">
-                        <div className="">
-                            {currentUser.user.about_me}
-                        </div>
-                        <div className="row gap-6 flex-wrap margin-top-15 padding-bottom-40">
-                            <p className="kvcdz3lpy3 fs-14" style={{
-                                backgroundColor: "var(--indigo)",
-                            }}>
-                                Begginer
-                            </p>
-                            <p className="kvcdz3lpy3 fs-14" style={{
-                                backgroundColor: "var(--green)",
-                            }}>
-                                Trainer
-                            </p>
+                            <div className="row gap-6 flex-wrap margin-top-15 padding-bottom-40">
+                                <p className="kvcdz3lpy3 fs-14" style={{
+                                    backgroundColor: "var(--indigo)",
+                                }}>
+                                    Begginer
+                                </p>
+                                <p className="kvcdz3lpy3 fs-14" style={{
+                                    backgroundColor: "var(--green)",
+                                }}>
+                                    Trainer
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

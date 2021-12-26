@@ -17,19 +17,7 @@ export const PopUpProvider = ({children}) => {
             {children}
             {
                 popUpContent &&
-                <div className="teoYPhEGXH" style={{
-                    position: 'fixed',
-                    top: "0",
-                    left: "0",
-                    height: "100vh",
-                    width: "100vw",
-                    display: 'flex',
-                    flexDirection: "column",
-                    alignItems: "center",
-                    backgroundColor: "var(--base-light-04)",
-                    backdropFilter: "blur(2px)",
-                    zIndex: "1"
-                }}>
+                <div className="pop-up-component">
                     <div style={{
                         width: "100%",
                         height: "100%",
