@@ -40,24 +40,45 @@ const PlanPopUp = () => {
     }, [auth])
 
     useEffect(() => {
+        // window.paypal.Buttons({
+        //     style: {
+        //         shape: 'pill',
+        //         color: 'gold',
+        //         layout: 'vertical',
+        //         label: 'subscribe'
+        //     },
+        //     createSubscription: function(data, actions) {
+        //         return actions.subscription.create({
+        //             /* Creates the subscription */
+        //             plan_id: 'P-7V331020HX953714SMHER3YY',
+        //             quantity: 1 // The quantity of the product for a subscription
+        //         })
+        //     },
+        //     onApprove: function(data, actions) {
+        //         alert(data.subscriptionID); // You can add optional success message for the subscriber here
+        //     },
+        // }).render(paypal.current)
         window.paypal.Buttons({
-            style: {
-                shape: 'pill',
-                color: 'gold',
-                layout: 'vertical',
-                label: 'subscribe'
-            },
+
             createSubscription: function(data, actions) {
-                return actions.subscription.create({
-                    /* Creates the subscription */
-                    plan_id: 'P-7V331020HX953714SMHER3YY',
-                    quantity: 1 // The quantity of the product for a subscription
-                })
+          
+              return actions.subscription.create({
+          
+                'plan_id': 'sb-td1ms8958375@business.example.com'
+          
+              });
+          
             },
+          
+          
             onApprove: function(data, actions) {
-                alert(data.subscriptionID); // You can add optional success message for the subscriber here
-            },
-        }).render(paypal.current)
+          
+              alert('You have successfully created subscription ' + data.subscriptionID);
+          
+            }
+          
+          
+          }).render(paypal.current)
     }, [])
 
     return (
