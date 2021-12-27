@@ -41,36 +41,24 @@ const PlanPopUp = () => {
 
     useEffect(() => {
         window.paypal.Buttons({
-            
-            createOrder: (data, actions, err) => {
-                console.log(data, actions, err)
-                return actions.order.create({
-                intent: "CAPTURE",
-                purchase_units: [
-                    {
-                    description: "Cool looking table",
-                    amount: {
-                        currency_code: "USD",
-                        value: 9,
-                    },
-                    },
-                ],
+            style: {
+                shape: 'pill',
+                color: 'gold',
+                layout: 'vertical',
+                label: 'subscribe'
+            },
+            createSubscription: function(data, actions) {
+                return actions.subscription.create({
+                    /* Creates the subscription */
+                    plan_id: 'P-7V331020HX953714SMHER3YY',
+                    quantity: 1 // The quantity of the product for a subscription
                 })
             },
-            onApprove: async (data, actions) => {
-                // const order = await actions.order.capture();
-                // console.log(order);
-                console.log(data, actions)
-            },
-            onError: (err) => {
-                console.log(err);
+            onApprove: function(data, actions) {
+                alert(data.subscriptionID); // You can add optional success message for the subscriber here
             },
         }).render(paypal.current)
     }, [])
-
-    useEffect(() => {
-        console.log(isLoggedIn)
-    }, [isLoggedIn])
 
     return (
         <div className="Sn0rrL9LV2 pos-relative dark color-inherit" style={{
@@ -95,7 +83,7 @@ const PlanPopUp = () => {
                         Basic
                     </p>
                     <p className="fs-80 margin-top-10">
-                        $9
+                        $5
                     </p>
                     <p>
                         per month, billed monthly
